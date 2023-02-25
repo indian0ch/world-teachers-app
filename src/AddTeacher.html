@@ -11,37 +11,60 @@
     <title>Форма</title>
 </head>
 <body>
-    <h1>Форма додавання викладача</h1>
     <div class="form1">
+        <div class="form1__header">
+            <h1>Форма додавання викладача</h1>
+        </div>
     <form action="" method="POST">
-        <label for="name">Повне імʼя(ПІБ):</label>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="gender">Стать:</label>
-         <input type="radio" id="male" name="gender" value="male">
-         <label for="male">Чоловіча</label>
-         <input type="radio" id="female" name="gender" value="female">
-         <label for="female">Жіноча</label><br><br>
-         <label for="email">Email:</label>
-         <input type="email" id="email" name="email"><br><br>
-         <label for="datebirth">Дата народження:</label>
-         <input type="date" id="datebirth" name="datebirth"><br><br>
-         <label for="phone">Номер телефону:</label>
-        <input type="tel" id="phone" name="phone" pattern="\(\d{3}\) \d{3}\d{4}" required><br><br>
-        <label for="name">Країна:</label>
-        <input type="text" id="country" name="country"><br><br>
-        <label for="name">Місто:</label>
-        <input type="text" id="town" name="town"><br><br>
-        <label for="color">Колір:</label>
-        <input type="color" id="color" name="color"><br><br>
-        <label for="comments">Коментарі:</label>
-        <input type="textarea" id="comments" name="comments"><br><br>
-        <input type="submit" value="Додати">
+        <div class="form1__info">
+            <div class="form1__info-fullname">
+                <label for="name">Повне імʼя(ПІБ):</label>
+                <input type="text" id="name" name="name"><br><br>
+            </div>
+            <div class="form1__info-gender">
+                <label for="gender">Стать:</label>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Чоловіча</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Жіноча</label><br><br>
+            </div>
+            <div class="form1__info-email">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+            </div>
+            <div class="form1__info-datebirth">
+                <label for="datebirth">Дата народження:</label>
+                <input type="date" id="datebirth" name="datebirth"><br><br>
+            </div>
+            <div class="form1__info-telephone">
+                <label for="phone">Номер телефону:</label>
+                <input type="tel" id="phone" name="phone" pattern="\(\d{3}\) \d{3}\d{4}" required><br><br>
+            </div>
+        </div>
+        <div class="form1__location">
+            <div class="form1__location-country">
+                <label for="name">Країна:</label>
+                <input type="text" id="country" name="country"><br><br>
+            </div>
+            <div class="form1__location-town">
+                <label for="name">Місто:</label>
+                <input type="text" id="town" name="town"><br><br>
+            </div>
+        </div>
+        <div class="form1__additionalinfo">
+            <div class="form1-additionalinfo-color">
+                <label for="color">Колір:</label>
+                <input type="color" id="color" name="color"><br><br>
+            </div>
+            <div class="form1__additionalinfo-comment">
+                <textarea name="comments" id="comments" cols="30" rows="5" placeholder="Коментарі:"></textarea>
+            </div>
+        </div>
+        <div class="form1-button">
+            <input type="submit" value="Додати">
+        </div>
     </form>
+</div>   
 </div>
-
-<div class="submit-button">
-    
-</div>
-
 </body>
 </html>
