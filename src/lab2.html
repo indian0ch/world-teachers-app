@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Labwork 2">
+    <meta name="keywords" content="HTML, CSS, Web, Form">
+    <meta name="author" content="Andrii Fesiuk">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Lab 2</title>
+</head>
+<header>
+  <div class="menu">
+    <p>Teachinder</p>
+    <div class="menu-button">
+      <input type="text" class="search-character" placeholder="Name, note or age to search">
+      <button class="search">Search</button>
+    </div>
+</div>
+</header>
+<body>
+    <div class="caption">
+            <a href="Lab1/CompactCard.html">Teachers</a>
+            <a href="Lab1/Statistic.html">Statistics</a>
+            <a href="#">Favourites</a>
+            <a href="#">About</a>
+            <div>
+              <button onclick="window.location.href='#popup'">Add Teacher</button>
+            </div>
+    </div>
+    <div class="topteacher">
+        <h2>Top Teachers</h2>
+        <div class="properties">
+            <div class="age">
+                <label for="age">Age</label>
+                <select id="age" name="">
+                    <option value="">18-25</option>
+                    <option value="">26-35</option>
+                    <option value="">36-45</option>
+                    <option value="">46-60</option>
+                    <option value="">60+</option>
+                </select>
+            </div>
+            <div class="region">
+                <label for="region">Region</label>
+                <select id="region" name="">
+                    <option value="">Europe</option>
+                    <option value="">Asia</option>
+                    <option value="">Australia</option>
+                    <option value="">Africa</option>
+                    <option value="">North America</option>
+                    <option value="">South America</option>
+                </select>
+            </div>
+            <div class="sex">
+                <label for="sex">Sex</label>
+                <select id="sex" name="">
+                    <option value="">Male</option>
+                    <option value="">Female</option>
+                </select>
+            </div>
+            <div class="checkonlyphoto">
+                <input type="checkbox" name="onlyphoto" value="onlyphoto"> 
+                <label for="onlyphoto">Only with photo</label> 
+            </div>
+            <div class="checkonlyfavorites">
+                <input type="checkbox" name="onlyfavorities" value="onlyfavorities">
+                <label for="onlyfavorities">Only favorites</label> 
+            </div>
+        </div>
+        <div class="topteacher-catalog">
+          <div class="teachercard">
+            <div class="image">
+              <img src="images/lawyer.png" alt="Foto">
+            </div>
+            <div class="pib">
+              <button onclick="window.location.href='#popupinfo'">
+                Ihor <br> Tkachuk
+              </button>
+            </div>
+            <p class="typesubject">
+              Chemistry
+            </p>
+            <p class="country">
+              Ukraine
+            </p>
+          </div>
+          <div class="teachercard">
+            <div class="image">
+              <img src="images/professor.png" alt="Foto">
+            </div>
+            <p class="pib">
+              Pragg <br> Rameshbabu
+            </p>
+            <p class="typesubject">
+              Chess
+            </p>
+            <p class="country">
+              India
+            </p>
+          </div>
+          <div class="teachercard">
+            <div class="image">
+              <img src="images/teacher (1).png" alt="Foto">
+            </div>
+            <p class="pib">
+              Floor <br> Jansen
+            </p>
+            <p class="typesubject">
+              Vocal
+            </p>
+            <p class="country">
+              Denmark
+            </p>
+          </div>
+          <div class="teachercard">
+            <div class="image">
+              <img src="images/teacher (2).png" alt="Foto">
+            </div>
+            <p class="pib">
+              John <br> Burke
+            </p>
+            <p class="typesubject">
+              Computer Science
+            </p>
+            <p class="country">
+              Belgium
+            </p>
+          </div>
+          <div class="teachercard">
+            <div class="image">
+              <img src="images/teacher (3).png" alt="Foto">
+            </div>
+            <p class="pib">
+              Ari <br> Tang
+            </p>
+            <p class="typesubject">
+              Biology
+            </p>
+            <p class="country">
+              China
+            </p>
+          </div>
+          <div class="teachercard">
+            <div class="image">
+              <img src="images/teacher.png" alt="Foto">
+            </div>
+            <p class="pib">
+              Radoslaw <br> Ljuboevic
+            </p>
+            <p class="typesubject">
+              Physics
+            </p>
+            <p class="country">
+              Poland
+            </p>
+          </div>
+          <div class="teachercard">
+            <div class="image">
+              <img src="images/lawyer.png" alt="Foto">
+            </div>
+            <p class="pib">
+              Anna <br> Muzychuk
+            </p>
+            <p class="typesubject">
+              Chess
+            </p>
+            <p class="country">
+              Belarus
+            </p>
+          </div>
+        </div>
+    </div>
+    <div class="statistics">
+        <h2>Statistics</h2>
+        <div class="table">
+                <table>
+                    <tr class="main-row">
+                      <td>
+                        <span>Name</span> 
+                        <img src="images/arrow-bottom.png" alt="">
+                      </td>
+                      <td>
+                        <span>Subject</span> 
+                        <img src="images/arrow-bottom.png" alt="">
+                      </td>
+                      <td>
+                        <span>Age</span> 
+                        <img src="images/arrow-bottom.png" alt=""></td>
+                      <td>
+                        <span>Gender</span> 
+                        <img src="images/arrow-bottom.png" alt="">
+                      </td>
+                      <td>
+                        <span>Country</span> 
+                        <img src="images/arrow-bottom.png" alt="">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Daisy Alexandr</td>
+                      <td>Chemistry</td>
+                      <td>28</td>
+                      <td>Female</td>
+                      <td>Vietnam</td>
+                    </tr>
+                    <tr>
+                      <td>Julia Bradley</td>
+                      <td>Math</td>
+                      <td>26</td>
+                      <td>Female</td>
+                      <td>USA</td>
+                    </tr>
+                    <tr>
+                      <td>Rita Hart</td>
+                      <td>Art</td>
+                      <td>41</td>
+                      <td>Female</td>
+                      <td>Ireland</td>
+                    </tr>
+                    <tr>
+                      <td>Jonathan Jacobs</td>
+                      <td>Math</td>
+                      <td>32</td>
+                      <td>Male</td>
+                      <td>England</td>
+                    </tr>
+                    <tr>
+                      <td>Nathaniel White</td>
+                      <td>Computer Science</td>
+                      <td>37</td>
+                      <td>Male</td>
+                      <td>Austria</td>
+                    </tr>
+                    <tr>
+                      <td>Frank Medina</td>
+                      <td>English</td>
+                      <td>43</td>
+                      <td>Male</td>
+                      <td>Italy</td>
+                    </tr>
+                    <tr>
+                      <td>Ella Curtis</td>
+                      <td>Chess</td>
+                      <td>34</td>
+                      <td>Female</td>
+                      <td>USA</td>
+                    </tr>
+                    <tr>
+                      <td>Chaire Simmmons</td>
+                      <td>Art</td>
+                      <td>38</td>
+                      <td>Female</td>
+                      <td>Netherlands</td>
+                    </tr>
+                    <tr>
+                      <td>Benjamin Knight</td>
+                      <td>Biology</td>
+                      <td>44</td>
+                      <td>Male</td>
+                      <td>Scotland</td>
+                    </tr>
+                    <tr>
+                      <td>Norma Rose</td>
+                      <td>Statistics</td>
+                      <td>36</td>
+                      <td>Female</td>
+                      <td>France</td>
+                    </tr>
+                  </table>
+                  
+        </div>
+        <div class="statistics-menu">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">...</a>
+            <a href="#">Last</a>
+        </div>
+    </div>
+    <div class="favorite">
+        <h2>Favorites</h2>
+        <div class="favoritecatalog">
+          <div class="leftarrow">
+            <img src="images/left-arrow.png" alt="">
+          </div>
+          <div id="teachercard1" class="teachercard">
+            <div class="image">
+              <img src="images/teacher (1).png" alt="Foto">
+            </div>
+            <div class="pib">
+              Floor <br> Jansen
+            </div>
+            <div class="country">
+              Denmark
+            </div>
+          </div>
+          <div id="teachercard2" class="teachercard">
+            <div class="image">
+              <img src="images/teacher (2).png" alt="Foto">
+            </div>
+            <div class="pib">
+              John <br> Burke
+            </div>
+            <div class="country">
+              Belgium
+            </div>
+          </div>
+          <div id="teachercard3" class="teachercard">
+            <div class="image">
+              <img src="images/teacher (3).png" alt="Foto">
+            </div>
+            <div class="pib">
+              Ari <br> Tang
+            </div>
+            <div class="country">
+              China
+            </div>
+          </div>
+          <div class="teachercard">
+            <div class="image">
+              <img src="images/teacher.png" alt="Foto">
+            </div>
+            <div class="pib">
+              Radoslaw <br> Ljuboevic
+            </div>
+            <div class="country">
+              Poland
+            </div>
+          </div>
+          <div class="teachercard">
+            <div class="image">
+              <img src="images/lawyer.png" alt="Foto">
+            </div>
+            <div class="pib">
+              Anna <br> Muzychuk
+            </div>
+            <div class="country">
+              Belarus
+            </div>
+          </div>
+          <div class="rightarrow">
+            <img src="images/right-arrow.png" alt="">
+          </div>
+        </div>
+    </div>
+    <div class="article">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus similique quidem laboriosam ut error aliquid, repellat praesentium, quo odit omnis voluptas distinctio eligendi iste itaque culpa, vitae ipsum dicta alias voluptatum nulla recusandae at? Adipisci sunt ratione et magni eaque architecto laboriosam. Deleniti doloremque accusamus iusto architecto assumenda eaque eos omnis, ipsum sunt nostrum sit aliquid, fugit exercitationem non autem. Ullam quibusdam harum quas, enim molestiae eius quo consequuntur ad saepe magni consectetur, minus soluta ex in, sed eum ratione blanditiis quaerat libero. Tempora minus illum quidem sapiente? Eveniet aut delectus fugiat. Pariatur possimus accusamus sequi eum quo, quis nulla quas ea nobis a voluptatem autem impedit itaque. Labore repudiandae natus possimus ad officia ab veritatis excepturi laudantium. Voluptas, magnam!
+        </p>
+        <br>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit odio consequuntur velit deleniti ipsa natus enim, unde quibusdam, dolor quidem voluptate obcaecati, sit quod sed sint error assumenda. Placeat est quasi nostrum officia incidunt molestias deleniti voluptatum architecto aliquid fuga?
+        </p>
+        <br>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, harum temporibus! Dicta voluptate inventore dolores.
+        </p>
+    </div>
+    <div id="popup" class="popup">
+      <a href="#header" class="popup-area"></a>
+      <div class="popup-body">
+        <div class="popup-container">
+          <div class="popup-header">
+            <span>Add Teacher</span>
+            <a href="">X</a>
+          </div>
+          <div class="popup-form">
+            <form action="" method="POST">
+              <div class="form1__info">
+                      <label for="name">Name</label> <br>
+                      <input type="text" id="name" name="name" placeholder="Enter name">
+              </div>
+              <div class="form1__speciality">
+                <label for="name">Speciality</label> <br>
+                <select id="speciality" name="speciality">
+                  <option value="Chess">Chess</option>
+                  <option value="Computer Science">Computer Science</option>
+                  <option value="Chemistry">Chemistry</option>
+                  <option value="Math">Math</option>
+                  <option value="English">English</option>
+                  <option value="Biology">Biology</option>
+                  <option value="Physics">Physics</option>
+                  <option value="Vocal">Vocal</option>
+              </select>
+              </div>
+              <div class="form1__location">
+                <div class="location-country">
+                  <label for="country">Country</label> <br>
+                  <select id="country" name="country">
+                    <option value="Ukraine">Ukraine</option>
+                    <option value="Poland">Poland</option>
+                    <option value="Sweden">Sweden</option>
+                    <option value="Finland">Finland</option>
+                    <option value="France">France</option>
+                    <option value="England">England</option>
+                    <option value="Germany">Germany</option>
+                </select>
+                </div>
+                <div class="location-city">
+                  <label for="town">City</label> <br>
+                  <input type="text" id="town" name="town"> 
+                </div>
+              </div>
+              <div class="form1__contact">
+                <div class="form1__info-email">
+                  <label for="email">Email</label> <br>
+                  <input type="email" id="email" name="email">
+                </div>
+                <div class="form1__info-telephone">
+                  <label for="phone">Phone</label> <br>
+                  <input type="tel" id="phone" name="phone" pattern="\(\d{3}\) \d{3}\d{4}" required>
+                 </div>
+              </div>
+              <div class="form1__info-datebirth">
+                <label for="datebirth">Date of birth</label> <br>
+                <input type="date" id="datebirth" name="datebirth"><br><br>
+            </div>
+              <div class="form1__info-gender">
+                <label for="gender">Sex</label>
+                <label for="male" id="male1">Male</label>
+                  <input type="radio" id="male" name="gender" value="male">
+                  <label for="female">Female</label>
+                  <input type="radio" id="female" name="gender" value="female">
+            </div>
+              <div class="form1__additionalinfo">
+                  <div class="form1-additionalinfo-color">
+                      <label for="color">Background color</label>
+                      <input type="color" id="color" name="color">
+                  </div>
+                  <div class="form1__additionalinfo-comment">
+                    <label for="comments">Notes (optional)</label> <br> <br>
+                      <textarea name="comments" id="comments" cols="50" rows="5" ></textarea>
+                  </div>
+              </div>
+              <div class="form1-button">
+                  <input id="popup-add-button" type="submit" value="Add">
+              </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popupinfo" id="popupinfo">
+      <div class="popupinfo-body">
+        <div class="popupinfo-content">    
+          <div class="popupinfo-header">
+            <span>Teacher Info</span>
+            <a href="#" class="popupinfo-close">X</a>
+          </div>
+          <div class="popupinfo-form">
+            <div class="popupinfo-personalinfo">
+              <div class="personalinfo-image">
+                <img src="images/teacher (1).png" alt="">
+              </div>
+              <div class="personalinfo-info">
+                <p id="info-surname">Ihor Tkachuk</p>
+                <p id="info-sub">Chemistry</p>
+                <p id="info-location">Kyiv,Ukraine</p>
+                <p>35, Male</p>
+                <p id="info-email">ihor_tkachuk@domain.com</p>
+                <p id="info-phone"> +380964993252</p>
+              </div>
+              <div class="star1">
+                <img src="images/star.png" alt="star">
+              </div>
+            </div>
+            <div class="popupinfo-description">
+              <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur sint commodi incidunt impedit ipsam, in ut maxime numquam dolorum rerum facere beatae facilis ullam, ab officia qui ipsum nostrum modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. At eveniet nostrum hic, iusto possimus delectus debitis consequuntur rem, libero earum porro similique sit! Incidunt repudiandae et aliquam, laboriosam tempora officiis ullam non asperiores quos at quo quibusdam autem alias ipsa ex. Atque, molestiae. Consequatur, consectetur in perspiciatis maiores soluta laborum saepe veritatis voluptates at provident illum sit unde veniam ducimus? Nemo, nam adipisci vero quibusdam, iste facere vel itaque quas perferendis excepturi, fugit natus consequatur placeat repudiandae dolorem aliquid magni aut veritatis vitae nulla. Possimus alias neque corporis est odit illo sed tempore perspiciatis recusandae. Exercitationem praesentium voluptatum facere alias!</p>
+              </div>
+              <div class="popupinfo-map">
+                <a href="">toggle map</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+<footer>
+    <a href="Lab1/CompactCard.html">Teachers</a>
+    <a href="Lab1/Statistic.html">Statistics</a>
+    <a href="#">Favourites</a>
+    <a href="#">About</a>
+    <div>
+      <button onclick="window.location.href='#popup'">Add Teacher</button>
+    </div>
+</footer>
+</html>
