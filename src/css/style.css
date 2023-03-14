@@ -207,6 +207,9 @@ h2 {
   -ms-grid-row: 2;
   -ms-grid-column: 5;
 }
+.topteacher .topteacher-catalog .image {
+  position: relative;
+}
 .topteacher .topteacher-catalog .image img {
   width: 150px;
   height: 150px;
@@ -215,6 +218,13 @@ h2 {
 }
 .topteacher .topteacher-catalog .image img:hover {
   border: 4px solid rgb(247, 92, 42);
+}
+.topteacher .topteacher-catalog .image .image-star {
+  position: absolute;
+  width: 34px;
+  height: 35px;
+  border: none;
+  right: 25px;
 }
 .topteacher .topteacher-catalog .typesubject {
   color: grey;
@@ -382,7 +392,7 @@ h2 {
   background-color: white;
   color: grey;
   width: 560px;
-  height: 890px;
+  height: 850px;
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
@@ -392,7 +402,7 @@ h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 20px;
+  font-size: 25px;
   background-color: rgb(70, 70, 72);
   color: white;
   height: 63px;
@@ -405,7 +415,7 @@ h2 {
 .popup .popup-body .popup-container .popup-header a {
   color: white;
   text-decoration: none;
-  margin: 0px 0px 0px 350px;
+  margin: 0px 0px 0px 320px;
 }
 .popup .popup-body .popup-container .popup-form {
   display: -webkit-box;
@@ -451,7 +461,7 @@ h2 {
   height: 33px;
 }
 .popup .popup-body .popup-container .popup-form .form1__additionalinfo-comment {
-  margin: 24px 0px 0px 0px;
+  margin: 34px 0px 0px 0px;
 }
 .popup .popup-body .popup-container .popup-form .form1__additionalinfo-comment textarea {
   width: 488px;
