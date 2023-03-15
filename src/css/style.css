@@ -213,30 +213,70 @@ h2 {
   -ms-grid-row: 2;
   -ms-grid-column: 5;
 }
-.topteacher .topteacher-catalog .image {
+.topteacher .topteacher-catalog .teachercard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.topteacher .topteacher-catalog .teachercard .image {
   position: relative;
 }
-.topteacher .topteacher-catalog .image img {
-  width: 85%;
-  height: 80%;
+.topteacher .topteacher-catalog .teachercard .image img {
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   border: 4px solid rgb(249, 149, 137);
 }
-.topteacher .topteacher-catalog .image img:hover {
+.topteacher .topteacher-catalog .teachercard .image img:hover {
   border: 4px solid rgb(247, 92, 42);
 }
-.topteacher .topteacher-catalog .image .image-star {
+.topteacher .topteacher-catalog .teachercard .image .image-star {
   position: absolute;
   width: 34px;
   height: 35px;
   border: none;
   right: 12%;
 }
-.topteacher .topteacher-catalog .pib a {
+.topteacher .topteacher-catalog .teachercard .image .image-star:hover {
+  border: none;
+}
+.topteacher .topteacher-catalog .teachercard .image .image-text {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid rgb(249, 149, 137);
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.topteacher .topteacher-catalog .teachercard .image .image-text a {
+  text-decoration: none;
+  font-size: 25px;
+  color: rgb(249, 149, 137);
+  font-weight: bold;
+}
+.topteacher .topteacher-catalog .teachercard .image .image-text:hover {
+  border: 4px solid rgb(247, 92, 42);
+}
+.topteacher .topteacher-catalog .teachercard .image .image-text:hover a {
+  color: rgb(247, 92, 42);
+}
+.topteacher .topteacher-catalog .teachercard .pib a {
   text-decoration: none;
   color: black;
 }
-.topteacher .topteacher-catalog .typesubject {
+.topteacher .topteacher-catalog .teachercard .typesubject {
   color: grey;
   padding: 0px 0px 14px 0px;
 }
@@ -639,6 +679,13 @@ h2 {
   .topteacher .topteacher-catalog {
     -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .topteacher .topteacher-catalog .teachercard .image .image-star {
+    position: absolute;
+    width: 34px;
+    height: 35px;
+    border: none;
+    right: 19%;
   }
 
   .favorite .favoritecatalog > :nth-child(2), .favorite .favoritecatalog > :nth-child(3) {
