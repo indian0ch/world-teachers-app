@@ -35,6 +35,7 @@ body{
         color: grey;
         background-color: white;
         width: 25%;
+        margin: 0px 2% 0px 0px;
     }
     .search-character:hover{
         width: 45%;
@@ -62,7 +63,7 @@ body{
     font-size: 20px;
     display: flex;
     font-weight: bold;
-    height: 40px;
+    height: 50px;
     a{
         padding: 10px 40px 10px 0px;
         text-decoration: none;
@@ -78,13 +79,11 @@ body{
         font-weight: bold;
         color: rgb(249, 149, 137);
         border: 2px solid rgb(249, 149, 137);
-        //flex:  1 1 auto;
         width: 170px;
-        
         float: right;
         background-color: white;
         height:100%;
-        font-size: 16px;
+        font-size: 20px;
     }
     button:hover{
         background-color: rgb(247, 92, 42);
@@ -489,12 +488,12 @@ h2{
                         }
                     }
                     .star1{ 
-                        width: 335px;
+                        width:35%;
                         position: relative;             
                         img{
                             position: absolute;
-                            top: 40px;
-                            right: 20px;
+                            top: 10%;
+                            right: 6%;
                             width: 33px;
                             height: 33px;
                         }
@@ -538,18 +537,9 @@ h2{
         }
         .topteacher-catalog{
             grid-template-columns: 1fr 1fr 1fr ;
-           // grid-template-rows: 1fr 1fr 1fr 1fr;
-           // margin: 0 auto;
         }
     }
     .favorite{
-
-        .favoritecatalog{
-            #teachercard1, #teachercard2,#teachercard3{
-              // display: none;
-            }
-            //flex-wrap: wrap;
-       }
        .favoritecatalog > :nth-child(2), .favoritecatalog > :nth-child(3){
         display: none;
        }
@@ -560,5 +550,57 @@ h2{
          width: 100px;
      }
     }
-    
+    .popupinfo{
+        .popupinfo-body{
+            min-height: 100%;
+            .popupinfo-content{
+                width: 700px;
+                height: 450px;
+                .popupinfo-header{
+                    :last-child{
+                        padding: 0px 0px 0px 430px
+                    }
+                }
+                .popupinfo-form{
+                    .popupinfo-personalinfo{
+                        .personalinfo-image{
+                            img{
+                                margin: 20px;
+                                width: 220px;
+                                height: 220px;
+                               border: 1px solid black;
+                            }
+                        }
+                        .personalinfo-info{
+                            padding: 20px 22px 0px;
+                            p{
+                               margin: 10px 0px 0px 0px;
+                            }
+                            #info-email{
+                                color: rgb(52, 185, 187);
+                            }
+                            :first-child{
+                                margin: 0px 0px 25px 0px;
+                                font-size: 36px;
+                            }
+                            #info-sub{
+                                font-weight: bold;
+                                font-size: 22px;
+                                margin: 0px 0px 20px 0px;
+                            }
+                        }
+                        .star1{ 
+                            width: 150px;           
+                            img{
+                                top: 22px;
+                                right: 0px;
+                                width: 33px;
+                                height: 33px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

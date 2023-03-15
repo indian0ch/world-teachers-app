@@ -42,6 +42,7 @@ body {
   color: grey;
   background-color: white;
   width: 25%;
+  margin: 0px 2% 0px 0px;
 }
 .menu .search-character:hover {
   width: 45%;
@@ -71,7 +72,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   font-weight: bold;
-  height: 40px;
+  height: 50px;
 }
 .caption a, footer a {
   padding: 10px 40px 10px 0px;
@@ -94,7 +95,7 @@ body {
   float: right;
   background-color: white;
   height: 100%;
-  font-size: 16px;
+  font-size: 20px;
 }
 .caption button:hover, footer button:hover {
   background-color: rgb(247, 92, 42);
@@ -586,13 +587,13 @@ h2 {
   margin: 0px 0px 20px 0px;
 }
 .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .star1 {
-  width: 335px;
+  width: 35%;
   position: relative;
 }
 .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .star1 img {
   position: absolute;
-  top: 40px;
-  right: 20px;
+  top: 10%;
+  right: 6%;
   width: 33px;
   height: 33px;
 }
@@ -642,5 +643,49 @@ h2 {
   .caption button, footer button {
     margin: 0px;
     width: 100px;
+  }
+
+  .popupinfo .popupinfo-body {
+    min-height: 100%;
+  }
+  .popupinfo .popupinfo-body .popupinfo-content {
+    width: 700px;
+    height: 450px;
+  }
+  .popupinfo .popupinfo-body .popupinfo-content .popupinfo-header :last-child {
+    padding: 0px 0px 0px 430px;
+  }
+  .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .personalinfo-image img {
+    margin: 20px;
+    width: 220px;
+    height: 220px;
+    border: 1px solid black;
+  }
+  .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .personalinfo-info {
+    padding: 20px 22px 0px;
+  }
+  .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .personalinfo-info p {
+    margin: 10px 0px 0px 0px;
+  }
+  .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .personalinfo-info #info-email {
+    color: rgb(52, 185, 187);
+  }
+  .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .personalinfo-info :first-child {
+    margin: 0px 0px 25px 0px;
+    font-size: 36px;
+  }
+  .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .personalinfo-info #info-sub {
+    font-weight: bold;
+    font-size: 22px;
+    margin: 0px 0px 20px 0px;
+  }
+  .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .star1 {
+    width: 150px;
+  }
+  .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .star1 img {
+    top: 22px;
+    right: 0px;
+    width: 33px;
+    height: 33px;
   }
 }
