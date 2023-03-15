@@ -45,7 +45,7 @@ body {
   margin: 0px 2% 0px 0px;
 }
 .menu .search-character:hover {
-  width: 45%;
+  width: 55%;
 }
 .menu button, .menu input {
   height: 100%;
@@ -87,19 +87,24 @@ body {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
 }
-.caption button, footer button {
-  font-weight: bold;
-  color: rgb(249, 149, 137);
-  border: 2px solid rgb(249, 149, 137);
-  width: 170px;
-  float: right;
-  background-color: white;
-  height: 100%;
-  font-size: 20px;
-}
 .caption button:hover, footer button:hover {
   background-color: rgb(247, 92, 42);
   color: white;
+}
+.caption div, footer div {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+.caption div button, footer div button {
+  width: 35%;
+  font-weight: bold;
+  color: rgb(249, 149, 137);
+  border: 2px solid rgb(249, 149, 137);
+  float: right;
+  background-color: white;
+  height: 100%;
+  font-size: 0.9em;
 }
 
 footer {

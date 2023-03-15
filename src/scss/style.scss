@@ -38,7 +38,7 @@ body{
         margin: 0px 2% 0px 0px;
     }
     .search-character:hover{
-        width: 45%;
+        width: 55%;
     }
     button,input{
         height: 100%;
@@ -75,19 +75,24 @@ body{
     div{
         flex:  1 1 auto;
     }
-    button{
-        font-weight: bold;
-        color: rgb(249, 149, 137);
-        border: 2px solid rgb(249, 149, 137);
-        width: 170px;
-        float: right;
-        background-color: white;
-        height:100%;
-        font-size: 20px;
-    }
     button:hover{
         background-color: rgb(247, 92, 42);
         color: white;
+    }
+    div{
+        position: relative;
+        width: 100%;
+        text-align: center;
+        button{
+            width:35%;
+            font-weight: bold;
+            color: rgb(249, 149, 137);
+            border: 2px solid rgb(249, 149, 137);
+            float: right;
+            background-color: white;
+            height:100%;
+            font-size: 0.9em;
+        }
     }
 }
 footer{
