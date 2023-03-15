@@ -211,8 +211,8 @@ h2 {
   position: relative;
 }
 .topteacher .topteacher-catalog .image img {
-  width: 150px;
-  height: 150px;
+  width: 85%;
+  height: 80%;
   border-radius: 50%;
   border: 4px solid rgb(249, 149, 137);
 }
@@ -224,7 +224,11 @@ h2 {
   width: 34px;
   height: 35px;
   border: none;
-  right: 25px;
+  right: 12%;
+}
+.topteacher .topteacher-catalog .pib a {
+  text-decoration: none;
+  color: black;
 }
 .topteacher .topteacher-catalog .typesubject {
   color: grey;
