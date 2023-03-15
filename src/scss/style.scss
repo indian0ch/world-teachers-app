@@ -64,10 +64,12 @@ body{
     display: flex;
     font-weight: bold;
     height: 50px;
+    align-items: center;
     a{
         padding: 10px 40px 10px 0px;
         text-decoration: none;
         color: rgb(249, 92, 70);
+        vertical-align: middle;
     }
     a:hover{
         color: rgb(205, 77, 53);
@@ -90,8 +92,8 @@ body{
             border: 2px solid rgb(249, 149, 137);
             float: right;
             background-color: white;
-            height:100%;
-            font-size: 0.9em;
+            height:50px;
+            font-size: 1em;
         }
     }
 }
@@ -217,9 +219,8 @@ h2{
         border-collapse: collapse;
         tr{
             display: table-row;
-           
            :first-child{
-            padding: 5px 0px 0px 20px;
+        padding: 5px 0px 0px 20px;
            text-align: left;
            width: 15%;
            }

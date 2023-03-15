@@ -73,11 +73,15 @@ body {
   display: flex;
   font-weight: bold;
   height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .caption a, footer a {
   padding: 10px 40px 10px 0px;
   text-decoration: none;
   color: rgb(249, 92, 70);
+  vertical-align: middle;
 }
 .caption a:hover, footer a:hover {
   color: rgb(205, 77, 53);
@@ -103,8 +107,8 @@ body {
   border: 2px solid rgb(249, 149, 137);
   float: right;
   background-color: white;
-  height: 100%;
-  font-size: 0.9em;
+  height: 50px;
+  font-size: 1em;
 }
 
 footer {
