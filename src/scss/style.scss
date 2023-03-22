@@ -18,11 +18,13 @@ body{
        color: rgb(255, 255, 255);
        text-shadow: -2px -1px 1px rgb(249,149,137),
                      2px 1px 1px rgb(20, 18, 17);
+        animation: 3s infinite alternate slidein;
     }
     p:hover{
         text-shadow: -3px -1px 1px rgb(247, 92, 42),
         3px 1px 1px rgb(20, 18, 17);
         color: rgb(241, 240, 240);
+        animation: 10s infinite alternate slidein;
     }
     .search{
         border: 2px solid rgb(249, 149, 137);
@@ -46,6 +48,8 @@ body{
     button:hover{
         background-color: rgb(247, 92, 42);
         color: white;
+        animation-duration: 10s;
+        animation-name: slidein;
     }
     .menu-button{
         position: relative;
@@ -270,10 +274,7 @@ h2{
    padding: 10px 40px;
    position: relative;
    text-align: center;
-   //border-top: 1px solid black;
-  // width: 80%;
     .favoritecatalog{
-       // padding: 0px 100px;
        display: flex;
         align-items: center;
         justify-content: space-between;
@@ -588,8 +589,6 @@ h2{
             }
         }
     }
-
-    
     .favorite{
        .favoritecatalog > :nth-child(2), .favoritecatalog > :nth-child(3){
         display: none;
