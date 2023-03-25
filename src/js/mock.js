@@ -1,3 +1,4 @@
+//First object
 export const randomUserMock = [
   {
     gender: "male",
@@ -1768,7 +1769,7 @@ export const randomUserMock = [
     nat: "DK",
   },
   {
-    gender: "male",
+    gender: "Male",
     name: { title: "Mr", first: "Matteo", last: "Lecomte" },
     location: {
       street: { number: 5524, name: "Place des 44 Enfants D'Izieu" },
@@ -1803,7 +1804,21 @@ export const randomUserMock = [
   },
 ];
 
+
+//Second object
 export const additionalUsers = [
+  {
+    gender: "male",
+    title: "Mr",
+    full_name: "Claude Payne",
+    id: "PPS2340626T",
+    picture_large: "https://randomuser.me/api/portraits/men/40.jpg",
+    picture_thumbnail: "https://randomuser.me/api/portraits/thumb/men/40.jpg",
+    favorite: true,
+    course: null,
+    bg_color: null,
+    note: null,
+  },
   {
     gender: "male",
     title: "Mr",
@@ -1821,18 +1836,6 @@ export const additionalUsers = [
     favorite: true,
     course: null,
     bg_color: "#1f75cb",
-    note: null,
-  },
-  {
-    gender: "male",
-    title: "Mr",
-    full_name: "Claude Payne",
-    id: "PPS2340626T",
-    picture_large: "https://randomuser.me/api/portraits/men/40.jpg",
-    picture_thumbnail: "https://randomuser.me/api/portraits/thumb/men/40.jpg",
-    favorite: true,
-    course: null,
-    bg_color: null,
     note: null,
   },
   {
