@@ -11,10 +11,7 @@ function checkValidation(obj){
     return false;   
 }
 function isString(variable){
-    if (typeof variable === "string") 
-        return true;
-    else 
-        return false;
+    return typeof variable === "string";
 }
 function startsWithUpperCase(variable){
     return variable.charAt(0) === variable.charAt(0).toUpperCase();
