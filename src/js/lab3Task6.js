@@ -1,6 +1,6 @@
 import  {finalObject} from "./lab3.js";
 
-function PercentageSearch(arrayObject, parametr, value,range){
+function PercentageSearch(arrayObject, parametr, value,range="greater"){
     let count=0;
     if(parametr != "b_day"&&parametr != "age"){
         for(let obj of arrayObject){
