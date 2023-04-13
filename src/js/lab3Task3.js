@@ -1,10 +1,11 @@
 import  {finalObject} from "./lab3.js";
 
-function FilterArray(arrayObjects,country,age,gender,favorite){
+export function FilterArray(arrayObjects,country,age1,gender='Male',favorite='false',age2){
     return arrayObjects.filter(obj =>
         obj.country===country &&
-        obj.age === age &&
+        obj.age >= age1 && obj.age <= age2 &&
         obj.gender === gender &&
         obj.favorite === favorite);
 }
-//console.log(FilterArray(finalObject,'Ireland',55,'Male','true'))
+//console.log(finalObject[0]);
+//console.log(FilterArray(finalObject,'Germany',15, 75,'Male',true))

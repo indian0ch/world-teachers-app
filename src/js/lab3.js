@@ -24,7 +24,7 @@ function ChangeMock(){
             picture_large: elementArray.picture.large,  
             picture_thumbnail: elementArray.picture.thumbnail ,
             id:`${i}${`${elementArray.name.first}`.charAt(0)}${`${elementArray.name.last}`.charAt(0)}`,
-            favorite:`true`,
+            favorite:Math.random() < 0.5,
             course:courses[randomIndex],
             bg_color:getRandomColor(),
             note:`Some notation of ${elementArray.name.first}`
@@ -35,10 +35,13 @@ function upperFirst(str) {
     return str[0].toUpperCase() + str.slice(1);
 }  
 function getRandomColor() {
-    const r = Math.floor(Math.random() * 256).toString(16).padStart(2, '0'); // generate random red value
-    const g = Math.floor(Math.random() * 256).toString(16).padStart(2, '0'); // generate random green value
-    const b = Math.floor(Math.random() * 256).toString(16).padStart(2, '0'); // generate random blue value
+    const r = evaluateColor(); // generate random red value
+    const g = evaluateColor(); // generate random green value
+    const b = evaluateColor(); // generate random blue value
     return `#${r}${g}${b}`; // return color code in format "#RRGGBB"
+}
+function evaluateColor(){
+    return Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
 }
 function mergedArrays(arr1,arr2)//the function returns an array of assigned objects
 {
@@ -51,10 +54,17 @@ function mergedArrays(arr1,arr2)//the function returns an array of assigned obje
         const object2 = arr2[counter];
         const mergedObject = {...object2, ...object1};
         result.push(mergedObject);
+        if(counter==additionalUsers.length-1){
+            counter=0;
+        }
+        else{
+            counter++;
+        }
     }
     return result;
 }
 export const finalObject=mergedArrays(formattedRandomUserMock,additionalUsers);
+
 
 //console.log(finalObject);
 

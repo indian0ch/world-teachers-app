@@ -9,15 +9,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Lab 2</title>
-    <script  src="js/mock.js"></script>
-    <script  src="js/lab3.js"></script>
+    <script type="module" src="js/lab3Task3.js"></script>
+    <script type="module" src="js/Lab4/topTeachers.js"></script>
+    <script type="module" src="js/Lab4/openPopupCards.js"></script>
+    <script type="module" src="js/Lab4/favouriteTeachers.js"></script>
+    <script type="module" src="js/Lab4/statisticsTable.js"></script>
+    <script type="module" src="js/Lab4/popupAdd.js"></script>
+    <script type="module" src="js/Lab4/searchTeachers.js"></script>
 </head>
 <header>
   <div class="menu">
     <p>Teachinder</p>
     <div class="menu-button">
-      <input type="text" class="search-character" placeholder="Name, note or age to search">
-      <button class="search">Search</button>
+      <input type="text" name="inputDataforSearch" class="search-character" placeholder="Name, note or age to search">
+      <button class="search" id="searchbutton">Search</button>
     </div>
 </div>
 </header>
@@ -37,37 +42,34 @@
             <div class="age">
                 <label for="age">Age</label>
                 <select id="age" name="">
-                    <option value="">18-25</option>
-                    <option value="">26-35</option>
-                    <option value="">36-45</option>
-                    <option value="">46-60</option>
-                    <option value="">60+</option>
+                  <option value="0-1">Select</option>
+                    <option value="18-25">18-25</option>
+                    <option value="26-35">26-35</option>
+                    <option value="36-45">36-45</option>
+                    <option value="46-60">46-60</option>
+                    <option value="60-110">60+</option>
                 </select>
             </div>
             <div class="region">
-                <label for="region">Region</label>
+                <label for="region">Country</label>
                 <select id="region" name="">
-                    <option value="">Europe</option>
-                    <option value="">Asia</option>
-                    <option value="">Australia</option>
-                    <option value="">Africa</option>
-                    <option value="">North America</option>
-                    <option value="">South America</option>
+                  <option value="No">Select</option>
                 </select>
             </div>
-            <div class="sex">
+            <div class="sex" id="genderSelect">
                 <label for="sex">Sex</label>
                 <select id="sex" name="">
-                    <option value="">Male</option>
-                    <option value="">Female</option>
+                  <option value="No">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
                 </select>
             </div>
             <div class="checkonlyphoto">
-                <input type="checkbox" name="onlyphoto" value="onlyphoto"> 
+                <input id="photostatus" type="checkbox" name="onlyphoto" value="true"> 
                 <label for="onlyphoto">Only with photo</label> 
             </div>
             <div class="checkonlyfavorites">
-                <input type="checkbox" name="onlyfavorities" value="onlyfavorities">
+                <input id="favouritestatus" type="checkbox" name="onlyfavorities" value="true">
                 <label for="onlyfavorities">Only favorites</label> 
             </div>
         </div>
@@ -161,7 +163,7 @@
           <div class="teachercard">
             <div class="image">
               <div class="image-text">
-                <a href="#popupinfo"><span>A.M</span></a>
+                <img src="images/teacher.png" alt="Teacher's photo">
               </div>
             </div>
             <p class="pib">
@@ -181,96 +183,98 @@
         <div class="table">
                 <table>
                     <tr class="main-row">
-                      <td>
+                      <td class="main-row full_name">
                         <span>Name</span> 
                         <img src="images/arrow-bottom.png" alt="">
                       </td>
-                      <td>
+                      <td class="main-row course">
                         <span>Subject</span> 
                         <img src="images/arrow-bottom.png" alt="">
                       </td>
-                      <td>
+                      <td class="main-row age">
                         <span>Age</span> 
                         <img src="images/arrow-bottom.png" alt=""></td>
-                      <td>
+                      <td class="main-row gender">
                         <span>Gender</span> 
                         <img src="images/arrow-bottom.png" alt="">
                       </td>
-                      <td>
+                      <td class="main-row country">
                         <span>Country</span> 
                         <img src="images/arrow-bottom.png" alt="">
                       </td>
                     </tr>
-                    <tr>
-                      <td>Daisy Alexandr</td>
-                      <td>Chemistry</td>
-                      <td>28</td>
-                      <td>Female</td>
-                      <td>Vietnam</td>
-                    </tr>
-                    <tr>
-                      <td>Julia Bradley</td>
-                      <td>Math</td>
-                      <td>26</td>
-                      <td>Female</td>
-                      <td>USA</td>
-                    </tr>
-                    <tr>
-                      <td>Rita Hart</td>
-                      <td>Art</td>
-                      <td>41</td>
-                      <td>Female</td>
-                      <td>Ireland</td>
-                    </tr>
-                    <tr>
-                      <td>Jonathan Jacobs</td>
-                      <td>Math</td>
-                      <td>32</td>
-                      <td>Male</td>
-                      <td>England</td>
-                    </tr>
-                    <tr>
-                      <td>Nathaniel White</td>
-                      <td>Computer Science</td>
-                      <td>37</td>
-                      <td>Male</td>
-                      <td>Austria</td>
-                    </tr>
-                    <tr>
-                      <td>Frank Medina</td>
-                      <td>English</td>
-                      <td>43</td>
-                      <td>Male</td>
-                      <td>Italy</td>
-                    </tr>
-                    <tr>
-                      <td>Ella Curtis</td>
-                      <td>Chess</td>
-                      <td>34</td>
-                      <td>Female</td>
-                      <td>USA</td>
-                    </tr>
-                    <tr>
-                      <td>Chaire Simmmons</td>
-                      <td>Art</td>
-                      <td>38</td>
-                      <td>Female</td>
-                      <td>Netherlands</td>
-                    </tr>
-                    <tr>
-                      <td>Benjamin Knight</td>
-                      <td>Biology</td>
-                      <td>44</td>
-                      <td>Male</td>
-                      <td>Scotland</td>
-                    </tr>
-                    <tr>
-                      <td>Norma Rose</td>
-                      <td>Statistics</td>
-                      <td>36</td>
-                      <td>Female</td>
-                      <td>France</td>
-                    </tr>
+                    <tbody class="tablebody">
+                      <tr>
+                        <td>Daisy Alexandr</td>
+                        <td>Chemistry</td>
+                        <td>28</td>
+                        <td>Female</td>
+                        <td>Vietnam</td>
+                      </tr>
+                      <tr>
+                        <td>Julia Bradley</td>
+                        <td>Math</td>
+                        <td>26</td>
+                        <td>Female</td>
+                        <td>USA</td>
+                      </tr>
+                      <tr>
+                        <td>Rita Hart</td>
+                        <td>Art</td>
+                        <td>41</td>
+                        <td>Female</td>
+                        <td>Ireland</td>
+                      </tr>
+                      <tr>
+                        <td>Jonathan Jacobs</td>
+                        <td>Math</td>
+                        <td>32</td>
+                        <td>Male</td>
+                        <td>England</td>
+                      </tr>
+                      <tr>
+                        <td>Nathaniel White</td>
+                        <td>Computer Science</td>
+                        <td>37</td>
+                        <td>Male</td>
+                        <td>Austria</td>
+                      </tr>
+                      <tr>
+                        <td>Frank Medina</td>
+                        <td>English</td>
+                        <td>43</td>
+                        <td>Male</td>
+                        <td>Italy</td>
+                      </tr>
+                      <tr>
+                        <td>Ella Curtis</td>
+                        <td>Chess</td>
+                        <td>34</td>
+                        <td>Female</td>
+                        <td>USA</td>
+                      </tr>
+                      <tr>
+                        <td>Chaire Simmmons</td>
+                        <td>Art</td>
+                        <td>38</td>
+                        <td>Female</td>
+                        <td>Netherlands</td>
+                      </tr>
+                      <tr>
+                        <td>Benjamin Knight</td>
+                        <td>Biology</td>
+                        <td>44</td>
+                        <td>Male</td>
+                        <td>Scotland</td>
+                      </tr>
+                      <tr>
+                        <td>Norma Rose</td>
+                        <td>Statistics</td>
+                        <td>36</td>
+                        <td>Female</td>
+                        <td>France</td>
+                      </tr>
+                    </tbody>
                   </table>
                   
         </div>
@@ -285,12 +289,12 @@
     <div class="favorite">
         <h2>Favorites</h2>
         <div class="favoritecatalog">
-          <div class="leftarrow">
+          <div class="leftarrow" id="leftarrow">
             <img src="images/left-arrow.png" alt="">
           </div>
           <div id="teachercard1" class="teachercard">
             <div class="image">
-              <img src="images/teacher (1).png" alt="Foto">
+              <a href="#popupinfo"><img src="images/teacher (1).png" alt="Foto"></a>
             </div>
             <div class="pib">
               Floor <br> Jansen
@@ -343,7 +347,7 @@
               Belarus
             </div>
           </div>
-          <div class="rightarrow">
+          <div class="rightarrow" id="rightarrow">
             <img src="images/right-arrow.png" alt="">
           </div>
         </div>
@@ -367,9 +371,9 @@
         <div class="popup-container">
           <div class="popup-header">
             <span>Add Teacher</span>
-            <a href="">X</a>
+            <a href="" class="popup-close">X</a>
           </div>
-          <div class="popup-form">
+          <div class="popup-form" id="popup-form">
             <form action="" method="POST">
               <div class="form1__info">
                       <label for="name">Name</label> <br>
@@ -413,7 +417,7 @@
                 </div>
                 <div class="form1__info-telephone">
                   <label for="phone">Phone</label> <br>
-                  <input type="tel" id="phone" name="phone" pattern="\(\d{3}\) \d{3}\d{4}" required>
+                  <input type="tel" id="phone" name="phone">
                  </div>
               </div>
               <div class="form1__info-datebirth">
@@ -445,12 +449,12 @@
         </div>
       </div>
     </div>
-    <div class="popupinfo" id="popupinfo">
+    <div class="popupinfo" id="popupinfo" >
       <div class="popupinfo-body">
         <div class="popupinfo-content">    
           <div class="popupinfo-header">
             <span>Teacher Info</span>
-            <a href="#" class="popupinfo-close">X</a>
+            <a href="#" class="popup-close">X</a>
           </div>
           <div class="popupinfo-form">
             <div class="popupinfo-personalinfo">

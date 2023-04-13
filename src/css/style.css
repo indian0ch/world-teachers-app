@@ -26,10 +26,14 @@ body {
   font-size: 44px;
   color: rgb(255, 255, 255);
   text-shadow: -2px -1px 1px rgb(249, 149, 137), 2px 1px 1px rgb(20, 18, 17);
+  -webkit-animation: 3s infinite alternate slidein;
+          animation: 3s infinite alternate slidein;
 }
 .menu p:hover {
   text-shadow: -3px -1px 1px rgb(247, 92, 42), 3px 1px 1px rgb(20, 18, 17);
   color: rgb(241, 240, 240);
+  -webkit-animation: 10s infinite alternate slidein;
+          animation: 10s infinite alternate slidein;
 }
 .menu .search {
   border: 2px solid rgb(249, 149, 137);
@@ -53,6 +57,10 @@ body {
 .menu button:hover {
   background-color: rgb(247, 92, 42);
   color: white;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  -webkit-animation-name: slidein;
+          animation-name: slidein;
 }
 .menu .menu-button {
   position: relative;
@@ -611,8 +619,11 @@ h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+}
+.popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .personalinfo-image {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .personalinfo-image img {
   margin: 20px;
@@ -621,6 +632,9 @@ h2 {
   border: 1px solid black;
 }
 .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .personalinfo-info {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   padding: 32px 22px;
 }
 .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .personalinfo-info p {
@@ -639,13 +653,15 @@ h2 {
   margin: 0px 0px 20px 0px;
 }
 .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .star1 {
-  width: 35%;
+  -webkit-box-flex: 12;
+      -ms-flex-positive: 12;
+          flex-grow: 12;
   position: relative;
 }
 .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .star1 img {
   position: absolute;
   top: 10%;
-  right: 6%;
+  right: 12%;
   width: 33px;
   height: 33px;
 }
