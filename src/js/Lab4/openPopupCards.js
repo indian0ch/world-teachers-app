@@ -2,7 +2,8 @@ import  {finalObject} from "../lab3.js";
 import  {catalogTop,LoadTopCatalog} from "../Lab4/topTeachers.js";
 import  {catalogFavourite,GenerateFavorite} from "../Lab4/favouriteTeachers.js";
 //Task1 Пункт: Функціональність відкриття поп апу для карток
-const popup = document.getElementById('popupinfo');
+const popup = document.getElementById('popup');
+const popupinfo = document.getElementById('popupinfo');
 const popupinfo_form=document.querySelector('.popupinfo-form');
 const popupClose=document.querySelectorAll('.popup-close');
 const allCatalogs =[catalogTop, catalogFavourite];
@@ -78,8 +79,8 @@ allCatalogs.forEach(catalog=>{
           </div>`;
           popupinfo_form.appendChild(personalinfo);
           popupinfo_form.appendChild(description);
-          popup.style.opacity = 1;
-          popup.style.visibility = 'visible';
+          popupinfo.style.opacity = 1;
+          popupinfo.style.visibility = 'visible';
         }
       }
     }
@@ -87,6 +88,8 @@ allCatalogs.forEach(catalog=>{
 //Close popup functional
 popupClose.forEach(button=>{
     button.addEventListener('click',event=>{
+      popupinfo.style.opacity = 0;
+      popupinfo.style.visibility = 'hidden';
       popup.style.opacity = 0;
       popup.style.visibility = 'hidden';
       event.preventDefault();

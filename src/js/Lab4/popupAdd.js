@@ -1,6 +1,7 @@
 import  {finalObject} from "../lab3.js";
 ///Task 5
 let form = document.getElementById("popup-form");
+const popupOpen=document.querySelectorAll('.mainpopup-open');
 form.addEventListener('submit', GetValues);
 
 function GetValues(event){
@@ -29,3 +30,11 @@ function GetValues(event){
       };
       finalObject.push(newObject); 
 }
+popupOpen.forEach(button=>{
+  button.addEventListener('click',event=>{
+    popup.style.opacity = 1;
+    popup.style.visibility = 'visible';
+    event.preventDefault();
+    button.opacity=0;
+  })
+});
