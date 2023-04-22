@@ -272,7 +272,7 @@ h2 {
       -ms-flex-align: center;
           align-items: center;
 }
-.topteacher .topteacher-catalog .teachercard .image .image-text a {
+.topteacher .topteacher-catalog .teachercard .image .image-text p {
   text-decoration: none;
   font-size: 25px;
   color: rgb(249, 149, 137);

@@ -11,31 +11,47 @@ export function CreateElement(obj,catalog){
   //console.log(catalog.classList.contains('top-teacher'));
   let card = document.createElement("div");
   card.classList.add("teachercard");
-  //image div
+  
+  // image div
   let imageDiv = document.createElement("div");
   imageDiv.classList.add("image");
-  //image avatar
-  let imgPhoto = document.createElement("img");
-  imgPhoto.src = obj.picture_thumbnail;
-  imgPhoto.alt = obj.full_name;
- //pib class
- let pib = document.createElement("p");
+  
+  // image avatar
+  if (obj.picture_thumbnail != undefined) {
+    var imgPhoto = document.createElement("img");
+    imgPhoto.src = obj.picture_thumbnail;
+    imgPhoto.alt = obj.full_name;      
+    imageDiv.appendChild(imgPhoto);
+  } else {
+    var imageTextDiv = document.createElement("div");
+    imageTextDiv.classList.add("image-text");
+    let initials = document.createElement("p");
+    let NameAndSurname=obj.full_name.split(' ');
+    initials.textContent=NameAndSurname.map(name => name.charAt(0)+'.').join('');
+    imageTextDiv.appendChild(initials);
+    imageDiv.appendChild(imageTextDiv);
+  }
+  
+  // pib class
+  let pib = document.createElement("p");
   pib.classList.add("pib");
   pib.textContent = obj.full_name;
-  //country class
+
+  // country class
   let country = document.createElement("p");
   country.classList.add("country");
   country.textContent = obj.country;
-    //image star
-  if(obj.favorite===true&&catalog!=undefined){
-  let imgStar = document.createElement("img");
-  imgStar.src = "images/star.png";
-  imgStar.alt = "Star's photo";
-  imgStar.className="image-star";
-  imageDiv.appendChild(imgStar);
+  // image star
+  if (obj.favorite === true && catalog != undefined) {
+    let imgStar = document.createElement("img");
+    imgStar.src = "images/star.png";
+    imgStar.alt = "Star's photo";
+    imgStar.className = "image-star";
+    if (obj.picture_thumbnail != undefined) 
+      imageDiv.appendChild(imgStar);
+    else 
+      imageTextDiv.appendChild(imgStar);
   }
-
-  imageDiv.appendChild(imgPhoto);
   card.appendChild(imageDiv);
   card.appendChild(pib);
   //typesubject class. If undefined(favourite catalog) - nothing
@@ -90,7 +106,7 @@ export function CleanCatalog(catalog){
     card.remove();
   });
 }
-export function LoadTopCatalog(catalog){
+export function LoadCatalog(catalog){
   CleanCatalog(catalog);
   for(let obj of finalObject){
     CreateElement(obj,catalog);

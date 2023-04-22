@@ -1,5 +1,5 @@
 import  {finalObject} from "../lab3.js";
-import  {catalogTop,LoadTopCatalog} from "../Lab4/topTeachers.js";
+import  {catalogTop,LoadCatalog} from "../Lab4/topTeachers.js";
 import  {catalogFavourite,GenerateFavorite} from "../Lab4/favouriteTeachers.js";
 //Task1 Пункт: Функціональність відкриття поп апу для карток
 const popup = document.getElementById('popup');
@@ -62,7 +62,7 @@ allCatalogs.forEach(catalog=>{
                 }
               }
             }
-            LoadTopCatalog(catalogTop);
+            LoadCatalog(catalogTop);
             GenerateFavorite();
           });
           popupinfostardiv.appendChild(popupinfostar);
