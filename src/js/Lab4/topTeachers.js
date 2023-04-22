@@ -8,6 +8,7 @@ for(let obj of finalObject){
     CreateElement(obj,catalogTop);
 }
 export function CreateElement(obj,catalog){
+  //console.log(catalog.classList.contains('top-teacher'));
   let card = document.createElement("div");
   card.classList.add("teachercard");
   //image div
@@ -89,5 +90,9 @@ export function CleanCatalog(catalog){
     card.remove();
   });
 }
-
-//Треба фіксити список для віку!!!
+export function LoadTopCatalog(catalog){
+  CleanCatalog(catalog);
+  for(let obj of finalObject){
+    CreateElement(obj,catalog);
+  }
+}

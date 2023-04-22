@@ -5,18 +5,27 @@ export const leftArrow=document.getElementById("leftarrow");
 export const rightArrow=document.getElementById("rightarrow");
 ///Task 1
 let onlyFavorites=[];
-for(let obj of finalObject){
-  if(obj.favorite==true){
-    onlyFavorites.push(obj);
+function MakeArrayOnlyFavorite(){
+  onlyFavorites=[];
+  for(let obj of finalObject){
+    if(obj.favorite==true){
+      onlyFavorites.push(obj);
+    }
   }
 }
 ///Favoutite teachers
 const countFavouriteCards = catalogFavourite.querySelectorAll(".teachercard");
 CleanCatalog(catalogFavourite);
-
-for(let i=0;i<countFavouriteCards.length;i++){
-  catalogFavourite.insertBefore(CreateElement(onlyFavorites[i]),rightArrow);
+GenerateFavorite()
+export function GenerateFavorite(){
+  CleanCatalog(catalogFavourite);
+  MakeArrayOnlyFavorite();
+  for(let i=0;i<countFavouriteCards.length;i++){
+    catalogFavourite.insertBefore(CreateElement(onlyFavorites[i]),rightArrow);
+  }
+  console.log('edede');
 }
+//event on arrows
 leftArrow.addEventListener('click',event=>{
   catalogFavourite.children[1].remove();
   rightArrow.before(CreateElement(GetRandomObject(onlyFavorites)));
