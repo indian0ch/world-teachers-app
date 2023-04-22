@@ -23,7 +23,6 @@ export function GenerateFavorite(){
   for(let i=0;i<countFavouriteCards.length;i++){
     catalogFavourite.insertBefore(CreateElement(onlyFavorites[i]),rightArrow);
   }
-  console.log('edede');
 }
 //event on arrows
 leftArrow.addEventListener('click',event=>{
