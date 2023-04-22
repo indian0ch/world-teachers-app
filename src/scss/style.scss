@@ -174,12 +174,14 @@ h2{
                 width: 34px;
                 height: 35px;
                 border: none;
-                right: 12%;
+                top: 0 !important; 
+                right: 12% !important;
                 }
                 .image-star:hover{
                     border: none;
                 }
                 .image-text{
+                    position: relative;
                     width: 140px;
                     height: 140px;
                     border-radius: 50%;

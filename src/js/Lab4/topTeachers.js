@@ -47,10 +47,7 @@ export function CreateElement(obj,catalog){
     imgStar.src = "images/star.png";
     imgStar.alt = "Star's photo";
     imgStar.className = "image-star";
-    if (obj.picture_thumbnail != undefined) 
-      imageDiv.appendChild(imgStar);
-    else 
-      imageTextDiv.appendChild(imgStar);
+    imageDiv.appendChild(imgStar);
   }
   card.appendChild(imageDiv);
   card.appendChild(pib);
@@ -88,6 +85,7 @@ const propertiesBlock=document.querySelector('.properties');
 const selectors = propertiesBlock.querySelectorAll('select');
 const checkBoxes = propertiesBlock.querySelectorAll('input[type="checkbox"]');
 const allInputs = Array.from(selectors).concat(Array.from(checkBoxes));
+
 allInputs.forEach(select=>{
   select.addEventListener("change", function() {
     const [age1,age2]=choosenAge.value.split("-").map(Number);

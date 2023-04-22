@@ -251,12 +251,14 @@ h2 {
   width: 34px;
   height: 35px;
   border: none;
-  right: 12%;
+  top: 0 !important;
+  right: 12% !important;
 }
 .topteacher .topteacher-catalog .teachercard .image .image-star:hover {
   border: none;
 }
 .topteacher .topteacher-catalog .teachercard .image .image-text {
+  position: relative;
   width: 140px;
   height: 140px;
   border-radius: 50%;
