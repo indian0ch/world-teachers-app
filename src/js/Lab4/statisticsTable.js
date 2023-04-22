@@ -37,7 +37,6 @@ function loadRow(teacherObject){
 
 statButtonSort.forEach(button=>
     {button.addEventListener("click", function(){
-        CleanTable();
         console.log();
         let sortby=button.className.split(' ')[1];
         SortArray(finalObject,sortby);

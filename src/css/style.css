@@ -322,6 +322,9 @@ h2 {
   border-bottom: 1px solid black;
   position: relative;
 }
+.statistics table .main-row td span {
+  font-size: 18px;
+}
 .statistics table .main-row td img {
   width: 10px;
   height: 10px;
