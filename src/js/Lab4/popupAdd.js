@@ -31,6 +31,5 @@ popupOpen.forEach(button=>{
     popup.style.opacity = 1;
     popup.style.visibility = 'visible';
     event.preventDefault();
-    button.opacity=0;
   })
 });

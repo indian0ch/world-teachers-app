@@ -118,6 +118,17 @@ body {
   height: 50px;
   font-size: 1em;
 }
+.caption button, footer button {
+  width: 35%;
+  font-weight: bold;
+  color: rgb(249, 149, 137);
+  border: 2px solid rgb(249, 149, 137);
+  float: right;
+  background-color: white;
+  height: 50px;
+  font-size: 1em;
+  margin: 0px 0px 0px 35%;
+}
 
 footer {
   padding: 0px 100px 0px 100px;
@@ -721,9 +732,14 @@ h2 {
     display: none;
   }
 
-  .caption button, footer button {
+  .caption button {
     margin: 0px;
     width: 100px;
+  }
+
+  footer .mainpopup-open {
+    margin: 0px;
+    float: left;
   }
 
   .popupinfo .popupinfo-body {
