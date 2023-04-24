@@ -8,10 +8,9 @@ for(let obj of finalObject){
     CreateElement(obj,catalogTop);
 }
 export function CreateElement(obj,catalog){
-  //console.log(catalog.classList.contains('top-teacher'));
   let card = document.createElement("div");
   card.classList.add("teachercard");
-  
+
   // image div
   let imageDiv = document.createElement("div");
   imageDiv.classList.add("image");
@@ -76,21 +75,15 @@ for (let i = 0; i < countries.length; i++) {
   countrySelector.appendChild(option);
 }
 ///Mожливість фільтрації викладачів на сторінці
-let choosenGender=document.getElementById("sex");
-let choosenCountry=document.getElementById("region");
-let choosenAge=document.getElementById("age");
-let choosenPhotoStatus=document.getElementById("photostatus");
-const choosenFavouriteStatus=document.getElementById("favouritestatus");
-const propertiesBlock=document.querySelector('.properties');
-const selectors = propertiesBlock.querySelectorAll('select');
-const checkBoxes = propertiesBlock.querySelectorAll('input[type="checkbox"]');
-const allInputs = Array.from(selectors).concat(Array.from(checkBoxes));
+const allSelectTags=document.querySelectorAll(".properties select");
+const allCheckBoxs=document.querySelectorAll('.properties input[type="checkbox"]');
+const allInputs = Array.from(allSelectTags).concat(Array.from(allCheckBoxs));
 
 allInputs.forEach(select=>{
   select.addEventListener("change", function() {
-    const [age1,age2]=choosenAge.value.split("-").map(Number);
+    const [age1,age2]=allSelectTags[0].value.split("-").map(Number);
     CleanCatalog(catalogTop);
-    const filterArray=FilterArray(finalObject,`${choosenCountry.value}`,age1,`${choosenGender.value}`,choosenFavouriteStatus.checked,age2,choosenPhotoStatus.checked);
+    const filterArray=FilterArray(finalObject,`${allSelectTags[1].value}`,age1,`${allSelectTags[2].value}`,allCheckBoxs[1].checked,age2,allCheckBoxs[0].checked);
     for(let obj of filterArray){
       CreateElement(obj,catalogTop);
    }

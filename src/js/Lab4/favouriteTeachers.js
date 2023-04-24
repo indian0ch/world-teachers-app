@@ -1,5 +1,5 @@
 import  {finalObject} from "../lab3.js";
-import  {catalogTop,CreateElement,CleanCatalog} from "../Lab4/topTeachers.js";
+import  {CreateElement,CleanCatalog} from "../Lab4/topTeachers.js";
 export const catalogFavourite = document.querySelector(".favoritecatalog");
 export const leftArrow=document.getElementById("leftarrow");
 export const rightArrow=document.getElementById("rightarrow");
@@ -25,11 +25,11 @@ export function GenerateFavorite(){
   }
 }
 //event on arrows
-leftArrow.addEventListener('click',event=>{
+leftArrow.addEventListener('click',function(){
   catalogFavourite.children[1].remove();
   rightArrow.before(CreateElement(GetRandomObject(onlyFavorites)));
 });
-rightArrow.addEventListener('click',event=>{
+rightArrow.addEventListener('click',function(){
   let countElements = catalogFavourite.querySelectorAll('div.favoritecatalog>div');
   catalogFavourite.children[countElements.length-2].remove();
   leftArrow.after(CreateElement(GetRandomObject(onlyFavorites)));

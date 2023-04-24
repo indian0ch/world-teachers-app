@@ -26,14 +26,12 @@ body {
   font-size: 44px;
   color: rgb(255, 255, 255);
   text-shadow: -2px -1px 1px rgb(249, 149, 137), 2px 1px 1px rgb(20, 18, 17);
-  -webkit-animation: 0.3s infinite alternate slidein;
-          animation: 0.3s infinite alternate slidein;
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
 }
 .menu p:hover {
   text-shadow: -3px -1px 1px rgb(247, 92, 42), 3px 1px 1px rgb(20, 18, 17);
   color: rgb(241, 240, 240);
-  -webkit-animation: 10s infinite alternate slidein;
-          animation: 10s infinite alternate slidein;
 }
 .menu .search {
   border: 2px solid rgb(249, 149, 137);
@@ -47,11 +45,11 @@ body {
   background-color: white;
   width: 25%;
   margin: 0px 2% 0px 0px;
-  -webkit-transition: width 0.3s ease;
-  transition: width 0.3s ease;
 }
 .menu .search-character:hover {
   width: 55%;
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
 }
 .menu button, .menu input {
   height: 100%;

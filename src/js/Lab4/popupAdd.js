@@ -8,6 +8,7 @@ form.addEventListener('submit', GetValues);
 let currentDate = new Date();
 let formatCurrentDate=currentDate.toLocaleDateString('en-CA');
 document.getElementById('datebirth').max = formatCurrentDate;
+
 function GetValues(event){
     event.preventDefault();
     let birthdate=new Date(document.querySelector('#datebirth').value)
@@ -30,6 +31,7 @@ function GetValues(event){
       CleanCatalog(catalogTop);
       LoadCatalog(catalogTop);
 }
+
 popupOpen.forEach(button=>{
   button.addEventListener('click',event=>{
     popup.style.opacity = 1;

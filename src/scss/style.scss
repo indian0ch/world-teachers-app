@@ -18,13 +18,12 @@ body{
        color: rgb(255, 255, 255);
        text-shadow: -2px -1px 1px rgb(249,149,137),
                      2px 1px 1px rgb(20, 18, 17);
-        animation: 0.3s infinite alternate slidein;
+        transition: width 0.3s ease; 
     }
     p:hover{
         text-shadow: -3px -1px 1px rgb(247, 92, 42),
         3px 1px 1px rgb(20, 18, 17);
         color: rgb(241, 240, 240);
-        animation: 10s infinite alternate slidein;
     }
     .search{
         border: 2px solid rgb(249, 149, 137);
@@ -38,10 +37,10 @@ body{
         background-color: white;
         width: 25%;
         margin: 0px 2% 0px 0px;
-        transition: width 0.3s ease; 
     }
     .search-character:hover{
         width: 55%;
+        transition: width 0.3s ease; 
     }
     button,input{
         height: 100%;
