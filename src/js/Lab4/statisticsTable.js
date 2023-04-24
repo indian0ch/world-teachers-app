@@ -5,7 +5,6 @@ const statButtonSort = document.querySelectorAll('.main-row td');
 let statButtonPages= document.querySelectorAll('.statistics-menu a');
 const tableBody=document.querySelector(".tablebody");
 const rowsPerPage = 10;//connect to layout, which was given
-const countsPages=Math.ceil(finalObject.length/rowsPerPage)
 loadTable();
 function CleanTable(){
     tableBody.innerHTML='';
@@ -40,11 +39,13 @@ statButtonSort.forEach(button=>
 statButtonPages.forEach(button=>
     {button.addEventListener("click", function(event){
         event.preventDefault();
+        let countsPages=Math.ceil(finalObject.length/rowsPerPage)
        if(button==statButtonPages[statButtonPages.length-1])
             loadTable(countsPages);
         else if(button==statButtonPages[statButtonPages.length-2]&&statButtonPages[1].textContent==2){
             let newA=document.createElement('a');
             newA.textContent='...';
+            newA.href='';
             statButtonPages[0].insertAdjacentElement('afterend',newA);
             statButtonPages[1].textContent=4;
             statButtonPages[2].textContent=5;
