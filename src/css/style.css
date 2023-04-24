@@ -393,6 +393,29 @@ h2 {
   height: 63px;
   border: none;
 }
+.favorite .favoritecatalog .image-text {
+  position: relative;
+  width: 150px;
+  height: 154px;
+  border-radius: 50%;
+  border: 4px solid rgb(249, 149, 137);
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.favorite .favoritecatalog .image-text p {
+  text-decoration: none;
+  font-size: 25px;
+  color: rgb(249, 149, 137);
+  font-weight: bold;
+}
 
 .favorite::before {
   content: "";
