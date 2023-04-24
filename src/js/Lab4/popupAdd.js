@@ -5,10 +5,11 @@ import  {catalogTop,CleanCatalog,LoadCatalog} from "../Lab4/topTeachers.js";
 let form = document.getElementById("popup-form");
 const popupOpen=document.querySelectorAll('.mainpopup-open');
 form.addEventListener('submit', GetValues);
-
+let currentDate = new Date();
+let formatCurrentDate=currentDate.toLocaleDateString('en-CA');
+document.getElementById('datebirth').max = formatCurrentDate;
 function GetValues(event){
     event.preventDefault();
-    let currentDate = new Date();
     let birthdate=new Date(document.querySelector('#datebirth').value)
     const newObject = {
         gender:document.querySelector('input[name="gender"]:checked').value,
@@ -17,7 +18,7 @@ function GetValues(event){
         country:document.querySelector('#country').value,
         email:document.querySelector('#email').value,
         b_day:document.querySelector('#datebirth').value,
-        age:currentDate.getFullYear() - birthdate.getFullYear() - ((currentDate - birthdate) < 0 ? 1 : 0),
+        age:currentDate.getFullYear() - birthdate.getFullYear(),
         phone:document.querySelector('#phone').value,
         course:document.querySelector('#speciality').value,
         favorite:Math.random() < 0.5,
