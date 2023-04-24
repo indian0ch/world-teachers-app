@@ -90,7 +90,7 @@ allInputs.forEach(select=>{
   select.addEventListener("change", function() {
     const [age1,age2]=choosenAge.value.split("-").map(Number);
     CleanCatalog(catalogTop);
-    const filterArray=FilterArray(finalObject,`${choosenCountry.value}`,age1,`${choosenGender.value}`,choosenFavouriteStatus.checked,age2);
+    const filterArray=FilterArray(finalObject,`${choosenCountry.value}`,age1,`${choosenGender.value}`,choosenFavouriteStatus.checked,age2,choosenPhotoStatus.checked);
     console.log(filterArray);
     for(let obj of filterArray){
       CreateElement(obj,catalogTop);
