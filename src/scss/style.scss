@@ -18,7 +18,7 @@ body{
        color: rgb(255, 255, 255);
        text-shadow: -2px -1px 1px rgb(249,149,137),
                      2px 1px 1px rgb(20, 18, 17);
-        animation: 3s infinite alternate slidein;
+        animation: 0.3s infinite alternate slidein;
     }
     p:hover{
         text-shadow: -3px -1px 1px rgb(247, 92, 42),
@@ -38,6 +38,7 @@ body{
         background-color: white;
         width: 25%;
         margin: 0px 2% 0px 0px;
+        transition: width 0.3s ease; 
     }
     .search-character:hover{
         width: 55%;
