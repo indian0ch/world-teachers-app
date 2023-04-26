@@ -1,4 +1,5 @@
 import  {finalObject} from "../lab3.js";
+import  {checkValidation} from "../lab3Task2.js";
 import  {catalogTop,CleanCatalog,LoadCatalog} from "../Lab4/topTeachers.js";
 
 ///Task 5
@@ -26,10 +27,16 @@ function GetValues(event){
         bg_color:document.querySelector('#color').value,
         note:document.querySelector('#comments').value
       };
-      finalObject.push(newObject); 
-      console.log('Added!'+finalObject.length);
-      CleanCatalog(catalogTop);
-      LoadCatalog(catalogTop);
+      if(checkValidation(newObject)==true){
+        finalObject.push(newObject); 
+        console.log('Added!'+finalObject.length);
+        CleanCatalog(catalogTop);
+        LoadCatalog(catalogTop);
+        alert ("Користувача додано!");
+      }
+      else{
+        alert ("Введені дані невалідні!");
+      }
 }
 
 popupOpen.forEach(button=>{
