@@ -1,9 +1,19 @@
 import { randomUserMock, additionalUsers } from './mock.js';
-/// Task 1///
-const formattedRandomUserMock = [];
-const courses = ['Mathematics', 'Physics', 'English', 'Computer Science', 'Dancing', 'Chess', 'Biology', 'Chemistry', 'Law', 'Art', 'Medicine', 'Statistics'];
+
+function upperFirst(str) {
+  return str[0].toUpperCase() + str.slice(1);
+}
+function evaluateColor() {
+  return Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
+}
+function getRandomColor() {
+  const r = evaluateColor(); // generate random red value
+  const g = evaluateColor(); // generate random green value
+  const b = evaluateColor(); // generate random blue value
+  return `#${r}${g}${b}`; // return color code in format "#RRGGBB"
+}
 function ChangeMock() {
-  for (let i = 0; i < randomUserMock.length; i++) {
+  for (let i = 0; i < randomUserMock.length; i += 1) {
     const elementArray = randomUserMock[i];
     const randomIndex = Math.floor(Math.random() * courses.length);
     formattedRandomUserMock[i] = {
@@ -30,18 +40,6 @@ function ChangeMock() {
     };
   }
 }
-function upperFirst(str) {
-  return str[0].toUpperCase() + str.slice(1);
-}
-function getRandomColor() {
-  const r = evaluateColor(); // generate random red value
-  const g = evaluateColor(); // generate random green value
-  const b = evaluateColor(); // generate random blue value
-  return `#${r}${g}${b}`; // return color code in format "#RRGGBB"
-}
-function evaluateColor() {
-  return Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
-}
 function mergedArrays(arr1, arr2)// the function returns an array of assigned objects
 {
   ChangeMock();// Making objects from array Random... to requirement view
@@ -55,11 +53,13 @@ function mergedArrays(arr1, arr2)// the function returns an array of assigned ob
     if (counter == additionalUsers.length - 1) {
       counter = 0;
     } else {
-      counter++;
+      counter += 1;
     }
   }
   return result;
 }
-export const finalObject = mergedArrays(formattedRandomUserMock, additionalUsers);
+/// Task 1///
+const formattedRandomUserMock = [];
+const courses = ['Mathematics', 'Physics', 'English', 'Computer Science', 'Dancing', 'Chess', 'Biology', 'Chemistry', 'Law', 'Art', 'Medicine', 'Statistics'];
 
-// console.log(finalObject);
+export const finalObject = mergedArrays(formattedRandomUserMock, additionalUsers);

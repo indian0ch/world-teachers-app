@@ -1,4 +1,4 @@
-import { finalObject } from './lab3.js';
+// import { finalObject } from './lab3.js';
 
 function SearchObject(arrayObject, parametr, value) {
   const searchResult = [];

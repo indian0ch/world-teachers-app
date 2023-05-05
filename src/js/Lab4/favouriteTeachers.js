@@ -8,7 +8,7 @@ const countFavouriteCards = catalogFavourite.querySelectorAll('.teachercard');
 function MakeArrayOnlyFavorite() {
   onlyFavorites = [];
   for (const obj of finalObject) {
-    if (obj.favorite == true) {
+    if (obj.favorite === true) {
       onlyFavorites.push(obj);
     }
   }
@@ -20,7 +20,7 @@ function GetRandomObject(array) {
 export function GenerateFavorite() {
   CleanCatalog(catalogFavourite);
   MakeArrayOnlyFavorite();
-  for (let i = 0; i < countFavouriteCards.length; i++) {
+  for (let i = 0; i < countFavouriteCards.length; i += 1) {
     catalogFavourite.insertBefore(CreateElement(onlyFavorites[i]), rightArrow);
   }
 }

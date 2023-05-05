@@ -1,5 +1,6 @@
 import { finalObject } from '../lab3.js';
 import { catalogTop, CleanCatalog, CreateElement } from './topTeachers.js';
+
 /// Task 4
 const textinput = document.querySelector('input[name="inputDataforSearch"]');
 const searchbutton = document.getElementById('searchbutton');

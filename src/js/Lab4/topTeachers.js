@@ -2,11 +2,17 @@ import { finalObject } from '../lab3.js';
 import { FilterArray } from '../lab3Task3.js';
 
 export const catalogTop = document.querySelector('.topteacher-catalog');
-// Task1 and Task2
-/// Top Teachers
-CleanCatalog(catalogTop); // Clean top teacher's grid
-for (const obj of finalObject) {
-  CreateElement(obj, catalogTop);
+export function CleanCatalog(catalog) {
+  const teachercards = catalog.querySelectorAll('.teachercard');
+  teachercards.forEach((card) => {
+    card.remove();
+  });
+}
+export function LoadCatalog(catalog) {
+  CleanCatalog(catalog);
+  for (const obj of finalObject) {
+    CreateElement(obj, catalog);
+  }
 }
 export function CreateElement(obj, catalog) {
   const card = document.createElement('div');
@@ -17,7 +23,7 @@ export function CreateElement(obj, catalog) {
   imageDiv.classList.add('image');
 
   // image avatar
-  if (obj.picture_thumbnail != undefined) {
+  if (obj.picture_thumbnail != +undefined) {
     const imgPhoto = document.createElement('img');
     imgPhoto.src = obj.picture_thumbnail;
     imgPhoto.alt = obj.full_name;
@@ -44,7 +50,7 @@ export function CreateElement(obj, catalog) {
   country.classList.add('country');
   country.textContent = obj.country;
   // image star
-  if (obj.favorite === true && catalog != undefined) {
+  if (obj.favorite === true && catalog !==undefined) {
     const imgStar = document.createElement('img');
     imgStar.src = 'images/star.png';
     imgStar.alt = "Star's photo";
@@ -54,19 +60,19 @@ export function CreateElement(obj, catalog) {
   card.appendChild(imageDiv);
   card.appendChild(pib);
   // typesubject class. If undefined(favourite catalog) - nothing
-  if (catalog != undefined) {
+  if (catalog != +undefined) {
     const typesubject = document.createElement('p');
     typesubject.classList.add('typesubject');
     typesubject.textContent = obj.course;
     card.appendChild(typesubject);
   }
   card.appendChild(country);
-  if (catalog == undefined) {
+  if (catalog === undefined) {
     return card;
   }
   catalog.appendChild(card);
 }
-/// Country select creater (we should sort by country,not region)
+// Task1 and Task2
 const countries = [
   'Afghanistan',
   'Albania',
@@ -225,19 +231,25 @@ const countries = [
   'Sierra Leone',
 ];
 const countrySelector = document.getElementById('region');
-for (let i = 0; i < countries.length; i++) {
-  const option = document.createElement('option');
-  option.value = countries[i];
-  option.innerHTML = countries[i];
-  countrySelector.appendChild(option);
-}
-/// Mожливість фільтрації викладачів на сторінці
 const allSelectTags = document.querySelectorAll('.properties select');
 const allCheckBoxs = document.querySelectorAll(
   '.properties input[type="checkbox"]',
 );
 const allInputs = Array.from(allSelectTags).concat(Array.from(allCheckBoxs));
 
+/// Top Teachers
+CleanCatalog(catalogTop); // Clean top teacher's grid
+for (const obj of finalObject) {
+  CreateElement(obj, catalogTop);
+}
+/// Country select creater (we should sort by country,not region)
+for (let i = 0; i < countries.length; i+=1) {
+  const option = document.createElement('option');
+  option.value = countries[i];
+  option.innerHTML = countries[i];
+  countrySelector.appendChild(option);
+}
+/// Mожливість фільтрації викладачів на сторінці
 allInputs.forEach((select) => {
   select.addEventListener('change', () => {
     const [age1, age2] = allSelectTags[0].value.split('-').map(Number);
@@ -256,16 +268,3 @@ allInputs.forEach((select) => {
     }
   });
 });
-
-export function CleanCatalog(catalog) {
-  const teachercards = catalog.querySelectorAll('.teachercard');
-  teachercards.forEach((card) => {
-    card.remove();
-  });
-}
-export function LoadCatalog(catalog) {
-  CleanCatalog(catalog);
-  for (const obj of finalObject) {
-    CreateElement(obj, catalog);
-  }
-}

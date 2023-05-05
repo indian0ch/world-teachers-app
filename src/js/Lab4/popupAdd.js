@@ -2,14 +2,6 @@ import { finalObject } from '../lab3.js';
 import { checkValidation } from '../lab3Task2.js';
 import { catalogTop, CleanCatalog, LoadCatalog } from './topTeachers.js';
 
-/// Task 5
-const form = document.getElementById('popup-form');
-const popupOpen = document.querySelectorAll('.mainpopup-open');
-form.addEventListener('submit', GetValues);
-const currentDate = new Date();
-const formatCurrentDate = currentDate.toLocaleDateString('en-CA');
-document.getElementById('datebirth').max = formatCurrentDate;
-
 function GetValues(event) {
   event.preventDefault();
   const birthdate = new Date(document.querySelector('#datebirth').value);
@@ -27,7 +19,7 @@ function GetValues(event) {
     bg_color: document.querySelector('#color').value,
     note: document.querySelector('#comments').value,
   };
-  if (checkValidation(newObject) == true) {
+  if (checkValidation(newObject) === true) {
     finalObject.push(newObject);
     console.log(`Added!${finalObject.length}`);
     CleanCatalog(catalogTop);
@@ -37,7 +29,14 @@ function GetValues(event) {
     alert('Введені дані невалідні!');
   }
 }
+/// Task 5
+const form = document.getElementById('popup-form');
+const popupOpen = document.querySelectorAll('.mainpopup-open');
+const currentDate = new Date();
+const formatCurrentDate = currentDate.toLocaleDateString('en-CA');
+document.getElementById('datebirth').max = formatCurrentDate;
 
+form.addEventListener('submit', GetValues);
 popupOpen.forEach((button) => {
   button.addEventListener('click', (event) => {
     popup.style.opacity = 1;

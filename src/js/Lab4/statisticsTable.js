@@ -1,11 +1,6 @@
 import { finalObject } from '../lab3.js';
 import { SortArray } from '../lab3Task4.js';
-/// Task 3
-const statButtonSort = document.querySelectorAll('.main-row td');
-let statButtonPages = document.querySelectorAll('.statistics-menu a');
-const tableBody = document.querySelector('.tablebody');
-const rowsPerPage = 10; // connect to layout, which was given
-loadTable();
+
 function CleanTable() {
   tableBody.innerHTML = '';
 }
@@ -13,7 +8,7 @@ function loadTable(pageNumber = 1) {
   const startIndex = (pageNumber - 1) * rowsPerPage;
   const endIndex = startIndex + rowsPerPage;
   CleanTable();
-  for (let i = startIndex; i < endIndex; i++) {
+  for (let i = startIndex; i < endIndex; i += 1) {
     if (i < finalObject.length) tableBody.appendChild(loadRow(finalObject[i]));
   }
 }
@@ -27,6 +22,13 @@ function loadRow(teacherObject) {
   tablerow.innerHTML = tablecolumn;
   return tablerow;
 }
+/// Task 3
+const statButtonSort = document.querySelectorAll('.main-row td');
+let statButtonPages = document.querySelectorAll('.statistics-menu a');
+const tableBody = document.querySelector('.tablebody');
+const rowsPerPage = 10; // connect to layout, which was given
+
+loadTable();
 statButtonSort.forEach((button) => {
   button.addEventListener('click', () => {
     console.log();
@@ -40,10 +42,10 @@ statButtonPages.forEach((button) => {
   button.addEventListener('click', (event) => {
     event.preventDefault();
     const countsPages = Math.ceil(finalObject.length / rowsPerPage);
-    if (button == statButtonPages[statButtonPages.length - 1]) loadTable(countsPages);
+    if (button === statButtonPages[statButtonPages.length - 1]) loadTable(countsPages);
     else if (
-      button == statButtonPages[statButtonPages.length - 2]
-      && statButtonPages[1].textContent == 2
+      button === statButtonPages[statButtonPages.length - 2]
+      && statButtonPages[1].textContent === 2
     ) {
       const newA = document.createElement('a');
       newA.textContent = '...';
@@ -65,10 +67,10 @@ statButtonPages.forEach((button) => {
         statButtonPages = document.querySelectorAll('.statistics-menu a');
       });
     } else if (
-      button == statButtonPages[statButtonPages.length - 2]
-      && statButtonPages[1].textContent == '...'
+      button === statButtonPages[statButtonPages.length - 2]
+      && statButtonPages[1].textContent === '...'
     ) {
-      if (statButtonPages[3].textContent != countsPages) {
+      if (statButtonPages[3].textContent !== countsPages) {
         statButtonPages[2].textContent = parseInt(statButtonPages[2].textContent) + 1;
         statButtonPages[3].textContent = parseInt(statButtonPages[3].textContent) + 1;
       }
