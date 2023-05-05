@@ -2,9 +2,6 @@ import { finalObject } from '../lab3.js';
 import { CreateElement, CleanCatalog } from './topTeachers.js';
 import { catalogFavourite, leftArrow, rightArrow } from '../globalVariable.js';
 
-let onlyFavorites = [];
-const countFavouriteCards = catalogFavourite.querySelectorAll('.teachercard');
-
 function MakeArrayOnlyFavorite() {
   onlyFavorites = [];
   for (const obj of finalObject) {
@@ -24,6 +21,8 @@ export function GenerateFavorite() {
     catalogFavourite.insertBefore(CreateElement(onlyFavorites[i]), rightArrow);
   }
 }
+let onlyFavorites = [];
+const countFavouriteCards = catalogFavourite.querySelectorAll('.teachercard');
 /// Task Favoutite teachers
 CleanCatalog(catalogFavourite);
 GenerateFavorite();
