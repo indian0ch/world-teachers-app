@@ -42,7 +42,13 @@
   },
   "eslintConfig": {
     "rules": {
-      "import/extensions": ["error", "never"]
+      "import/extensions": [
+        "error",
+        "never"
+      ]
     }
+  },
+  "dependencies": {
+    "sweetalert": "^2.1.2"
   }
 }

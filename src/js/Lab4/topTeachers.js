@@ -1,16 +1,17 @@
 import { finalObject } from '../lab3.js';
 import { FilterArray } from '../lab3Task3.js';
+import {catalogTop} from '../globalVariable.js';
+import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
 
-export const catalogTop = document.querySelector('.topteacher-catalog');
 export function CleanCatalog(catalog) {
   const teachercards = catalog.querySelectorAll('.teachercard');
   teachercards.forEach((card) => {
     card.remove();
   });
 }
-export function LoadCatalog(catalog) {
+export function LoadCatalog(catalog, ObjectsArray) {
   CleanCatalog(catalog);
-  for (const obj of finalObject) {
+  for (const obj of ObjectsArray) {
     CreateElement(obj, catalog);
   }
 }
@@ -235,13 +236,13 @@ const allSelectTags = document.querySelectorAll('.properties select');
 const allCheckBoxs = document.querySelectorAll(
   '.properties input[type="checkbox"]',
 );
-const allInputs = Array.from(allSelectTags).concat(Array.from(allCheckBoxs));
+export const allInputs = Array.from(allSelectTags).concat(Array.from(allCheckBoxs));
 
 /// Top Teachers
 CleanCatalog(catalogTop); // Clean top teacher's grid
-for (const obj of finalObject) {
-  CreateElement(obj, catalogTop);
-}
+// for (const obj of finalObject) {
+//   CreateElement(obj, catalogTop);
+// }
 /// Country select creater (we should sort by country,not region)
 for (let i = 0; i < countries.length; i+=1) {
   const option = document.createElement('option');
@@ -255,13 +256,13 @@ allInputs.forEach((select) => {
     const [age1, age2] = allSelectTags[0].value.split('-').map(Number);
     CleanCatalog(catalogTop);
     const filterArray = FilterArray(
-      finalObject,
+      arrayFromAPI,
       `${allSelectTags[1].value}`,
       age1,
       `${allSelectTags[2].value}`,
       allCheckBoxs[1].checked,
       age2,
-      allCheckBoxs[0].checked,
+      allCheckBoxs[0].checked
     );
     for (const obj of filterArray) {
       CreateElement(obj, catalogTop);

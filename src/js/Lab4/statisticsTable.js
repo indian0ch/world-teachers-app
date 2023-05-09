@@ -1,5 +1,6 @@
 import { finalObject } from '../lab3.js';
 import { SortArray } from '../lab3Task4.js';
+import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
 
 function CleanTable() {
   tableBody.innerHTML = '';
@@ -9,7 +10,7 @@ function loadTable(pageNumber = 1) {
   const endIndex = startIndex + rowsPerPage;
   CleanTable();
   for (let i = startIndex; i < endIndex; i += 1) {
-    if (i < finalObject.length) tableBody.appendChild(loadRow(finalObject[i]));
+    if (i < arrayFromAPI.length) tableBody.appendChild(loadRow(arrayFromAPI[i]));
   }
 }
 function loadRow(teacherObject) {
@@ -33,7 +34,7 @@ statButtonSort.forEach((button) => {
   button.addEventListener('click', () => {
     console.log();
     const sortby = button.className.split(' ')[1];
-    SortArray(finalObject, sortby);
+    SortArray(arrayFromAPI, sortby);
     loadTable();
   });
 });
@@ -41,7 +42,7 @@ statButtonSort.forEach((button) => {
 statButtonPages.forEach((button) => {
   button.addEventListener('click', (event) => {
     event.preventDefault();
-    const countsPages = Math.ceil(finalObject.length / rowsPerPage);
+    const countsPages = Math.ceil(arrayFromAPI.length / rowsPerPage);
     if (button === statButtonPages[statButtonPages.length - 1]) loadTable(countsPages);
     else if (
       button === statButtonPages[statButtonPages.length - 2]

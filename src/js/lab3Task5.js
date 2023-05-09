@@ -1,5 +1,3 @@
-// import { finalObject } from './lab3.js';
-
 function SearchObject(arrayObject, parametr, value) {
   const searchResult = [];
   for (const obj of arrayObject) {

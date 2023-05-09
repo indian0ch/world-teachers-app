@@ -1,0 +1,19 @@
+{
+  "teachers": [
+    {
+      "gender": "Female",
+      "full_name": "Фесюк",
+      "city": "Костопіль",
+      "country": "Ukraine",
+      "email": "fesiukandrey146@gmail.com",
+      "b_day": "2023-05-03",
+      "age": 0,
+      "phone": "+38-0685087867",
+      "course": "Chess",
+      "favorite": true,
+      "bg_color": "#d63d3d",
+      "note": "Wdwwdwwd",
+      "id": 1
+    }
+  ]
+}

@@ -1,10 +1,11 @@
 import { finalObject } from '../lab3.js';
 import { CreateElement, CleanCatalog } from './topTeachers.js';
 import { catalogFavourite, leftArrow, rightArrow } from '../globalVariable.js';
+import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
 
 function MakeArrayOnlyFavorite() {
   onlyFavorites = [];
-  for (const obj of finalObject) {
+  for (const obj of arrayFromAPI) {
     if (obj.favorite === true) {
       onlyFavorites.push(obj);
     }

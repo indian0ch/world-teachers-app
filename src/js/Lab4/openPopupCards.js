@@ -1,9 +1,10 @@
 import { finalObject } from '../lab3.js';
-import { catalogTop, LoadCatalog } from './topTeachers.js';
+import { LoadCatalog } from './topTeachers.js';
 import {
   GenerateFavorite,
 } from './favouriteTeachers.js';
-import { catalogFavourite } from '../globalVariable.js';
+import { catalogFavourite,catalogTop } from '../globalVariable.js';
+import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
 // Task1 Пункт: Функціональність відкриття поп апу для карток
 const popup = document.getElementById('popup');
 const popupinfo = document.getElementById('popupinfo');
@@ -17,7 +18,7 @@ allCatalogs.forEach((catalog) => {
     const clickedCard = clickedElement.parentNode.parentNode;
     if (clickedElement.parentNode.classList.contains('image')) {
       const pibElement = clickedCard.querySelector('.pib').textContent.trim(); // fixed
-      for (const obj of finalObject) {
+      for (const obj of arrayFromAPI) {
         if (obj.full_name === pibElement) {
           popupinfo_form.innerHTML = '';
           const personalinfo = document.createElement('div');
@@ -51,20 +52,20 @@ allCatalogs.forEach((catalog) => {
             const note_popup = document.querySelector('.popupinfo-notation');
             if (popupinfostar.src.includes('empty-star')) {
               popupinfostar.src = 'images/star.png';
-              for (const obj of finalObject) {
+              for (const obj of arrayFromAPI) {
                 if (obj.note === note_popup.textContent.trim()) {
                   obj.favorite = true;
                 }
               }
             } else {
               popupinfostar.src = 'images/empty-star-.png';
-              for (const obj of finalObject) {
+              for (const obj of arrayFromAPI) {
                 if (obj.note === note_popup.textContent.trim()) {
                   obj.favorite = false;
                 }
               }
             }
-            LoadCatalog(catalogTop);
+            LoadCatalog(catalogTop,arrayFromAPI);
             GenerateFavorite();
           });
           popupinfostardiv.appendChild(popupinfostar);

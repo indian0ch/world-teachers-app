@@ -8,15 +8,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Lab 2</title>
+    <title>Project FE4U</title>
+    <script src=
+    "https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js">
+      </script>
+    <!-- <script src="alert/dist/sweetalert-dev.js"></script>
+    <link rel="stylesheet" type="text/css" href="alert/dist/sweetalert.css"> -->
+    <script type="module" src="js/Lab5/RequestToAPI.js"></script>
     <script type="module" src="js/lab3Task3.js"></script>
-    <script type="module" src="js/Lab4/topTeachers.js"></script>
-    <script type="module" src="js/Lab4/openPopupCards.js"></script>
-    <script type="module" src="js/Lab4/favouriteTeachers.js"></script>
-    <script type="module" src="js/Lab4/statisticsTable.js"></script>
-    <script type="module" src="js/Lab4/popupAdd.js"></script>
     <script type="module" src="js/Lab4/searchTeachers.js"></script>
-    <script type="module" src="js/Lab5/testRequest.js"></script>
+    <script type="module" src="js/Lab4/statisticsTable.js"></script>
+    <script type="module" src="js/Lab4/favouriteTeachers.js"></script>
+    <script type="module" src="js/Lab4/openPopupCards.js"></script>
+    <script type="module" src="js/Lab4/popupAdd.js"></script>
 </head>
 <header>
   <div class="menu">
@@ -486,6 +490,27 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+      function JSalert(message){
+        swal({   title: "Your account will be deleted permanently!",   
+          text: "Are you sure to proceed?",   
+          type: "warning",   
+          showCancelButton: true,   
+          confirmButtonColor: "#DD6B55",   
+          confirmButtonText: "Remove My Account!",   
+          cancelButtonText: "I am not sure!",   
+          closeOnConfirm: false,   
+          closeOnCancel: false }, 
+          function(isConfirm){   
+              if (isConfirm) 
+          {   
+              swal("Account Removed!", "Your account is removed permanently!", "success");   
+              } 
+              else {     
+                  swal("Hurray", "Account is not removed!", "error");   
+                  } });
+      }
+      </script>
 </body>
 <footer>
     <a href="Lab1/CompactCard.html">Teachers</a>
