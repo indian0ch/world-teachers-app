@@ -26,12 +26,12 @@ body {
   font-size: 44px;
   color: rgb(255, 255, 255);
   text-shadow: -2px -1px 1px rgb(249, 149, 137), 2px 1px 1px rgb(20, 18, 17);
-  -webkit-transition: width 0.3s ease;
-  transition: width 0.3s ease;
 }
 .menu p:hover {
   text-shadow: -3px -1px 1px rgb(247, 92, 42), 3px 1px 1px rgb(20, 18, 17);
   color: rgb(241, 240, 240);
+  -webkit-transition: text-shadow 0.5s ease;
+  transition: text-shadow 0.5s ease;
 }
 .menu .search {
   border: 2px solid rgb(249, 149, 137);
@@ -48,8 +48,8 @@ body {
 }
 .menu .search-character:hover {
   width: 55%;
-  -webkit-transition: width 0.3s ease;
-  transition: width 0.3s ease;
+  -webkit-transition: width 0.6s ease;
+  transition: width 0.6s ease;
 }
 .menu button, .menu input {
   height: 100%;
@@ -57,10 +57,8 @@ body {
 .menu button:hover {
   background-color: rgb(247, 92, 42);
   color: white;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s;
-  -webkit-animation-name: slidein;
-          animation-name: slidein;
+  -webkit-transition: color 0.6s ease;
+  transition: color 0.6s ease;
 }
 .menu .menu-button {
   position: relative;
@@ -93,6 +91,8 @@ body {
 }
 .caption a:hover, footer a:hover {
   color: rgb(205, 77, 53);
+  -webkit-transition: color 0.6s ease;
+  transition: color 0.6s ease;
 }
 .caption div, footer div {
   -webkit-box-flex: 1;
@@ -102,6 +102,8 @@ body {
 .caption button:hover, footer button:hover {
   background-color: rgb(247, 92, 42);
   color: white;
+  -webkit-transition: background-color 0.6s ease;
+  transition: background-color 0.6s ease;
 }
 .caption div, footer div {
   position: relative;
@@ -185,6 +187,8 @@ h2 {
 }
 .topteacher .properties label:hover {
   color: black;
+  -webkit-transition: color 0.6s ease;
+  transition: color 0.6s ease;
 }
 .topteacher .topteacher-catalog {
   display: -ms-grid;
@@ -256,6 +260,8 @@ h2 {
 }
 .topteacher .topteacher-catalog .teachercard .image img:hover {
   border-color: rgb(247, 92, 42);
+  -webkit-transition: border-color 0.6s ease;
+  transition: border-color 0.6s ease;
 }
 .topteacher .topteacher-catalog .teachercard .image .image-star {
   position: absolute;
@@ -294,9 +300,13 @@ h2 {
 .topteacher .topteacher-catalog .teachercard .image .image-text:hover {
   border: 4px solid rgb(247, 92, 42);
   border-color: rgb(247, 92, 42);
+  -webkit-transition: border-color 0.9s ease;
+  transition: border-color 0.9s ease;
 }
 .topteacher .topteacher-catalog .teachercard .image .image-text:hover a {
   color: rgb(247, 92, 42);
+  -webkit-transition: color 0.6s ease;
+  transition: color 0.6s ease;
 }
 .topteacher .topteacher-catalog .teachercard .pib a {
   text-decoration: none;
@@ -305,6 +315,28 @@ h2 {
 .topteacher .topteacher-catalog .teachercard .typesubject {
   color: grey;
   padding: 0px 0px 14px 0px;
+}
+.topteacher .topteacher-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-size: 18px;
+}
+.topteacher .topteacher-menu a {
+  color: rgb(26, 183, 217);
+  text-decoration: none;
+  padding: 0px 0px 40px 20px;
+}
+.topteacher .topteacher-menu a:hover {
+  color: #000;
+  -webkit-transition: color 0.6s ease;
+  transition: color 0.6s ease;
+}
+.topteacher .topteacher-menu a:last-child {
+  margin-left: auto;
 }
 
 .statistics {
@@ -347,6 +379,10 @@ h2 {
 .statistics table .main-row td:hover {
   background-color: rgb(250, 250, 250);
   border-bottom: 4px solid black;
+  -webkit-transition: background-color 0.6s ease;
+  transition: background-color 0.6s ease;
+  -webkit-transition: border-bottom 0.1s ease;
+  transition: border-bottom 0.1s ease;
 }
 .statistics table .main-row td:hover img {
   visibility: visible;
@@ -362,6 +398,8 @@ h2 {
 }
 .statistics .statistics-menu a:hover {
   color: #000;
+  -webkit-transition: color 0.6s ease;
+  transition: color 0.6s ease;
 }
 
 .favorite {
@@ -388,11 +426,29 @@ h2 {
 }
 .favorite .favoritecatalog img:hover {
   border: 4px solid rgb(247, 92, 42);
+  -webkit-transition: border-color 0.6s ease;
+  transition: border-color 0.6s ease;
+}
+.favorite .favoritecatalog .leftarrow, .favorite .favoritecatalog .rightarrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
 }
 .favorite .favoritecatalog .leftarrow img, .favorite .favoritecatalog .rightarrow img {
   width: 20px;
   height: 63px;
   border: none;
+}
+.favorite .favoritecatalog .leftarrow:active, .favorite .favoritecatalog .rightarrow:active {
+  background-color: rgb(136, 135, 135);
+  border-radius: 5px;
 }
 .favorite .favoritecatalog .image-text {
   position: relative;
@@ -416,6 +472,11 @@ h2 {
   font-size: 25px;
   color: rgb(249, 149, 137);
   font-weight: bold;
+}
+.favorite .favoritecatalog .image-text:hover {
+  border: 4px solid rgb(247, 92, 42);
+  -webkit-transition: border-color 0.6s ease;
+  transition: border-color 0.6s ease;
 }
 
 .favorite::before {

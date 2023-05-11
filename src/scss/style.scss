@@ -6,7 +6,6 @@ body{
     margin: 0 auto;
     border: none; /* Remove the default border */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
-
 }
 .menu{
     padding: 40px 100px 40px 100px;
@@ -18,12 +17,12 @@ body{
        color: rgb(255, 255, 255);
        text-shadow: -2px -1px 1px rgb(249,149,137),
                      2px 1px 1px rgb(20, 18, 17);
-        transition: width 0.3s ease; 
     }
     p:hover{
         text-shadow: -3px -1px 1px rgb(247, 92, 42),
         3px 1px 1px rgb(20, 18, 17);
         color: rgb(241, 240, 240);
+        transition: text-shadow 0.5s ease; 
     }
     .search{
         border: 2px solid rgb(249, 149, 137);
@@ -40,7 +39,7 @@ body{
     }
     .search-character:hover{
         width: 55%;
-        transition: width 0.3s ease; 
+        transition: width 0.6s ease; 
     }
     button,input{
         height: 100%;
@@ -48,8 +47,7 @@ body{
     button:hover{
         background-color: rgb(247, 92, 42);
         color: white;
-        animation-duration: 10s;
-        animation-name: slidein;
+        transition: color 0.6s ease; 
     }
     .menu-button{
         position: relative;
@@ -77,6 +75,7 @@ body{
     }
     a:hover{
         color: rgb(205, 77, 53);
+        transition: color 0.6s ease; 
     }
     div{
         flex:  1 1 auto;
@@ -84,6 +83,7 @@ body{
     button:hover{
         background-color: rgb(247, 92, 42);
         color: white;
+        transition: background-color 0.6s ease; 
     }
     div{
         position: relative;
@@ -160,6 +160,7 @@ h2{
         }
         label:hover{
             color: black;
+            transition: color 0.6s ease; 
         }
     }
     .topteacher-catalog{
@@ -182,6 +183,7 @@ h2{
                 img:hover{
                    //border: 4px solid rgb(247, 92, 42);
                     border-color:  rgb(247, 92, 42);
+                    transition: border-color 0.6s ease; 
                 }
                 .image-star{
                 position: absolute;
@@ -214,8 +216,10 @@ h2{
                 .image-text:hover{
                     border: 4px solid rgb(247, 92, 42);
                     border-color:  rgb(247, 92, 42);
+                    transition: border-color 0.9s ease; 
                     a{
-                        color: rgb(247, 92, 42);
+                       color: rgb(247, 92, 42);
+                       transition: color 0.6s ease; 
                     }
                 }
             }
@@ -230,6 +234,23 @@ h2{
                 padding: 0px 0px 14px 0px;
             }
         }
+    }
+    .topteacher-menu{
+        display: flex;
+        justify-content: flex-start;
+        font-size: 18px;
+        a{
+            color: rgb(26, 183, 217);
+            text-decoration: none;
+            padding: 0px 0px 40px 20px;
+        }
+        a:hover{
+            color: #000;
+            transition: color 0.6s ease; 
+        }
+        a:last-child {
+            margin-left: auto;
+          }
     }
 }
 .statistics{
@@ -272,7 +293,9 @@ h2{
                 border-bottom: 4px solid black;
                 img{
                     visibility: visible;
-                }    
+                }  
+                transition: background-color 0.6s ease; 
+                transition: border-bottom 0.1s ease; 
             }
         }
         text-align: center;
@@ -287,6 +310,7 @@ h2{
         }
         a:hover{
             color: #000;
+            transition: color 0.6s ease; 
         }
     }
 }
@@ -306,13 +330,22 @@ h2{
         }
         img:hover{
             border: 4px solid rgb(247, 92, 42);
+            transition: border-color 0.6s ease; 
         }
         .leftarrow, .rightarrow{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
             img{
                 width: 20px;
                 height: 63px;
                 border: none;
             }
+            &:active {
+                background-color: rgb(136, 135, 135);
+                border-radius: 5px;
+              }
         }
         .image-text{
             position: relative;
@@ -330,6 +363,10 @@ h2{
                 color: rgb(249, 149, 137);
                 font-weight: bold;
             }
+        }
+        .image-text:hover{
+            border: 4px solid rgb(247, 92, 42);
+            transition: border-color 0.6s ease; 
         }
     }
 }

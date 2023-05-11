@@ -1,9 +1,16 @@
-function SearchObject(arrayObject, parametr, value) {
-  const searchResult = [];
+import { CreateElement,CleanCatalog } from './Lab4/topTeachers.js';
+import {catalogTop} from './globalVariable.js';
+export function SearchObject(arrayObject, valueInput) {
+  CleanCatalog(catalogTop);
   for (const obj of arrayObject) {
-    if (obj[parametr] === value) searchResult.push(obj);
+    if (
+      obj.full_name.split(' ')[0] === valueInput
+      || obj.note === valueInput
+      || obj.age == valueInput
+    ) {
+      CreateElement(obj, catalogTop);
+    }
   }
-  return searchResult;
 }
 
 // console.log(SearchObject(finalObject, 'gender','Male'));

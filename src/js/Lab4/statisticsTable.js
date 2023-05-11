@@ -1,6 +1,7 @@
 import { finalObject } from '../lab3.js';
 import { SortArray } from '../lab3Task4.js';
 import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
+import {rowsPerPage} from '../globalVariable.js';
 
 function CleanTable() {
   tableBody.innerHTML = '';
@@ -27,7 +28,6 @@ function loadRow(teacherObject) {
 const statButtonSort = document.querySelectorAll('.main-row td');
 let statButtonPages = document.querySelectorAll('.statistics-menu a');
 const tableBody = document.querySelector('.tablebody');
-const rowsPerPage = 10; // connect to layout, which was given
 
 loadTable();
 statButtonSort.forEach((button) => {

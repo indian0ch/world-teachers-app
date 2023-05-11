@@ -32,7 +32,7 @@ export function ChangeMock(ObjectsArr) {
       age: elementArray.dob.age,
       phone: elementArray.phone,
       picture_large: elementArray.picture.large,
-      picture_thumbnail: elementArray.picture.thumbnail,
+      picture_thumbnail: elementArray.picture.large,
       id: `${i}${`${elementArray.name.first}`.charAt(0)}${`${elementArray.name.last}`.charAt(0)}`,
       favorite: Math.random() < 0.5,
       course: courses[randomIndex],

@@ -1,6 +1,6 @@
 import { finalObject } from '../lab3.js';
 import { FilterArray } from '../lab3Task3.js';
-import {catalogTop} from '../globalVariable.js';
+import {catalogTop,rowsPerPage} from '../globalVariable.js';
 import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
 
 export function CleanCatalog(catalog) {
@@ -9,10 +9,12 @@ export function CleanCatalog(catalog) {
     card.remove();
   });
 }
-export function LoadCatalog(catalog, ObjectsArray) {
+export function LoadCatalog(catalog, ObjectsArray,pageNumber = 1) {
+  const startIndex = (pageNumber - 1) * rowsPerPage;
+  const endIndex = startIndex + rowsPerPage;
   CleanCatalog(catalog);
-  for (const obj of ObjectsArray) {
-    CreateElement(obj, catalog);
+  for (let i = startIndex; i < endIndex; i += 1) {
+    CreateElement(ObjectsArray[i], catalog);
   }
 }
 export function CreateElement(obj, catalog) {
