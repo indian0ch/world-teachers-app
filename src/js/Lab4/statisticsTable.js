@@ -1,5 +1,5 @@
 import { finalObject } from '../lab3.js';
-import { SortArray } from '../lab3Task4.js';
+import { SortArray } from '../sortArray.js';
 import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
 import {rowsPerPage} from '../globalVariable.js';
 
@@ -46,7 +46,7 @@ statButtonPages.forEach((button) => {
     if (button === statButtonPages[statButtonPages.length - 1]) loadTable(countsPages);
     else if (
       button === statButtonPages[statButtonPages.length - 2]
-      && statButtonPages[1].textContent === 2
+      && statButtonPages[1].textContent == 2
     ) {
       const newA = document.createElement('a');
       newA.textContent = '...';
@@ -69,9 +69,9 @@ statButtonPages.forEach((button) => {
       });
     } else if (
       button === statButtonPages[statButtonPages.length - 2]
-      && statButtonPages[1].textContent === '...'
+      && statButtonPages[1].textContent == '...'
     ) {
-      if (statButtonPages[3].textContent !== countsPages) {
+      if (statButtonPages[3].textContent != countsPages) {
         statButtonPages[2].textContent = parseInt(statButtonPages[2].textContent) + 1;
         statButtonPages[3].textContent = parseInt(statButtonPages[3].textContent) + 1;
       }

@@ -1,15 +1,15 @@
-import { finalObject } from '../lab3.js';
-import { FilterArray } from '../lab3Task3.js';
-import {catalogTop,rowsPerPage} from '../globalVariable.js';
-import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
+import { finalObject } from "../lab3.js";
+import { FilterArray } from "../lab3Task3.js";
+import { catalogTop, rowsPerPage } from "../globalVariable.js";
+import { arrayFromAPI,getNew10User } from "../Lab5/RequestToAPI.js";
 
 export function CleanCatalog(catalog) {
-  const teachercards = catalog.querySelectorAll('.teachercard');
+  const teachercards = catalog.querySelectorAll(".teachercard");
   teachercards.forEach((card) => {
     card.remove();
   });
 }
-export function LoadCatalog(catalog, ObjectsArray,pageNumber = 1) {
+export function LoadCatalog(catalog, ObjectsArray, pageNumber = 1) {
   const startIndex = (pageNumber - 1) * rowsPerPage;
   const endIndex = startIndex + rowsPerPage;
   CleanCatalog(catalog);
@@ -18,54 +18,54 @@ export function LoadCatalog(catalog, ObjectsArray,pageNumber = 1) {
   }
 }
 export function CreateElement(obj, catalog) {
-  const card = document.createElement('div');
-  card.classList.add('teachercard');
+  const card = document.createElement("div");
+  card.classList.add("teachercard");
 
   // image div
-  const imageDiv = document.createElement('div');
-  imageDiv.classList.add('image');
+  const imageDiv = document.createElement("div");
+  imageDiv.classList.add("image");
 
   // image avatar
-  if (obj.picture_thumbnail != +undefined) {
-    const imgPhoto = document.createElement('img');
+  if (obj.picture_thumbnail !==undefined) {
+    const imgPhoto = document.createElement("img");
     imgPhoto.src = obj.picture_thumbnail;
     imgPhoto.alt = obj.full_name;
     imageDiv.appendChild(imgPhoto);
   } else {
-    const imageTextDiv = document.createElement('div');
-    imageTextDiv.classList.add('image-text');
-    const initials = document.createElement('p');
-    const NameAndSurname = obj.full_name.split(' ');
+    const imageTextDiv = document.createElement("div");
+    imageTextDiv.classList.add("image-text");
+    const initials = document.createElement("p");
+    const NameAndSurname = obj.full_name.split(" ");
     initials.textContent = NameAndSurname.map(
-      (name) => `${name.charAt(0)}.`,
-    ).join('');
+      (name) => `${name.charAt(0)}.`
+    ).join("");
     imageTextDiv.appendChild(initials);
     imageDiv.appendChild(imageTextDiv);
   }
 
   // pib class
-  const pib = document.createElement('p');
-  pib.classList.add('pib');
+  const pib = document.createElement("p");
+  pib.classList.add("pib");
   pib.textContent = obj.full_name;
 
   // country class
-  const country = document.createElement('p');
-  country.classList.add('country');
+  const country = document.createElement("p");
+  country.classList.add("country");
   country.textContent = obj.country;
   // image star
-  if (obj.favorite === true && catalog !==undefined) {
-    const imgStar = document.createElement('img');
-    imgStar.src = 'images/star.png';
+  if (obj.favorite === true && catalog !== undefined) {
+    const imgStar = document.createElement("img");
+    imgStar.src = "images/star.png";
     imgStar.alt = "Star's photo";
-    imgStar.className = 'image-star';
+    imgStar.className = "image-star";
     imageDiv.appendChild(imgStar);
   }
   card.appendChild(imageDiv);
   card.appendChild(pib);
   // typesubject class. If undefined(favourite catalog) - nothing
   if (catalog != +undefined) {
-    const typesubject = document.createElement('p');
-    typesubject.classList.add('typesubject');
+    const typesubject = document.createElement("p");
+    typesubject.classList.add("typesubject");
     typesubject.textContent = obj.course;
     card.appendChild(typesubject);
   }
@@ -77,185 +77,187 @@ export function CreateElement(obj, catalog) {
 }
 // Task1 and Task2
 const countries = [
-  'Afghanistan',
-  'Albania',
-  'Algeria',
-  'Andorra',
-  'Angola',
-  'Antigua and Barbuda',
-  'Argentina',
-  'Armenia',
-  'Australia',
-  'Austria',
-  'Azerbaijan',
-  'Bahamas',
-  'Bahrain',
-  'Bangladesh',
-  'Barbados',
-  'Belarus',
-  'Belgium',
-  'Belize',
-  'Benin',
-  'Bhutan',
-  'Bolivia',
-  'Bosnia and Herzegovina',
-  'Botswana',
-  'Brazil',
-  'Brunei',
-  'Bulgaria',
-  'Burkina Faso',
-  'Burundi',
-  'Cabo Verde',
-  'Cambodia',
-  'Cameroon',
-  'Canada',
-  'Central African Republic (CAR)',
-  'Chad',
-  'Chile',
-  'China',
-  'Colombia',
-  'Comoros',
-  'Costa Rica',
+  "Afghanistan",
+  "Albania",
+  "Algeria",
+  "Andorra",
+  "Angola",
+  "Antigua and Barbuda",
+  "Argentina",
+  "Armenia",
+  "Australia",
+  "Austria",
+  "Azerbaijan",
+  "Bahamas",
+  "Bahrain",
+  "Bangladesh",
+  "Barbados",
+  "Belarus",
+  "Belgium",
+  "Belize",
+  "Benin",
+  "Bhutan",
+  "Bolivia",
+  "Bosnia and Herzegovina",
+  "Botswana",
+  "Brazil",
+  "Brunei",
+  "Bulgaria",
+  "Burkina Faso",
+  "Burundi",
+  "Cabo Verde",
+  "Cambodia",
+  "Cameroon",
+  "Canada",
+  "Central African Republic (CAR)",
+  "Chad",
+  "Chile",
+  "China",
+  "Colombia",
+  "Comoros",
+  "Costa Rica",
   "Cote d'Ivoire",
-  'Croatia',
-  'Cuba',
-  'Cyprus',
-  'Czech Republic (Czechia)',
-  'Democratic Republic of the Congo',
-  'Denmark',
-  'Djibouti',
-  'Dominica',
-  'Dominican Republic',
-  'Ecuador',
-  'Egypt',
-  'El Salvador',
-  'Equatorial Guinea',
-  'Eritrea',
-  'Estonia',
-  'Eswatini (formerly Swaziland)',
-  'Ethiopia',
-  'Fiji',
-  'Finland',
-  'France',
-  'Gabon',
-  'Gambia',
-  'Georgia',
-  'Germany',
-  'Ghana',
-  'Greece',
-  'Grenada',
-  'Guatemala',
-  'Guinea',
-  'Guinea-Bissau',
-  'Guyana',
-  'Haiti',
-  'Honduras',
-  'Hungary',
-  'Iceland',
-  'India',
-  'Indonesia',
-  'Iran',
-  'Iraq',
-  'Ireland',
-  'Israel',
-  'Italy',
-  'Jamaica',
-  'Japan',
-  'Jordan',
-  'Kazakhstan',
-  'Kenya',
-  'Kiribati',
-  'Kosovo',
-  'Kuwait',
-  'Kyrgyzstan',
-  'Laos',
-  'Latvia',
-  'Lebanon',
-  'Lesotho',
-  'Liberia',
-  'Libya',
-  'Liechtenstein',
-  'Lithuania',
-  'Luxembourg',
-  'Madagascar',
-  'Malawi',
-  'Malaysia',
-  'Maldives',
-  'Mali',
-  'Malta',
-  'Marshall Islands',
-  'Mauritania',
-  'Mauritius',
-  'Mexico',
-  'Micronesia',
-  'Moldova',
-  'Monaco',
-  'Mongolia',
-  'Montenegro',
-  'Morocco',
-  'Mozambique',
-  'Myanmar (formerly Burma)',
-  'Namibia',
-  'Nauru',
-  'Nepal',
-  'Netherlands',
-  'New Zealand',
-  'Nicaragua',
-  'Niger',
-  'Nigeria',
-  'North Korea',
-  'North Macedonia (formerly Macedonia)',
-  'Norway',
-  'Oman',
-  'Pakistan',
-  'Palau',
-  'Palestine',
-  'Panama',
-  'Papua New Guinea',
-  'Paraguay',
-  'Peru',
-  'Philippines',
-  'Poland',
-  'Portugal',
-  'Qatar',
-  'Romania',
-  'Russia',
-  'Rwanda',
-  'Saint Kitts and Nevis',
-  'Saint Lucia',
-  'Saint Vincent and the Grenadines',
-  'Samoa',
-  'San Marino',
-  'Sao Tome and Principe',
-  'Saudi Arabia',
-  'Senegal',
-  'Serbia',
-  'Seychelles',
-  'Sierra Leone',
+  "Croatia",
+  "Cuba",
+  "Cyprus",
+  "Czech Republic (Czechia)",
+  "Democratic Republic of the Congo",
+  "Denmark",
+  "Djibouti",
+  "Dominica",
+  "Dominican Republic",
+  "Ecuador",
+  "Egypt",
+  "El Salvador",
+  "Equatorial Guinea",
+  "Eritrea",
+  "Estonia",
+  "Eswatini (formerly Swaziland)",
+  "Ethiopia",
+  "Fiji",
+  "Finland",
+  "France",
+  "Gabon",
+  "Gambia",
+  "Georgia",
+  "Germany",
+  "Ghana",
+  "Greece",
+  "Grenada",
+  "Guatemala",
+  "Guinea",
+  "Guinea-Bissau",
+  "Guyana",
+  "Haiti",
+  "Honduras",
+  "Hungary",
+  "Iceland",
+  "India",
+  "Indonesia",
+  "Iran",
+  "Iraq",
+  "Ireland",
+  "Israel",
+  "Italy",
+  "Jamaica",
+  "Japan",
+  "Jordan",
+  "Kazakhstan",
+  "Kenya",
+  "Kiribati",
+  "Kosovo",
+  "Kuwait",
+  "Kyrgyzstan",
+  "Laos",
+  "Latvia",
+  "Lebanon",
+  "Lesotho",
+  "Liberia",
+  "Libya",
+  "Liechtenstein",
+  "Lithuania",
+  "Luxembourg",
+  "Madagascar",
+  "Malawi",
+  "Malaysia",
+  "Maldives",
+  "Mali",
+  "Malta",
+  "Marshall Islands",
+  "Mauritania",
+  "Mauritius",
+  "Mexico",
+  "Micronesia",
+  "Moldova",
+  "Monaco",
+  "Mongolia",
+  "Montenegro",
+  "Morocco",
+  "Mozambique",
+  "Myanmar (formerly Burma)",
+  "Namibia",
+  "Nauru",
+  "Nepal",
+  "Netherlands",
+  "New Zealand",
+  "Nicaragua",
+  "Niger",
+  "Nigeria",
+  "North Korea",
+  "North Macedonia (formerly Macedonia)",
+  "Norway",
+  "Oman",
+  "Pakistan",
+  "Palau",
+  "Palestine",
+  "Panama",
+  "Papua New Guinea",
+  "Paraguay",
+  "Peru",
+  "Philippines",
+  "Poland",
+  "Portugal",
+  "Qatar",
+  "Romania",
+  "Russia",
+  "Rwanda",
+  "Saint Kitts and Nevis",
+  "Saint Lucia",
+  "Saint Vincent and the Grenadines",
+  "Samoa",
+  "San Marino",
+  "Sao Tome and Principe",
+  "Saudi Arabia",
+  "Senegal",
+  "Serbia",
+  "Seychelles",
+  "Sierra Leone",
 ];
-const countrySelector = document.getElementById('region');
-const allSelectTags = document.querySelectorAll('.properties select');
+const countrySelector = document.getElementById("region");
+const allSelectTags = document.querySelectorAll(".properties select");
+let topButtonPages = document.querySelectorAll(".topteacher-menu a");
 const allCheckBoxs = document.querySelectorAll(
-  '.properties input[type="checkbox"]',
+  '.properties input[type="checkbox"]'
 );
-export const allInputs = Array.from(allSelectTags).concat(Array.from(allCheckBoxs));
+
+export const allInputs = Array.from(allSelectTags).concat(
+  Array.from(allCheckBoxs)
+);
 
 /// Top Teachers
 CleanCatalog(catalogTop); // Clean top teacher's grid
-// for (const obj of finalObject) {
-//   CreateElement(obj, catalogTop);
-// }
 /// Country select creater (we should sort by country,not region)
-for (let i = 0; i < countries.length; i+=1) {
-  const option = document.createElement('option');
+for (let i = 0; i < countries.length; i += 1) {
+  const option = document.createElement("option");
   option.value = countries[i];
   option.innerHTML = countries[i];
   countrySelector.appendChild(option);
 }
 /// Mожливість фільтрації викладачів на сторінці
 allInputs.forEach((select) => {
-  select.addEventListener('change', () => {
-    const [age1, age2] = allSelectTags[0].value.split('-').map(Number);
+  select.addEventListener("change", () => {
+    const [age1, age2] = allSelectTags[0].value.split("-").map(Number);
+    console.log('Dd');
     CleanCatalog(catalogTop);
     const filterArray = FilterArray(
       arrayFromAPI,
@@ -266,8 +268,65 @@ allInputs.forEach((select) => {
       age2,
       allCheckBoxs[0].checked
     );
+    console.log(allCheckBoxs[0].checked);
+    console.log(allCheckBoxs[1].checked);
     for (const obj of filterArray) {
       CreateElement(obj, catalogTop);
     }
+  });
+});
+topButtonPages.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log(topButtonPages[topButtonPages.length - 2]);
+    const countsPages = Math.ceil(arrayFromAPI.length / rowsPerPage);
+    if (button == topButtonPages[topButtonPages.length - 2]){//Last
+      LoadCatalog(catalogTop, arrayFromAPI, parseInt(countsPages));
+      //console.log("Click 1")
+    }
+    else if (//1 2 3 ... Last  Load Click on ...
+      button == topButtonPages[topButtonPages.length - 3] &&
+      topButtonPages[1].textContent == 2
+    ) {
+      //console.log("Click 2")
+      const newA = document.createElement("a");
+      newA.textContent = "...";
+      newA.href = "";
+      topButtonPages[0].insertAdjacentElement("afterend", newA);
+      topButtonPages[1].textContent = 4;
+      topButtonPages[2].textContent = 5;
+      newA.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (topButtonPages[2].textContent == 4) {
+          topButtonPages[2].textContent = "2";
+          topButtonPages[3].textContent = "3";
+          newA.remove();
+          console.log("click");
+        } else {
+          topButtonPages[2].textContent =
+            parseInt(topButtonPages[2].textContent) - 1;
+          topButtonPages[3].textContent =
+            parseInt(topButtonPages[3].textContent) - 1;
+        }
+        topButtonPages = document.querySelectorAll(".topteacher-menu a");
+      });
+    } else if ( //1 2 ... 4 5 ... Last Load Click on second ...
+      button == topButtonPages[topButtonPages.length - 3] &&
+      topButtonPages[1].textContent == "..."
+    ) {
+      if (topButtonPages[3].textContent != countsPages) {
+        topButtonPages[2].textContent =
+          parseInt(topButtonPages[2].textContent) + 1;
+        topButtonPages[3].textContent =
+          parseInt(topButtonPages[3].textContent) + 1;
+      }
+    } 
+    else if(button == topButtonPages[topButtonPages.length - 1]){
+      getNew10User();
+    }
+    else { // click on special number
+      LoadCatalog(catalogTop, arrayFromAPI, parseInt(button.textContent));
+    }
+    topButtonPages = document.querySelectorAll(".topteacher-menu a");
   });
 });

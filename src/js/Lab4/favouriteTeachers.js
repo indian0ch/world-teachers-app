@@ -1,9 +1,9 @@
 import { finalObject } from '../lab3.js';
 import { CreateElement, CleanCatalog } from './topTeachers.js';
-import { catalogFavourite, leftArrow, rightArrow } from '../globalVariable.js';
+import { catalogFavourite, leftArrow, rightArrow,countFavouriteCards } from '../globalVariable.js';
 import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
 
-function MakeArrayOnlyFavorite() {
+export function makeArrayOnlyFavorite() {
   onlyFavorites = [];
   for (const obj of arrayFromAPI) {
     if (obj.favorite === true) {
@@ -11,31 +11,43 @@ function MakeArrayOnlyFavorite() {
     }
   }
 }
-function GetRandomObject(array) {
-  const randomI = Math.floor(Math.random() * array.length);
-  return array[randomI];
+function getObjectForGenerate(array,direction) {
+  //makeArrayOnlyFavorite();
+  if(direction=="left"){
+    return onlyFavorites[counter-1];
+  }else{
+    return onlyFavorites[counter+5];
+  }
 }
-export function GenerateFavorite() {
+export function generateFavorite() {
   CleanCatalog(catalogFavourite);
-  MakeArrayOnlyFavorite();
+  makeArrayOnlyFavorite();
   for (let i = 0; i < countFavouriteCards.length; i += 1) {
     catalogFavourite.insertBefore(CreateElement(onlyFavorites[i]), rightArrow);
   }
 }
 let onlyFavorites = [];
-const countFavouriteCards = catalogFavourite.querySelectorAll('.teachercard');
+let counter=0;
 /// Task Favoutite teachers
-CleanCatalog(catalogFavourite);
-GenerateFavorite();
+generateFavorite();
 // event on arrows
 leftArrow.addEventListener('click', () => {
-  catalogFavourite.children[1].remove();
-  rightArrow.before(CreateElement(GetRandomObject(onlyFavorites)));
+  //makeArrayOnlyFavorite();
+  if(counter!==0){
+    const countElements = catalogFavourite.querySelectorAll('div.favoritecatalog>div',);
+    catalogFavourite.children[countElements.length - 2].remove();
+    console.log(onlyFavorites.length);
+    console.log(counter);
+    leftArrow.after(CreateElement(getObjectForGenerate(onlyFavorites,"left")));
+    counter-=1;
+  }
 });
 rightArrow.addEventListener('click', () => {
-  const countElements = catalogFavourite.querySelectorAll(
-    'div.favoritecatalog>div',
-  );
-  catalogFavourite.children[countElements.length - 2].remove();
-  leftArrow.after(CreateElement(GetRandomObject(onlyFavorites)));
+  makeArrayOnlyFavorite();
+  if(counter!==onlyFavorites.length-5){
+    catalogFavourite.children[1].remove();
+    //catalogFavourite.children[countElements.length - 2].remove();
+    rightArrow.before(CreateElement(getObjectForGenerate(onlyFavorites,"right")));
+    counter++;
+  }
 });

@@ -1,7 +1,7 @@
 import { finalObject } from '../lab3.js';
 import { LoadCatalog } from './topTeachers.js';
 import {
-  GenerateFavorite,
+  generateFavorite,
 } from './favouriteTeachers.js';
 import { catalogFavourite,catalogTop } from '../globalVariable.js';
 import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
@@ -66,7 +66,7 @@ allCatalogs.forEach((catalog) => {
               }
             }
             LoadCatalog(catalogTop,arrayFromAPI);
-            GenerateFavorite();
+            generateFavorite();
           });
           popupinfostardiv.appendChild(popupinfostar);
           personalinfo.appendChild(popupinfostardiv);
