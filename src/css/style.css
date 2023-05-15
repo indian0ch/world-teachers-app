@@ -406,6 +406,7 @@ h2 {
   padding: 10px 40px;
   position: relative;
   text-align: center;
+  overflow: hidden;
 }
 .favorite .favoritecatalog {
   display: -webkit-box;
@@ -417,6 +418,25 @@ h2 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+}
+.favorite .favoritecatalog .teachercard {
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.1s;
+  transition: opacity 0.2s, -webkit-transform 0.1s;
+  transition: opacity 0.2s, transform 0.1s;
+  transition: opacity 0.2s, transform 0.1s, -webkit-transform 0.1s;
+}
+.favorite .favoritecatalog .teachercard.removing {
+  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+.favorite .favoritecatalog .teachercard.appearing {
+  opacity: 1;
 }
 .favorite .favoritecatalog img {
   width: 150px;
@@ -731,7 +751,7 @@ h2 {
   margin: 20px;
   width: 320px;
   height: 320px;
-  border: 1px solid black;
+  border: 5px solid black;
 }
 .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .personalinfo-info {
   -webkit-box-flex: 1;
@@ -841,7 +861,7 @@ h2 {
     margin: 20px;
     width: 220px;
     height: 220px;
-    border: 1px solid black;
+    border: 15px solid black;
   }
   .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo .personalinfo-info {
     padding: 20px 22px 0px;
@@ -870,4 +890,38 @@ h2 {
     width: 33px;
     height: 33px;
   }
+}
+@-webkit-keyframes shiftAnimation {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-80%);
+            transform: translateX(-80%);
+  }
+}
+@keyframes shiftAnimation {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-80%);
+            transform: translateX(-80%);
+  }
+}
+.animate-shift {
+  -webkit-animation: shiftAnimation 0.7s ease;
+          animation: shiftAnimation 0.7s ease;
+}
+
+.new-card {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.new-card.show {
+  opacity: 1;
 }

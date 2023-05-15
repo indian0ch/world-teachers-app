@@ -318,10 +318,24 @@ h2{
    padding: 10px 40px;
    position: relative;
    text-align: center;
+   overflow: hidden;
     .favoritecatalog{
        display: flex;
         align-items: center;
         justify-content: space-between;
+        overflow: hidden;
+        transition: transform 0.5s ease-in-out;
+        .teachercard{
+            transition: opacity 0.2s, transform 0.1s;
+            &.removing {
+                opacity: 0;
+                transform: scale(0);
+            }
+            &.appearing {
+                opacity: 1;
+                //transform: scale(1);
+            }
+        }
         img{
             width: 150px;
             height: 150px;
@@ -580,7 +594,7 @@ h2{
                             margin: 20px;
                             width: 320px;
                             height: 320px;
-                           border: 1px solid black;
+                           border: 5px solid black;
                         }
                     }
                     .personalinfo-info{
@@ -700,7 +714,7 @@ h2{
                                 margin: 20px;
                                 width: 220px;
                                 height: 220px;
-                               border: 1px solid black;
+                               border: 15px solid black;
                             }
                         }
                         .personalinfo-info{
@@ -736,3 +750,24 @@ h2{
         }
     }
 }
+@keyframes shiftAnimation {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-80%);
+    }
+ }
+ 
+ .animate-shift {
+   animation: shiftAnimation 0.7s ease;
+ }
+ .new-card {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .new-card.show {
+    opacity: 1;
+  }
+  

@@ -34,7 +34,7 @@ allCatalogs.forEach((catalog) => {
           <p>${obj.age}, ${obj.gender}</p>
           <p id="info-email">${obj.email}</p>
           <p id="info-phone">${obj.phone}</p>`;
-          personalinfodiv_image.innerHTML = `<img src="${obj.picture_thumbnail}" alt="" style="border: 5px solid ${obj.bg_color};">`;
+          personalinfodiv_image.innerHTML = `<img src="${obj.picture_thumbnail}" alt="" style="border: 10px solid ${obj.bg_color};">`;
           personalinfo.appendChild(personalinfodiv_image);
           personalinfo.appendChild(personalinfo_data);
           // block with a star
