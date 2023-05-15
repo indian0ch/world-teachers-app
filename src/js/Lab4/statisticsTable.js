@@ -2,6 +2,7 @@ import { finalObject } from '../lab3.js';
 import { SortArray } from '../sortArray.js';
 import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
 import {rowsPerPage} from '../globalVariable.js';
+import {removingAdditionalThreeDottes } from './topTeachers.js'
 
 function CleanTable() {
   tableBody.innerHTML = '';
@@ -13,6 +14,10 @@ function loadTable(pageNumber = 1) {
   for (let i = startIndex; i < endIndex; i += 1) {
     if (i < arrayFromAPI.length) tableBody.appendChild(loadRow(arrayFromAPI[i]));
   }
+}
+function loadStartMenu(){
+  if(statButtonPages[1].textContent==='...')
+    removingAdditionalThreeDottes(statButtonPages,newAStat);
 }
 function loadRow(teacherObject) {
   const tablecolumn = `<td>${teacherObject.full_name}</td>
@@ -28,14 +33,17 @@ function loadRow(teacherObject) {
 const statButtonSort = document.querySelectorAll('.main-row td');
 let statButtonPages = document.querySelectorAll('.statistics-menu a');
 const tableBody = document.querySelector('.tablebody');
-
+let sortDirection='asc';
+let newAStat=null;
 loadTable();
 statButtonSort.forEach((button) => {
   button.addEventListener('click', () => {
     console.log();
     const sortby = button.className.split(' ')[1];
-    SortArray(arrayFromAPI, sortby);
+    SortArray(arrayFromAPI, sortby,sortDirection);
     loadTable();
+    loadStartMenu();
+    sortDirection = (sortDirection === 'desc') ? 'asc' : 'desc';
   });
 });
 // Button pages
@@ -48,19 +56,16 @@ statButtonPages.forEach((button) => {
       button === statButtonPages[statButtonPages.length - 2]
       && statButtonPages[1].textContent == 2
     ) {
-      const newA = document.createElement('a');
-      newA.textContent = '...';
-      newA.href = '';
-      statButtonPages[0].insertAdjacentElement('afterend', newA);
+      newAStat = document.createElement('a');
+      newAStat.textContent = '...';
+      newAStat.href = '';
+      statButtonPages[0].insertAdjacentElement('afterend', newAStat);
       statButtonPages[1].textContent = 4;
       statButtonPages[2].textContent = 5;
-      newA.addEventListener('click', (event) => {
+      newAStat.addEventListener('click', (event) => {
         event.preventDefault();
         if (statButtonPages[2].textContent == 4) {
-          statButtonPages[2].textContent = '2';
-          statButtonPages[3].textContent = '3';
-          newA.remove();
-          console.log('click');
+          removingAdditionalThreeDottes(statButtonPages,newAStat);
         } else {
           statButtonPages[2].textContent = parseInt(statButtonPages[2].textContent) - 1;
           statButtonPages[3].textContent = parseInt(statButtonPages[3].textContent) - 1;
@@ -74,6 +79,12 @@ statButtonPages.forEach((button) => {
       if (statButtonPages[3].textContent != countsPages) {
         statButtonPages[2].textContent = parseInt(statButtonPages[2].textContent) + 1;
         statButtonPages[3].textContent = parseInt(statButtonPages[3].textContent) + 1;
+      }
+    } else if(button == statButtonPages[0]&& statButtonPages[1].textContent == "..."){
+      //click on 1, when '1 ... 4 5 ... Last'
+      if(statButtonPages[1].textContent==='...'){
+        removingAdditionalThreeDottes(statButtonPages,newAStat);
+        loadTable(parseInt(button.textContent));
       }
     } else {
       loadTable(parseInt(button.textContent));

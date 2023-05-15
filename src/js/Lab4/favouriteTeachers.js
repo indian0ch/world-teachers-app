@@ -1,5 +1,5 @@
-import { finalObject } from '../lab3.js';
-import { CreateElement, CleanCatalog } from './topTeachers.js';
+//import { finalObject } from '../lab3.js';
+import { createElement, cleanCatalog } from './topTeachers.js';
 import { catalogFavourite, leftArrow, rightArrow,countFavouriteCards } from '../globalVariable.js';
 import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
 
@@ -20,10 +20,10 @@ function getObjectForGenerate(array,direction) {
   }
 }
 export function generateFavorite() {
-  CleanCatalog(catalogFavourite);
+  cleanCatalog(catalogFavourite);
   makeArrayOnlyFavorite();
   for (let i = 0; i < countFavouriteCards.length; i += 1) {
-    catalogFavourite.insertBefore(CreateElement(onlyFavorites[i]), rightArrow);
+    catalogFavourite.insertBefore(createElement(onlyFavorites[i]), rightArrow);
   }
 }
 let onlyFavorites = [];
@@ -38,7 +38,7 @@ leftArrow.addEventListener('click', () => {
     catalogFavourite.children[countElements.length - 2].remove();
     console.log(onlyFavorites.length);
     console.log(counter);
-    leftArrow.after(CreateElement(getObjectForGenerate(onlyFavorites,"left")));
+    leftArrow.after(createElement(getObjectForGenerate(onlyFavorites,"left")));
     counter-=1;
   }
 });
@@ -47,7 +47,7 @@ rightArrow.addEventListener('click', () => {
   if(counter!==onlyFavorites.length-5){
     catalogFavourite.children[1].remove();
     //catalogFavourite.children[countElements.length - 2].remove();
-    rightArrow.before(CreateElement(getObjectForGenerate(onlyFavorites,"right")));
+    rightArrow.before(createElement(getObjectForGenerate(onlyFavorites,"right")));
     counter++;
   }
 });

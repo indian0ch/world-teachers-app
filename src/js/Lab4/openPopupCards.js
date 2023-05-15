@@ -1,5 +1,5 @@
 import { finalObject } from '../lab3.js';
-import { LoadCatalog } from './topTeachers.js';
+import { loadCatalog } from './topTeachers.js';
 import {
   generateFavorite,
 } from './favouriteTeachers.js';
@@ -65,7 +65,7 @@ allCatalogs.forEach((catalog) => {
                 }
               }
             }
-            LoadCatalog(catalogTop,arrayFromAPI);
+            loadCatalog(catalogTop,arrayFromAPI);
             generateFavorite();
           });
           popupinfostardiv.appendChild(popupinfostar);

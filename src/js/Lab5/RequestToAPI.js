@@ -1,5 +1,5 @@
 import {catalogTop, url} from '../globalVariable.js';
-import {LoadCatalog} from '../Lab4/topTeachers.js';
+import {loadCatalog} from '../Lab4/topTeachers.js';
 import { ChangeMock } from '../lab3.js';
 let usersArray = [];
 export const getUsers = () => {
@@ -11,7 +11,7 @@ export const getUsers = () => {
     .then((responseData) => {
       usersArray = responseData.results;
       usersArray=ChangeMock(usersArray);
-      LoadCatalog(catalogTop,usersArray);
+      loadCatalog(catalogTop,usersArray);
       return usersArray;
     })
     .catch((error) => {

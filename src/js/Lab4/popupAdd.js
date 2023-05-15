@@ -1,5 +1,5 @@
 import { checkValidation } from "../lab3Task2.js";
-import { CleanCatalog, LoadCatalog } from "./topTeachers.js";
+import { cleanCatalog, loadCatalog } from "./topTeachers.js";
 import { catalogTop, urlJson } from "../globalVariable.js";
 import { arrayFromAPI } from "../Lab5/RequestToAPI.js";
 
@@ -16,7 +16,7 @@ async function postReq(obj) {
   }
   return await req.json();
 }
-function GetValues() {
+function getValues() {
   const birthdate = new Date(document.querySelector("#datebirth").value);
   const newObject = {
     gender: document.querySelector('input[name="gender"]:checked').value,
@@ -36,8 +36,8 @@ function GetValues() {
   if (validationError === true) {
     postReq(newObject);
     console.log(`Added!${arrayFromAPI.length}`);
-    CleanCatalog(catalogTop);
-    LoadCatalog(catalogTop, arrayFromAPI);
+    cleanCatalog(catalogTop);
+    loadCatalog(catalogTop, arrayFromAPI);
     alert("Користувача додано!");
   } else {
     notificateUser("Validation failed!", validationError.error, "warning");
@@ -46,7 +46,7 @@ function GetValues() {
 function checkFormRequirement() {
   event.preventDefault();
   if (document.querySelector('input[name="gender"]:checked') !== null) {
-    GetValues();
+    getValues();
   } else {
     notificateUser(
       "Registration failed!",

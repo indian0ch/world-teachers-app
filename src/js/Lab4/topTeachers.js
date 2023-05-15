@@ -1,23 +1,23 @@
-import { finalObject } from "../lab3.js";
-import { FilterArray } from "../lab3Task3.js";
+//import { finalObject } from "../lab3.js";
+import { filterArray } from "../filtersArray.js";
 import { catalogTop, rowsPerPage } from "../globalVariable.js";
-import { arrayFromAPI,getNew10User } from "../Lab5/RequestToAPI.js";
+import { arrayFromAPI, getNew10User } from "../Lab5/RequestToAPI.js";
 
-export function CleanCatalog(catalog) {
+export function cleanCatalog(catalog) {
   const teachercards = catalog.querySelectorAll(".teachercard");
   teachercards.forEach((card) => {
     card.remove();
   });
 }
-export function LoadCatalog(catalog, ObjectsArray, pageNumber = 1) {
+export function loadCatalog(catalog, ObjectsArray, pageNumber = 1) {
   const startIndex = (pageNumber - 1) * rowsPerPage;
   const endIndex = startIndex + rowsPerPage;
-  CleanCatalog(catalog);
+  cleanCatalog(catalog);
   for (let i = startIndex; i < endIndex; i += 1) {
-    CreateElement(ObjectsArray[i], catalog);
+    createElement(ObjectsArray[i], catalog);
   }
 }
-export function CreateElement(obj, catalog) {
+export function createElement(obj, catalog) {
   const card = document.createElement("div");
   card.classList.add("teachercard");
 
@@ -26,7 +26,7 @@ export function CreateElement(obj, catalog) {
   imageDiv.classList.add("image");
 
   // image avatar
-  if (obj.picture_thumbnail !==undefined) {
+  if (obj.picture_thumbnail !== undefined) {
     const imgPhoto = document.createElement("img");
     imgPhoto.src = obj.picture_thumbnail;
     imgPhoto.alt = obj.full_name;
@@ -74,6 +74,11 @@ export function CreateElement(obj, catalog) {
     return card;
   }
   catalog.appendChild(card);
+}
+export const removingAdditionalThreeDottes=(arr,element)=>{
+  arr[2].textContent = "2";
+  arr[3].textContent = "3";
+  element.remove();
 }
 // Task1 and Task2
 const countries = [
@@ -236,16 +241,16 @@ const countries = [
 const countrySelector = document.getElementById("region");
 const allSelectTags = document.querySelectorAll(".properties select");
 let topButtonPages = document.querySelectorAll(".topteacher-menu a");
+let newA=null;//new element '...'
 const allCheckBoxs = document.querySelectorAll(
   '.properties input[type="checkbox"]'
 );
-
+//let filterArray=[];
 export const allInputs = Array.from(allSelectTags).concat(
   Array.from(allCheckBoxs)
 );
-
 /// Top Teachers
-CleanCatalog(catalogTop); // Clean top teacher's grid
+cleanCatalog(catalogTop); // Clean top teacher's grid
 /// Country select creater (we should sort by country,not region)
 for (let i = 0; i < countries.length; i += 1) {
   const option = document.createElement("option");
@@ -256,22 +261,20 @@ for (let i = 0; i < countries.length; i += 1) {
 /// Mожливість фільтрації викладачів на сторінці
 allInputs.forEach((select) => {
   select.addEventListener("change", () => {
-    const [age1, age2] = allSelectTags[0].value.split("-").map(Number);
-    console.log('Dd');
-    CleanCatalog(catalogTop);
-    const filterArray = FilterArray(
+    let [age1, age2] = allSelectTags[0].value.split("-").map(Number);
+    age2 = age2 == 1 ? 100 : age2; //if == 1 - age do not choosen ans we need to put max
+    cleanCatalog(catalogTop);
+    const filteredArray = filterArray(
       arrayFromAPI,
       `${allSelectTags[1].value}`,
-      age1,
       `${allSelectTags[2].value}`,
       allCheckBoxs[1].checked,
-      age2,
-      allCheckBoxs[0].checked
+      allCheckBoxs[0].checked,
+      age1,
+      age2
     );
-    console.log(allCheckBoxs[0].checked);
-    console.log(allCheckBoxs[1].checked);
-    for (const obj of filterArray) {
-      CreateElement(obj, catalogTop);
+    for (const obj of filteredArray) {
+      createElement(obj, catalogTop);
     }
   });
 });
@@ -280,16 +283,17 @@ topButtonPages.forEach((button) => {
     event.preventDefault();
     console.log(topButtonPages[topButtonPages.length - 2]);
     const countsPages = Math.ceil(arrayFromAPI.length / rowsPerPage);
-    if (button == topButtonPages[topButtonPages.length - 2]){//Last
-      LoadCatalog(catalogTop, arrayFromAPI, parseInt(countsPages));
+    if (button == topButtonPages[topButtonPages.length - 2]) {
+      //Last
+      loadCatalog(catalogTop, arrayFromAPI, parseInt(countsPages));
       //console.log("Click 1")
-    }
-    else if (//1 2 3 ... Last  Load Click on ...
+    } else if (
+      //1 2 3 ... Last  Load Click on ...
       button == topButtonPages[topButtonPages.length - 3] &&
       topButtonPages[1].textContent == 2
     ) {
       //console.log("Click 2")
-      const newA = document.createElement("a");
+      newA = document.createElement("a");
       newA.textContent = "...";
       newA.href = "";
       topButtonPages[0].insertAdjacentElement("afterend", newA);
@@ -298,10 +302,7 @@ topButtonPages.forEach((button) => {
       newA.addEventListener("click", (event) => {
         event.preventDefault();
         if (topButtonPages[2].textContent == 4) {
-          topButtonPages[2].textContent = "2";
-          topButtonPages[3].textContent = "3";
-          newA.remove();
-          console.log("click");
+          removingAdditionalThreeDottes(topButtonPages,newA);
         } else {
           topButtonPages[2].textContent =
             parseInt(topButtonPages[2].textContent) - 1;
@@ -310,7 +311,8 @@ topButtonPages.forEach((button) => {
         }
         topButtonPages = document.querySelectorAll(".topteacher-menu a");
       });
-    } else if ( //1 2 ... 4 5 ... Last Load Click on second ...
+    } else if (
+      //1 2 ... 4 5 ... Last Load Click on second ...
       button == topButtonPages[topButtonPages.length - 3] &&
       topButtonPages[1].textContent == "..."
     ) {
@@ -320,12 +322,18 @@ topButtonPages.forEach((button) => {
         topButtonPages[3].textContent =
           parseInt(topButtonPages[3].textContent) + 1;
       }
-    } 
-    else if(button == topButtonPages[topButtonPages.length - 1]){
+    } else if (button == topButtonPages[topButtonPages.length - 1]) {
+      //click on Load more
       getNew10User();
-    }
-    else { // click on special number
-      LoadCatalog(catalogTop, arrayFromAPI, parseInt(button.textContent));
+    } else if(button == topButtonPages[0]&& topButtonPages[1].textContent == "..."){
+      //click on 1, when '1 ... 4 5 ... Last'
+      if(topButtonPages[1].textContent==='...'){
+        removingAdditionalThreeDottes(topButtonPages,newA);
+        loadCatalog(catalogTop, arrayFromAPI, parseInt(button.textContent));
+      }
+    } else {
+      // click on special number
+      loadCatalog(catalogTop, arrayFromAPI, parseInt(button.textContent));
     }
     topButtonPages = document.querySelectorAll(".topteacher-menu a");
   });
