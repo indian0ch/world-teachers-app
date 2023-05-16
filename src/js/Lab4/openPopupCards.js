@@ -65,7 +65,7 @@ allCatalogs.forEach((catalog) => {
                 }
               }
             }
-            const pageNumber=Math.floor(arrayFromAPI.indexOf(obj)/rowsPerPage);
+            const pageNumber=Math.floor(arrayFromAPI.indexOf(obj)/rowsPerPage)+1;
             loadCatalog(catalogTop,arrayFromAPI,pageNumber);
             generateFavorite();
           });

@@ -5,6 +5,7 @@ import { arrayFromAPI, getNew10User } from "../Lab5/RequestToAPI.js";
 
 export function cleanCatalog(catalog) {
   const teachercards = catalog.querySelectorAll(".teachercard");
+  console.log("Click 22");
   teachercards.forEach((card) => {
     card.remove();
   });
@@ -12,9 +13,12 @@ export function cleanCatalog(catalog) {
 export function loadCatalog(catalog, ObjectsArray, pageNumber = 1) {
   const startIndex = (pageNumber - 1) * rowsPerPage;
   const endIndex = startIndex + rowsPerPage;
+  console.log("Click 23");
   cleanCatalog(catalog);
   for (let i = startIndex; i < endIndex; i += 1) {
-    createElement(ObjectsArray[i], catalog);
+    if(ObjectsArray[i]!==undefined){
+      createElement(ObjectsArray[i], catalog);
+    }
   }
 }
 export function createElement(obj, catalog) {
@@ -82,10 +86,9 @@ export const removingAdditionalThreeDottes = (arr, element) => {
     element.remove();
   }
 };
-function filterTeachers() {
+function filterTeachers(buf) {
   let [age1, age2] = allSelectTags[0].value.split("-").map(Number);
   age2 = age2 == 1 ? 100 : age2; //if == 1 - age do not choosen ans we need to put max
-  cleanCatalog(catalogTop);
   const filteredArray = filterArray(
     arrayFromAPI,
     `${allSelectTags[1].value}`,
@@ -95,8 +98,12 @@ function filterTeachers() {
     age1,
     age2
   );
-  loadCatalog(catalogTop, filteredArray);
-  removingAdditionalThreeDottes(topButtonPages, newA);
+  if(buf==true){
+    cleanCatalog(catalogTop);
+    loadCatalog(catalogTop, filteredArray);
+  } else{
+    return filteredArray;
+  }
 }
 // Task1 and Task2
 const countries = [
@@ -278,46 +285,54 @@ for (let i = 0; i < countries.length; i += 1) {
 }
 /// Mожливість фільтрації викладачів на сторінці
 allInputs.forEach((select) => {
-  select.addEventListener("change", () => filterTeachers());
+  select.addEventListener("change", () => {filterTeachers(true)});
 });
 topButtonPages.forEach((button) => {
   button.addEventListener("click", (event) => {
     event.preventDefault();
+    const newArr=filterTeachers();
     console.log(topButtonPages[topButtonPages.length - 2]);
-    const countsPages = Math.ceil(arrayFromAPI.length / rowsPerPage);
+    const countsPages = Math.ceil(newArr.length / rowsPerPage);
     if (button == topButtonPages[topButtonPages.length - 2]) {
       //Last
-      loadCatalog(catalogTop, arrayFromAPI, parseInt(countsPages));
-      //console.log("Click 1")
+      loadCatalog(catalogTop, newArr, parseInt(countsPages));
+      console.log("Click 1");
     } else if (
       //1 2 3 ... Last  Load Click on ...
       button == topButtonPages[topButtonPages.length - 3] &&
       topButtonPages[1].textContent == 2
     ) {
-      //console.log("Click 2")
-      newA = document.createElement("a");
-      newA.textContent = "...";
-      newA.href = "";
-      topButtonPages[0].insertAdjacentElement("afterend", newA);
-      topButtonPages[1].textContent = 4;
-      topButtonPages[2].textContent = 5;
-      newA.addEventListener("click", (event) => {
-        event.preventDefault();
-        if (topButtonPages[2].textContent == 4) {
-          removingAdditionalThreeDottes(topButtonPages, newA);
-        } else {
-          topButtonPages[2].textContent =
-            parseInt(topButtonPages[2].textContent) - 1;
-          topButtonPages[3].textContent =
-            parseInt(topButtonPages[3].textContent) - 1;
-        }
-        topButtonPages = document.querySelectorAll(".topteacher-menu a");
-      });
+      console.log(countsPages)
+      console.log(newArr.length)
+      console.log(topButtonPages[2].textContent)
+      console.log("Click 2");
+      if (topButtonPages[2].textContent < countsPages){
+        console.log(newArr.length)
+        newA = document.createElement("a");
+        newA.textContent = "...";
+        newA.href = "";
+        topButtonPages[0].insertAdjacentElement("afterend", newA);
+        topButtonPages[1].textContent = 4;
+        topButtonPages[2].textContent = 5;
+        newA.addEventListener("click", (event) => {
+          event.preventDefault();
+          if (topButtonPages[2].textContent == 4) {
+            removingAdditionalThreeDottes(topButtonPages, newA);
+          } else {
+            topButtonPages[2].textContent =
+              parseInt(topButtonPages[2].textContent) - 1;
+            topButtonPages[3].textContent =
+              parseInt(topButtonPages[3].textContent) - 1;
+          }
+          topButtonPages = document.querySelectorAll(".topteacher-menu a");
+        }); 
+      }
     } else if (
       //1 2 ... 4 5 ... Last Load Click on second ...
       button == topButtonPages[topButtonPages.length - 3] &&
       topButtonPages[1].textContent == "..."
     ) {
+      console.log("Click 3");
       if (topButtonPages[3].textContent != countsPages) {
         topButtonPages[2].textContent =
           parseInt(topButtonPages[2].textContent) + 1;
@@ -326,19 +341,22 @@ topButtonPages.forEach((button) => {
       }
     } else if (button == topButtonPages[topButtonPages.length - 1]) {
       //click on Load more
+      console.log("Click 4");
       getNew10User();
     } else if (
       button == topButtonPages[0] &&
       topButtonPages[1].textContent == "..."
     ) {
+      console.log("Click 5");
       //click on 1, when '1 ... 4 5 ... Last'
       if (topButtonPages[1].textContent === "...") {
         removingAdditionalThreeDottes(topButtonPages, newA);
-        loadCatalog(catalogTop, arrayFromAPI, parseInt(button.textContent));
+        loadCatalog(catalogTop, newArr, parseInt(button.textContent));
       }
     } else {
+      console.log("Click 6");
       // click on special number
-      loadCatalog(catalogTop, arrayFromAPI, parseInt(button.textContent));
+      loadCatalog(catalogTop, newArr, parseInt(button.textContent));
     }
     topButtonPages = document.querySelectorAll(".topteacher-menu a");
   });

@@ -43,5 +43,4 @@ export const getNew10User = async () => {
   for (let obj of new_arr) {
     arrayFromAPI.push(obj);
   }
-
 }
