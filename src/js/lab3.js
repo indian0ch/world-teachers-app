@@ -12,6 +12,24 @@ function getRandomColor() {
   const b = evaluateColor(); // generate random blue value
   return `#${r}${g}${b}`; // return color code in format "#RRGGBB"
 }
+function mergedArrays(arr1, arr2)// the function returns an array of assigned objects
+{
+  arr1=changeMock(randomUserMock);// Making objects from array Random... to requirement view
+  const result = [];
+  let counter = 0;// variable for control number of object at second array
+  for (const i of arr1) {
+    const object1 = i;
+    const object2 = arr2[counter];
+    const mergedObject = { ...object2, ...object1 };
+    result.push(mergedObject);
+    if (counter == additionalUsers.length - 1) {
+      counter = 0;
+    } else {
+      counter += 1;
+    }
+  }
+  return result;
+}
 export function changeMock(ObjectsArr) {
   const formattedRandomUserMock=[];
   for (let i = 0; i < ObjectsArr.length; i += 1) {
@@ -42,26 +60,6 @@ export function changeMock(ObjectsArr) {
   }
   return formattedRandomUserMock;
 }
-function mergedArrays(arr1, arr2)// the function returns an array of assigned objects
-{
-  arr1=changeMock(randomUserMock);// Making objects from array Random... to requirement view
-  const result = [];
-  let counter = 0;// variable for control number of object at second array
-  for (const i of arr1) {
-    const object1 = i;
-    const object2 = arr2[counter];
-    const mergedObject = { ...object2, ...object1 };
-    result.push(mergedObject);
-    if (counter == additionalUsers.length - 1) {
-      counter = 0;
-    } else {
-      counter += 1;
-    }
-  }
-  return result;
-}
-/// Task 1///
-//const formattedRandomUserMock = [];
-const courses = ['Mathematics', 'Physics', 'English', 'Computer Science', 'Dancing', 'Chess', 'Biology', 'Chemistry', 'Law', 'Art', 'Medicine', 'Statistics'];
 
-export const finalObject = mergedArrays(randomUserMock, additionalUsers);
+const courses = ['Mathematics', 'Physics', 'English', 'Computer Science', 'Dancing', 'Chess', 'Biology', 'Chemistry', 'Law', 'Art', 'Medicine', 'Statistics'];
+//export const finalObject = mergedArrays(randomUserMock, additionalUsers);

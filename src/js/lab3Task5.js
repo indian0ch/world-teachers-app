@@ -1,5 +1,6 @@
 import { createElement,cleanCatalog } from './Lab4/topTeachers.js';
 import {catalogTop} from './globalVariable.js';
+
 export function searchObject(arrayObject, valueInput) {
   cleanCatalog(catalogTop);
   for (const obj of arrayObject) {
@@ -13,4 +14,3 @@ export function searchObject(arrayObject, valueInput) {
   }
 }
 
-// console.log(SearchObject(finalObject, 'gender','Male'));

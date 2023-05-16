@@ -8,14 +8,6 @@ function notificateUser(messageTitle, messageBody, status = "warning") {
     button: "OK",
   });
 }
-async function postReq(obj) {
-  Object.assign(params, { body: JSON.stringify(obj) });
-  const req = await fetch(`${urlJson}`, params);
-  if (!req.ok) {
-    throw new Error(`Could not fetch ${url}, status: ${req.status}`);
-  }
-  return await req.json();
-}
 function getValues() {
   const birthdate = new Date(document.querySelector("#datebirth").value);
   const newObject = {
@@ -32,7 +24,7 @@ function getValues() {
     bg_color: document.querySelector("#color").value,
     note: document.querySelector("#comments").value,
   };
-  
+
   const validationError = checkValidation(newObject);
   if (validationError === true) {
     postReq(newObject);
@@ -44,20 +36,25 @@ function getValues() {
     notificateUser("Validation failed!", validationError.error, "warning");
   }
 }
-function checkFormRequirement() {
+function checkFormRequirement(event) {
   event.preventDefault();
   if (document.querySelector('input[name="gender"]:checked') !== null) {
     getValues();
   } else {
-    console.log("dwde")
-
-    console.log(`${document.querySelector("#comments").value.includes("<script>")}`);
     notificateUser(
       "Registration failed!",
       "You do not choose a gender!",
       "warning"
     );
   }
+}
+async function postReq(obj) {
+  Object.assign(params, { body: JSON.stringify(obj) });
+  const req = await fetch(`${urlJson}`, params);
+  if (!req.ok) {
+    throw new Error(`Could not fetch ${url}, status: ${req.status}`);
+  }
+  return await req.json();
 }
 /// Task 5
 const form = document.getElementById("popup-form");
@@ -72,8 +69,7 @@ const params = {
   },
 };
 
-form.addEventListener("submit", checkFormRequirement);
-
+form.addEventListener("submit", (event) => checkFormRequirement(event));
 popupOpen.forEach((button) => {
   button.addEventListener("click", (event) => {
     popup.style.opacity = 1;

@@ -1,7 +1,7 @@
 import {catalogTop, url} from '../globalVariable.js';
 import {loadCatalog} from '../Lab4/topTeachers.js';
 import { changeMock } from '../lab3.js';
-let usersArray = [];
+
 export const getUsers = () => {
   return fetch(`${url}?results= 50`)
     .then((response) => {
@@ -32,9 +32,6 @@ export const getNew10Use=()=>{
     console.error(error);
   });
 }
-export const arrayFromAPI = await getUsers().then((usersArray) => {
-  return usersArray;
-});
 export const getNew10User = async () => {
   const new_arr = await getNew10Use().then((usersArray) => {
     return usersArray;
@@ -44,3 +41,8 @@ export const getNew10User = async () => {
     arrayFromAPI.push(obj);
   }
 }
+
+let usersArray = [];
+export const arrayFromAPI = await getUsers().then((usersArray) => {
+  return usersArray;
+});

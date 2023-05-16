@@ -1,4 +1,3 @@
-//import { finalObject } from '../lab3.js';
 import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
 import { searchObject} from '../lab3Task5.js';
 /// Task 4
