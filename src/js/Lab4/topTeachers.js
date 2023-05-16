@@ -75,12 +75,28 @@ export function createElement(obj, catalog) {
   }
   catalog.appendChild(card);
 }
-export const removingAdditionalThreeDottes=(arr,element)=>{
-  arr[2].textContent = "2";
-  arr[3].textContent = "3";
-  if(element!==null){
+export const removingAdditionalThreeDottes = (arr, element) => {
+  if (topButtonPages[1].textContent === "...") {
+    arr[2].textContent = "2";
+    arr[3].textContent = "3";
     element.remove();
   }
+};
+function filterTeachers() {
+  let [age1, age2] = allSelectTags[0].value.split("-").map(Number);
+  age2 = age2 == 1 ? 100 : age2; //if == 1 - age do not choosen ans we need to put max
+  cleanCatalog(catalogTop);
+  const filteredArray = filterArray(
+    arrayFromAPI,
+    `${allSelectTags[1].value}`,
+    `${allSelectTags[2].value}`,
+    allCheckBoxs[1].checked,
+    allCheckBoxs[0].checked,
+    age1,
+    age2
+  );
+  loadCatalog(catalogTop, filteredArray);
+  removingAdditionalThreeDottes(topButtonPages, newA);
 }
 // Task1 and Task2
 const countries = [
@@ -243,7 +259,7 @@ const countries = [
 const countrySelector = document.getElementById("region");
 const allSelectTags = document.querySelectorAll(".properties select");
 let topButtonPages = document.querySelectorAll(".topteacher-menu a");
-let newA=null;//new element '...'
+let newA = null; //new element '...'
 const allCheckBoxs = document.querySelectorAll(
   '.properties input[type="checkbox"]'
 );
@@ -262,22 +278,7 @@ for (let i = 0; i < countries.length; i += 1) {
 }
 /// Mожливість фільтрації викладачів на сторінці
 allInputs.forEach((select) => {
-  select.addEventListener("change", () => {
-    let [age1, age2] = allSelectTags[0].value.split("-").map(Number);
-    age2 = age2 == 1 ? 100 : age2; //if == 1 - age do not choosen ans we need to put max
-    cleanCatalog(catalogTop);
-    const filteredArray = filterArray(
-      arrayFromAPI,
-      `${allSelectTags[1].value}`,
-      `${allSelectTags[2].value}`,
-      allCheckBoxs[1].checked,
-      allCheckBoxs[0].checked,
-      age1,
-      age2
-    );
-    loadCatalog(catalogTop,filteredArray);
-    removingAdditionalThreeDottes(topButtonPages,newA);
-  });
+  select.addEventListener("change", () => filterTeachers());
 });
 topButtonPages.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -303,7 +304,7 @@ topButtonPages.forEach((button) => {
       newA.addEventListener("click", (event) => {
         event.preventDefault();
         if (topButtonPages[2].textContent == 4) {
-          removingAdditionalThreeDottes(topButtonPages,newA);
+          removingAdditionalThreeDottes(topButtonPages, newA);
         } else {
           topButtonPages[2].textContent =
             parseInt(topButtonPages[2].textContent) - 1;
@@ -326,10 +327,13 @@ topButtonPages.forEach((button) => {
     } else if (button == topButtonPages[topButtonPages.length - 1]) {
       //click on Load more
       getNew10User();
-    } else if(button == topButtonPages[0]&& topButtonPages[1].textContent == "..."){
+    } else if (
+      button == topButtonPages[0] &&
+      topButtonPages[1].textContent == "..."
+    ) {
       //click on 1, when '1 ... 4 5 ... Last'
-      if(topButtonPages[1].textContent==='...'){
-        removingAdditionalThreeDottes(topButtonPages,newA);
+      if (topButtonPages[1].textContent === "...") {
+        removingAdditionalThreeDottes(topButtonPages, newA);
         loadCatalog(catalogTop, arrayFromAPI, parseInt(button.textContent));
       }
     } else {
