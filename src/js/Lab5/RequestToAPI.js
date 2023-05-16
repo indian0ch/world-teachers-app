@@ -1,6 +1,6 @@
 import {catalogTop, url} from '../globalVariable.js';
 import {loadCatalog} from '../Lab4/topTeachers.js';
-import { ChangeMock } from '../lab3.js';
+import { changeMock } from '../lab3.js';
 let usersArray = [];
 export const getUsers = () => {
   return fetch(`${url}?results= 50`)
@@ -10,7 +10,7 @@ export const getUsers = () => {
     })
     .then((responseData) => {
       usersArray = responseData.results;
-      usersArray=ChangeMock(usersArray);
+      usersArray=changeMock(usersArray);
       loadCatalog(catalogTop,usersArray);
       return usersArray;
     })
@@ -25,7 +25,7 @@ export const getNew10Use=()=>{
   })
   .then((responseData) => {
     usersArray = responseData.results;
-    usersArray=ChangeMock(usersArray);
+    usersArray=changeMock(usersArray);
     return usersArray;
   })
   .catch((error) => {

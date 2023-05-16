@@ -1,6 +1,6 @@
 import { createElement,cleanCatalog } from './Lab4/topTeachers.js';
 import {catalogTop} from './globalVariable.js';
-export function SearchObject(arrayObject, valueInput) {
+export function searchObject(arrayObject, valueInput) {
   cleanCatalog(catalogTop);
   for (const obj of arrayObject) {
     if (

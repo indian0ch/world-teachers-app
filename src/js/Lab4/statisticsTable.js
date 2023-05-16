@@ -1,16 +1,16 @@
 import { finalObject } from '../lab3.js';
-import { SortArray } from '../sortArray.js';
+import { sortArray } from '../sortArray.js';
 import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
 import {rowsPerPage} from '../globalVariable.js';
 import {removingAdditionalThreeDottes } from './topTeachers.js'
 
-function CleanTable() {
+function cleanTable() {
   tableBody.innerHTML = '';
 }
 function loadTable(pageNumber = 1) {
   const startIndex = (pageNumber - 1) * rowsPerPage;
   const endIndex = startIndex + rowsPerPage;
-  CleanTable();
+  cleanTable();
   for (let i = startIndex; i < endIndex; i += 1) {
     if (i < arrayFromAPI.length) tableBody.appendChild(loadRow(arrayFromAPI[i]));
   }
@@ -40,7 +40,7 @@ statButtonSort.forEach((button) => {
   button.addEventListener('click', () => {
     console.log();
     const sortby = button.className.split(' ')[1];
-    SortArray(arrayFromAPI, sortby,sortDirection);
+    sortArray(arrayFromAPI, sortby,sortDirection);
     loadTable();
     loadStartMenu();
     sortDirection = (sortDirection === 'desc') ? 'asc' : 'desc';

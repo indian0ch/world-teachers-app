@@ -12,7 +12,7 @@ function getRandomColor() {
   const b = evaluateColor(); // generate random blue value
   return `#${r}${g}${b}`; // return color code in format "#RRGGBB"
 }
-export function ChangeMock(ObjectsArr) {
+export function changeMock(ObjectsArr) {
   const formattedRandomUserMock=[];
   for (let i = 0; i < ObjectsArr.length; i += 1) {
     const elementArray = ObjectsArr[i];
@@ -44,7 +44,7 @@ export function ChangeMock(ObjectsArr) {
 }
 function mergedArrays(arr1, arr2)// the function returns an array of assigned objects
 {
-  arr1=ChangeMock(randomUserMock);// Making objects from array Random... to requirement view
+  arr1=changeMock(randomUserMock);// Making objects from array Random... to requirement view
   const result = [];
   let counter = 0;// variable for control number of object at second array
   for (const i of arr1) {

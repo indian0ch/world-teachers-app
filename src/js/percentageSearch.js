@@ -1,4 +1,4 @@
-function PercentageSearch(arrayObject, parametr, value, range = 'greater') {
+function percentageSearch(arrayObject, parametr, value, range = 'greater') {
   let count = 0;
   if (parametr !== 'b_day' && parametr !== 'age') {
     for (const obj of arrayObject) {
