@@ -78,7 +78,9 @@ export function createElement(obj, catalog) {
 export const removingAdditionalThreeDottes=(arr,element)=>{
   arr[2].textContent = "2";
   arr[3].textContent = "3";
-  element.remove();
+  if(element!==null){
+    element.remove();
+  }
 }
 // Task1 and Task2
 const countries = [
@@ -273,9 +275,8 @@ allInputs.forEach((select) => {
       age1,
       age2
     );
-    for (const obj of filteredArray) {
-      createElement(obj, catalogTop);
-    }
+    loadCatalog(catalogTop,filteredArray);
+    removingAdditionalThreeDottes(topButtonPages,newA);
   });
 });
 topButtonPages.forEach((button) => {

@@ -3,7 +3,7 @@ import { loadCatalog } from './topTeachers.js';
 import {
   generateFavorite,
 } from './favouriteTeachers.js';
-import { catalogFavourite,catalogTop } from '../globalVariable.js';
+import { catalogFavourite,catalogTop,rowsPerPage } from '../globalVariable.js';
 import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
 // Task1 Пункт: Функціональність відкриття поп апу для карток
 const popup = document.getElementById('popup');
@@ -65,7 +65,8 @@ allCatalogs.forEach((catalog) => {
                 }
               }
             }
-            loadCatalog(catalogTop,arrayFromAPI);
+            const pageNumber=Math.floor(arrayFromAPI.indexOf(obj)/rowsPerPage);
+            loadCatalog(catalogTop,arrayFromAPI,pageNumber);
             generateFavorite();
           });
           popupinfostardiv.appendChild(popupinfostar);
