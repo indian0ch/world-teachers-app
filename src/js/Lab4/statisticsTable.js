@@ -28,14 +28,14 @@ function loadRow(teacherObject) {
   tablerow.innerHTML = tablecolumn;
   return tablerow;
 }
-function onSortTable(){
+function onSortTable(button){
   const sortby = button.className.split(' ')[1];
   sortArray(arrayFromAPI, sortby,sortDirection);
   loadTable();
   loadStartMenu();
   sortDirection = (sortDirection === 'desc') ? 'asc' : 'desc';
 }
-function onMenuTableClick(event){
+function onMenuTableClick(event,button){
   event.preventDefault();
   const countsPages = Math.ceil(arrayFromAPI.length / rowsPerPage);
   if (button === statButtonPages[statButtonPages.length - 1]) loadTable(countsPages);
@@ -88,9 +88,9 @@ let newAStat=null;
 loadTable();
 //Sort buttons
 statButtonSort.forEach((button) => {
-  button.addEventListener('click', () => onSortTable());
+  button.addEventListener('click', () => onSortTable(button));
 });
 //Menu buttons
 statButtonPages.forEach((button) => {
-  button.addEventListener('click', (event) => onMenuTableClick());
+  button.addEventListener('click', (event) => onMenuTableClick(event,button));
 });

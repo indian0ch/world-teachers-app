@@ -104,7 +104,7 @@ function filterTeachers(buf) {
     return filteredArray;
   }
 }
-function onMenuTopClick(event){
+function onMenuTopClick(event,button){
   event.preventDefault();
   const newArr=filterTeachers();
   console.log(topButtonPages[topButtonPages.length - 2]);
@@ -358,5 +358,5 @@ allInputs.forEach((select) => {
   select.addEventListener("change", () => {filterTeachers(true)});
 });
 topButtonPages.forEach((button) => {
-  button.addEventListener("click", (event) => onMenuTopClick(event));
+  button.addEventListener("click", (event) => onMenuTopClick(event,button));
 });
