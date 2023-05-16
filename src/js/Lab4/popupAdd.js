@@ -32,6 +32,7 @@ function getValues() {
     bg_color: document.querySelector("#color").value,
     note: document.querySelector("#comments").value,
   };
+  
   const validationError = checkValidation(newObject);
   if (validationError === true) {
     postReq(newObject);
@@ -48,6 +49,9 @@ function checkFormRequirement() {
   if (document.querySelector('input[name="gender"]:checked') !== null) {
     getValues();
   } else {
+    console.log("dwde")
+
+    console.log(`${document.querySelector("#comments").value.includes("<script>")}`);
     notificateUser(
       "Registration failed!",
       "You do not choose a gender!",
