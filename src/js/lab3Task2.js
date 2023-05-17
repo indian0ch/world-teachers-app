@@ -8,32 +8,24 @@ function startsWithUpperCase(variable) {
 export function checkValidation(obj) {
   if (obj.full_name !== '' && obj.gender !== '' && obj.country !== '' && obj.note !== '' && obj.b_day !== '') {
     if (isString(obj.full_name) && isString(obj.gender) && isString(obj.note) && isString(obj.city)) {
-      if(!obj.full_name.includes("<script>")&&!obj.note.includes("<script>")&&!obj.city.includes("<script>")){
+      if (!obj.full_name.includes('<script>') && !obj.note.includes('<script>') && !obj.city.includes('<script>')) {
         if (startsWithUpperCase(obj.full_name) && startsWithUpperCase(obj.gender) && startsWithUpperCase(obj.note) && startsWithUpperCase(obj.city)) {
           if (typeof obj.age === 'number') {
             if (obj.phone.match(/^\+38-\d{10}$/)) {
               if (obj.email.indexOf('@') !== -1) {
                 return true;
-              } else {
-                return { error: 'Email is invalid.' };
               }
-            } else {
-              return { error: 'Phone number is invalid. Should be at format +38-0000000000' };
+              return { error: 'Email is invalid.' };
             }
-          } else {
-            return { error: 'Age is not a number.' };
+            return { error: 'Phone number is invalid. Should be at format +38-0000000000' };
           }
-        } else {
-          return { error: 'Note, name, city fields should start with an uppercase letter.' };
+          return { error: 'Age is not a number.' };
         }
-      } else{
-        return { error: 'Do not try input scripts into fields!' };
+        return { error: 'Note, name, city fields should start with an uppercase letter.' };
       }
-    } else {
-      return { error: 'Check, if Name, city, email is string fields.' };
+      return { error: 'Do not try input scripts into fields!' };
     }
-  } else {
-    return { error: 'You have underfined fields!' };
+    return { error: 'Check, if Name, city, email is string fields.' };
   }
+  return { error: 'You have underfined fields!' };
 }
-

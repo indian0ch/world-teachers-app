@@ -1,7 +1,7 @@
 import { sortArray } from '../sortArray.js';
 import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
-import {rowsPerPage} from '../globalVariable.js';
-import {removingAdditionalThreeDottes } from './topTeachers.js'
+import { rowsPerPage } from '../globalVariable.js';
+import { removingAdditionalThreeDottes } from './topTeachers.js';
 
 function cleanTable() {
   tableBody.innerHTML = '';
@@ -14,9 +14,8 @@ function loadTable(pageNumber = 1) {
     if (i < arrayFromAPI.length) tableBody.appendChild(loadRow(arrayFromAPI[i]));
   }
 }
-function loadStartMenu(){
-  if(statButtonPages[1].textContent==='...')
-    removingAdditionalThreeDottes(statButtonPages,newAStat);
+function loadStartMenu() {
+  if (statButtonPages[1].textContent === '...') removingAdditionalThreeDottes(statButtonPages, newAStat);
 }
 function loadRow(teacherObject) {
   const tablecolumn = `<td>${teacherObject.full_name}</td>
@@ -28,14 +27,14 @@ function loadRow(teacherObject) {
   tablerow.innerHTML = tablecolumn;
   return tablerow;
 }
-function onSortTable(button){
+function onSortTable(button) {
   const sortby = button.className.split(' ')[1];
-  sortArray(arrayFromAPI, sortby,sortDirection);
+  sortArray(arrayFromAPI, sortby, sortDirection);
   loadTable();
   loadStartMenu();
   sortDirection = (sortDirection === 'desc') ? 'asc' : 'desc';
 }
-function onMenuTableClick(event,button){
+function onMenuTableClick(event, button) {
   event.preventDefault();
   const countsPages = Math.ceil(arrayFromAPI.length / rowsPerPage);
   if (button === statButtonPages[statButtonPages.length - 1]) loadTable(countsPages);
@@ -52,7 +51,7 @@ function onMenuTableClick(event,button){
     newAStat.addEventListener('click', (event) => {
       event.preventDefault();
       if (statButtonPages[2].textContent == 4) {
-        removingAdditionalThreeDottes(statButtonPages,newAStat);
+        removingAdditionalThreeDottes(statButtonPages, newAStat);
       } else {
         statButtonPages[2].textContent = parseInt(statButtonPages[2].textContent) - 1;
         statButtonPages[3].textContent = parseInt(statButtonPages[3].textContent) - 1;
@@ -67,10 +66,10 @@ function onMenuTableClick(event,button){
       statButtonPages[2].textContent = parseInt(statButtonPages[2].textContent) + 1;
       statButtonPages[3].textContent = parseInt(statButtonPages[3].textContent) + 1;
     }
-  } else if(button == statButtonPages[0]&& statButtonPages[1].textContent == "..."){
-    //click on 1, when '1 ... 4 5 ... Last'
-    if(statButtonPages[1].textContent==='...'){
-      removingAdditionalThreeDottes(statButtonPages,newAStat);
+  } else if (button == statButtonPages[0] && statButtonPages[1].textContent == '...') {
+    // click on 1, when '1 ... 4 5 ... Last'
+    if (statButtonPages[1].textContent === '...') {
+      removingAdditionalThreeDottes(statButtonPages, newAStat);
       loadTable(parseInt(button.textContent));
     }
   } else {
@@ -82,15 +81,15 @@ function onMenuTableClick(event,button){
 const statButtonSort = document.querySelectorAll('.main-row td');
 const tableBody = document.querySelector('.tablebody');
 let statButtonPages = document.querySelectorAll('.statistics-menu a');
-let sortDirection='asc';
-let newAStat=null;
+let sortDirection = 'asc';
+let newAStat = null;
 
 loadTable();
-//Sort buttons
+// Sort buttons
 statButtonSort.forEach((button) => {
   button.addEventListener('click', () => onSortTable(button));
 });
-//Menu buttons
+// Menu buttons
 statButtonPages.forEach((button) => {
-  button.addEventListener('click', (event) => onMenuTableClick(event,button));
+  button.addEventListener('click', (event) => onMenuTableClick(event, button));
 });

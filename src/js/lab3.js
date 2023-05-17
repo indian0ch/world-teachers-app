@@ -14,7 +14,7 @@ function getRandomColor() {
 }
 function mergedArrays(arr1, arr2)// the function returns an array of assigned objects
 {
-  arr1=changeMock(randomUserMock);// Making objects from array Random... to requirement view
+  arr1 = changeMock(randomUserMock);// Making objects from array Random... to requirement view
   const result = [];
   let counter = 0;// variable for control number of object at second array
   for (const i of arr1) {
@@ -31,7 +31,7 @@ function mergedArrays(arr1, arr2)// the function returns an array of assigned ob
   return result;
 }
 export function changeMock(ObjectsArr) {
-  const formattedRandomUserMock=[];
+  const formattedRandomUserMock = [];
   for (let i = 0; i < ObjectsArr.length; i += 1) {
     const elementArray = ObjectsArr[i];
     const randomIndex = Math.floor(Math.random() * courses.length);
@@ -62,4 +62,4 @@ export function changeMock(ObjectsArr) {
 }
 
 const courses = ['Mathematics', 'Physics', 'English', 'Computer Science', 'Dancing', 'Chess', 'Biology', 'Chemistry', 'Law', 'Art', 'Medicine', 'Statistics'];
-//export const finalObject = mergedArrays(randomUserMock, additionalUsers);
+// export const finalObject = mergedArrays(randomUserMock, additionalUsers);
