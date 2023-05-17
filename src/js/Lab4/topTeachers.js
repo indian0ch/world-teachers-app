@@ -85,7 +85,7 @@ export const removingAdditionalThreeDottes = (arr, element) => {
     element.remove();
   }
 };
-function filterTeachers(buf) {
+function filterTeachers(isFilterOnPage) {
   let [age1, age2] = allSelectTags[0].value.split("-").map(Number);
   age2 = age2 == 1 ? 100 : age2; //if == 1 - age do not choosen ans we need to put max
   const filteredArray = filterArray(
@@ -97,8 +97,9 @@ function filterTeachers(buf) {
     age1,
     age2
   );
-  if(buf==true){
+  if(isFilterOnPage==true){
     cleanCatalog(catalogTop);
+    removingAdditionalThreeDottes(topButtonPages,newA);
     loadCatalog(catalogTop, filteredArray);
   } else{
     return filteredArray;
@@ -149,7 +150,7 @@ function onMenuTopClick(event,button){
     topButtonPages[1].textContent == "..."
   ) {
     console.log("Click 3");
-    if (topButtonPages[3].textContent != countsPages) {
+    if (topButtonPages[3].textContent < countsPages) {
       topButtonPages[2].textContent =
         parseInt(topButtonPages[2].textContent) + 1;
       topButtonPages[3].textContent =
