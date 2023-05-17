@@ -109,23 +109,16 @@ function filterTeachers(isFilterOnPage) {
 function onMenuTopClick(event,button){
   event.preventDefault();
   const newArr=filterTeachers();
-  console.log(topButtonPages[topButtonPages.length - 2]);
   const countsPages = Math.ceil(newArr.length / rowsPerPage);
   if (button == topButtonPages[topButtonPages.length - 2]) {
     //Last
     loadCatalog(catalogTop, newArr, parseInt(countsPages));
-    console.log("Click 1");
   } else if (
     //1 2 3 ... Last  Load Click on ...
     button == topButtonPages[topButtonPages.length - 3] &&
     topButtonPages[1].textContent == 2
   ) {
-    console.log(countsPages)
-    console.log(newArr.length)
-    console.log(topButtonPages[2].textContent)
-    console.log("Click 2");
     if (topButtonPages[2].textContent < countsPages){
-      console.log(newArr.length)
       newA = document.createElement("a");
       newA.textContent = "...";
       newA.href = "";
@@ -150,7 +143,6 @@ function onMenuTopClick(event,button){
     button == topButtonPages[topButtonPages.length - 3] &&
     topButtonPages[1].textContent == "..."
   ) {
-    console.log("Click 3");
     console.log(topButtonPages[1].textContent);
     if (topButtonPages[3].textContent < countsPages) {
       topButtonPages[2].textContent =
@@ -160,20 +152,17 @@ function onMenuTopClick(event,button){
     }
   } else if (button == topButtonPages[topButtonPages.length - 1]) {
     //click on Load more
-    console.log("Click 4");
     getNew10User();
   } else if (
     button == topButtonPages[0] &&
     topButtonPages[1].textContent == "..."
   ) {
-    console.log("Click 5");
     //click on 1, when '1 ... 4 5 ... Last'
     if (topButtonPages[1].textContent === "...") {
       removingAdditionalThreeDottes(topButtonPages, newA);
       loadCatalog(catalogTop, newArr, parseInt(button.textContent));
     }
   } else {
-    console.log("Click 6");
     // click on special number
     if(button.textContent<=countsPages){
       loadCatalog(catalogTop, newArr, parseInt(button.textContent));
@@ -346,7 +335,7 @@ const allSelectTags = document.querySelectorAll(".properties select");
 const allCheckBoxs = document.querySelectorAll(
   '.properties input[type="checkbox"]'
 );
-export const allInputs = Array.from(allSelectTags).concat(
+const allInputs = Array.from(allSelectTags).concat(
   Array.from(allCheckBoxs)
 );
 

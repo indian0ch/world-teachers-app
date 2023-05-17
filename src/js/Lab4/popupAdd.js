@@ -62,8 +62,8 @@ const form = document.getElementById("popup-form");
 const popupOpen = document.querySelectorAll(".mainpopup-open");
 const currentDate = new Date();
 const formatCurrentDate = currentDate.toLocaleDateString("en-CA");
-document.getElementById("datebirth").max = formatCurrentDate;
 
+document.getElementById("datebirth").max = formatCurrentDate;
 form.addEventListener("submit", (event) => checkFormRequirement(event));
 popupOpen.forEach((button) => {
   button.addEventListener("click", (event) => {

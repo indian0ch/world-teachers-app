@@ -57,6 +57,7 @@ function getObjectForGenerate(array, direction) {
 /// Task Favoutite teachers
 let onlyFavorites = [];
 let counter = 0;
+
 generateFavorite();
 leftArrow.addEventListener("click", () => {
   if (counter !== 0){
