@@ -83,6 +83,7 @@ export const removingAdditionalThreeDottes = (arr, element) => {
     arr[2].textContent = "2";
     arr[3].textContent = "3";
     element.remove();
+    topButtonPages = document.querySelectorAll(".topteacher-menu a");
   }
 };
 function filterTeachers(isFilterOnPage) {
@@ -150,6 +151,7 @@ function onMenuTopClick(event,button){
     topButtonPages[1].textContent == "..."
   ) {
     console.log("Click 3");
+    console.log(topButtonPages[1].textContent);
     if (topButtonPages[3].textContent < countsPages) {
       topButtonPages[2].textContent =
         parseInt(topButtonPages[2].textContent) + 1;
@@ -173,7 +175,9 @@ function onMenuTopClick(event,button){
   } else {
     console.log("Click 6");
     // click on special number
-    loadCatalog(catalogTop, newArr, parseInt(button.textContent));
+    if(button.textContent<=countsPages){
+      loadCatalog(catalogTop, newArr, parseInt(button.textContent));
+    }
   }
   topButtonPages = document.querySelectorAll(".topteacher-menu a");
 }
