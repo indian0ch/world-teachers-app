@@ -4,8 +4,9 @@ import { catalogTop } from './globalVariable.js';
 export function searchObject(arrayObject, valueInput) {
   cleanCatalog(catalogTop);
   for (const obj of arrayObject) {
+    const firstName = _.split(obj.full_name, ' ')[0];
     if (
-      obj.full_name.split(' ')[0] === valueInput
+      firstName === valueInput
       || obj.note === valueInput
       || obj.age == valueInput
     ) {

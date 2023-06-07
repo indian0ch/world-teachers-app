@@ -3,17 +3,17 @@ export function filterArray(arrayObjects, country, gender, favorite = true, phot
     && (favorite ? obj.favorite === true : true)
     && (photoStat ? obj.picture_thumbnail !== undefined : obj.picture_thumbnail === undefined);
 
-  if (country === 'No' && gender === 'No') {
-    return arrayObjects.filter(filterCondition);
-  } if (country === 'No') {
-    return arrayObjects.filter((obj) => obj.gender === gender
-      && filterCondition(obj));
-  } if (gender === 'No') {
-    return arrayObjects.filter((obj) => obj.country === country
-      && filterCondition(obj));
-  }
-
-  return arrayObjects.filter((obj) => obj.country === country
-    && obj.gender === gender
-    && filterCondition(obj));
+  return _.filter(arrayObjects, (obj) => {
+    if (country === 'No' && gender === 'No') {
+      return filterCondition(obj);
+    }
+    if (country === 'No') {
+      return obj.gender === gender && filterCondition(obj);
+    }
+    if (gender === 'No') {
+      return obj.country === country && filterCondition(obj);
+    }
+    return obj.country === country && obj.gender === gender && filterCondition(obj);
+  });
 }
+

@@ -1,31 +1,29 @@
-function isString(variable) {
-  return typeof variable === 'string';
+function startsWithUpperCase(str) {
+  return _.startsWith(str, _.upperCase(_.head(str)));
 }
-function startsWithUpperCase(variable) {
-  return variable.charAt(0) === variable.charAt(0).toUpperCase();
+
+function containsScriptTags(arr) {
+  return _.some(arr, (item) => _.includes(item, '<script>'));
 }
 
 export function checkValidation(obj) {
-  if (obj.full_name !== '' && obj.gender !== '' && obj.country !== '' && obj.note !== '' && obj.b_day !== '') {
-    if (isString(obj.full_name) && isString(obj.gender) && isString(obj.note) && isString(obj.city)) {
-      if (!obj.full_name.includes('<script>') && !obj.note.includes('<script>') && !obj.city.includes('<script>')) {
-        if (startsWithUpperCase(obj.full_name) && startsWithUpperCase(obj.gender) && startsWithUpperCase(obj.note) && startsWithUpperCase(obj.city)) {
-          if (typeof obj.age === 'number') {
-            if (obj.phone.match(/^\+38-\d{10}$/)) {
-              if (obj.email.indexOf('@') !== -1) {
-                return true;
-              }
-              return { error: 'Email is invalid.' };
-            }
-            return { error: 'Phone number is invalid. Should be at format +38-0000000000' };
-          }
-          return { error: 'Age is not a number.' };
-        }
-        return { error: 'Note, name, city fields should start with an uppercase letter.' };
+  const { full_name, gender, country, note, b_day, city, age, phone, email } = obj;
+
+  if (_.every([full_name, gender, country, note, b_day], _.isString) && _.isNumber(age)) {
+    if (_.every([full_name, gender, note, city], startsWithUpperCase) && !containsScriptTags([full_name, note, city])) {
+      if (_.isMatch(phone, /^\+38-\d{10}$/) && _.includes(email, '@')) {
+        return true;
+      } else if (!_.isMatch(phone, /^\+38-\d{10}$/)) {
+        return { error: 'Phone number is invalid. Should be in the format +38-0000000000.' };
+      } else {
+        return { error: 'Email is invalid.' };
       }
-      return { error: 'Do not try input scripts into fields!' };
+    } else {
+      return { error: 'Note, name, city fields should start with an uppercase letter.' };
     }
-    return { error: 'Check, if Name, city, email is string fields.' };
+  } else {
+    return { error: 'Check if Name, gender, note, city, and age are defined correctly.' };
   }
-  return { error: 'You have underfined fields!' };
 }
+
+
