@@ -14,6 +14,21 @@
       "bg_color": "#d63d3d",
       "note": "Wdwwdwwd",
       "id": 1
+    },
+    {
+      "gender": "Male",
+      "full_name": "Фесюк",
+      "city": "Костопіль",
+      "country": "Ukraine",
+      "email": "fesiukandrey146@gmail.com",
+      "b_day": "2023-05-05",
+      "age": 0,
+      "phone": "+38-0434434433",
+      "course": "Chess",
+      "favorite": false,
+      "bg_color": "#000000",
+      "note": "S",
+      "id": 2
     }
   ]
 }

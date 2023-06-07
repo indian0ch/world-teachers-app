@@ -4,7 +4,6 @@ import { arrayFromAPI, getNew10User } from '../Lab5/RequestToAPI.js';
 
 export function cleanCatalog(catalog) {
   const teachercards = catalog.querySelectorAll('.teachercard');
-  console.log('Click 22');
   teachercards.forEach((card) => {
     card.remove();
   });
@@ -12,7 +11,6 @@ export function cleanCatalog(catalog) {
 export function loadCatalog(catalog, ObjectsArray, pageNumber = 1) {
   const startIndex = (pageNumber - 1) * rowsPerPage;
   const endIndex = startIndex + rowsPerPage;
-  console.log('Click 23');
   cleanCatalog(catalog);
   for (let i = startIndex; i < endIndex; i += 1) {
     if (ObjectsArray[i] !== undefined) {

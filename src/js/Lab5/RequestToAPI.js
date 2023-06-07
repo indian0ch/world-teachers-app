@@ -36,7 +36,6 @@ export const getNew10User = async () => {
   const new_arr = await getNew10Use().then((usersArray) => {
     return usersArray;
   });
-  console.log(new_arr);
   for (let obj of new_arr) {
     arrayFromAPI.push(obj);
   }

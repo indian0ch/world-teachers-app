@@ -707,7 +707,7 @@ h2 {
   background-color: white;
   color: grey;
   width: 950px;
-  height: 560px;
+  height: 960px;
 }
 .popupinfo .popupinfo-body .popupinfo-content .popupinfo-header {
   display: -webkit-box;
@@ -736,6 +736,7 @@ h2 {
 .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form {
   text-align: left;
   color: black;
+  height: 300px;
 }
 .popupinfo .popupinfo-body .popupinfo-content .popupinfo-form .popupinfo-personalinfo {
   display: -webkit-box;
@@ -891,6 +892,7 @@ h2 {
     height: 33px;
   }
 }
+#map { height: 180px; }
 @-webkit-keyframes shiftAnimation {
   0% {
     -webkit-transform: translateX(0);

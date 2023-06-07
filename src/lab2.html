@@ -12,15 +12,13 @@
   <title>Project FE4U</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js">
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
   <!-- <script src="alert/dist/sweetalert-dev.js"></script>
     <link rel="stylesheet" type="text/css" href="alert/dist/sweetalert.css"> -->
-  <script type="module" src="js/Lab5/RequestToAPI.js"></script>
-  <script type="module" src="js/Lab4/popupAdd.js"></script>
-  <script type="module" src="js/filtersArray.js"></script>
-  <script type="module" src="js/Lab4/searchTeachers.js"></script>
-  <script type="module" src="js/Lab4/favouriteTeachers.js"></script>
-  <script type="module" src="js/Lab4/statisticsTable.js"></script>
-  <script type="module" src="js/Lab4/openPopupCards.js"></script>
 </head>
 <header>
   <div class="menu">
@@ -497,22 +495,21 @@
               <img id="popupStar" src="images/star.png">
             </div>
           </div>
-          <div class="popupinfo-description">
-            <div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur sint commodi incidunt impedit
-                ipsam, in ut maxime numquam dolorum rerum facere beatae facilis ullam, ab officia qui ipsum nostrum
-                modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. At eveniet nostrum hic, iusto possimus
-                delectus debitis consequuntur rem, libero earum porro similique sit! Incidunt repudiandae et aliquam,
-                laboriosam tempora officiis ullam non asperiores quos at quo quibusdam autem alias ipsa ex. Atque,
-                molestiae. Consequatur, consectetur in perspiciatis maiores soluta laborum saepe veritatis voluptates at
-                provident illum sit unde veniam ducimus? Nemo, nam adipisci vero quibusdam, iste facere vel itaque quas
-                perferendis excepturi, fugit natus consequatur placeat repudiandae dolorem aliquid magni aut veritatis
-                vitae nulla. Possimus alias neque corporis est odit illo sed tempore perspiciatis recusandae.
-                Exercitationem praesentium voluptatum facere alias!</p>
-            </div>
-            <div class="popupinfo-map">
-              <a href="">toggle map</a>
-            </div>
+          <div class="popupinfo-notation">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur sint commodi incidunt impedit
+              ipsam, in ut maxime numquam dolorum rerum facere beatae facilis ullam, ab officia qui ipsum nostrum
+              modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. At eveniet nostrum hic, iusto possimus
+              delectus debitis consequuntur rem, libero earum porro similique sit! Incidunt repudiandae et aliquam,
+              laboriosam tempora officiis ullam non asperiores quos at quo quibusdam autem alias ipsa ex. Atque,
+              molestiae. Consequatur, consectetur in perspiciatis maiores soluta laborum saepe veritatis voluptates at
+              provident illum sit unde veniam ducimus? Nemo, nam adipisci vero quibusdam, iste facere vel itaque quas
+              perferendis excepturi, fugit natus consequatur placeat repudiandae dolorem aliquid magni aut veritatis
+              vitae nulla. Possimus alias neque corporis est odit illo sed tempore perspiciatis recusandae.
+              Exercitationem praesentium voluptatum facere alias!</p>
+          </div>
+          <div class="popupinfo-map">
+            <div id="map"></div>
+            <a href="">toggle map</a>
           </div>
         </div>
       </div>
@@ -544,6 +541,13 @@
       event.preventDefault(); // Prevent the default form submission behavior
     }
   </script> -->
+  <script type="module" src="js/Lab5/RequestToAPI.js"></script>
+  <script type="module" src="js/Lab4/popupAdd.js"></script>
+  <script type="module" src="js/filtersArray.js"></script>
+  <script type="module" src="js/Lab4/searchTeachers.js"></script>
+  <script type="module" src="js/Lab4/favouriteTeachers.js"></script>
+  <script type="module" src="js/Lab4/statisticsTable.js"></script>
+  <script type="module" src="js/Lab4/openPopupCards.js"></script>
 </body>
 <footer>
   <a href="Lab1/CompactCard.html">Teachers</a>
