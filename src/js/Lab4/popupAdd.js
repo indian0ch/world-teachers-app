@@ -55,7 +55,6 @@ function postReq(obj) {
   } catch (error) {
     console.error(`An error occurred while making the request: ${error}`);
     notificateUser('Request Failed!', error.message, 'error');
-    
   }
 }
 /// Task 5
@@ -67,7 +66,7 @@ const formatCurrentDate = currentDate.toLocaleDateString('en-CA');
 document.getElementById('datebirth').max = formatCurrentDate;
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  checkFormRequirement(event)
+  checkFormRequirement(event);
 });
 popupOpen.forEach((button) => {
   button.addEventListener('click', (event) => {

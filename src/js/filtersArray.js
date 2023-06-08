@@ -16,4 +16,3 @@ export function filterArray(arrayObjects, country, gender, favorite = true, phot
     return obj.country === country && obj.gender === gender && filterCondition(obj);
   });
 }
-
