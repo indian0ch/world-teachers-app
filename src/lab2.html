@@ -289,7 +289,6 @@
           </tr>
         </tbody>
       </table>
-
     </div>
     <div class="statistics-menu">
       <a href="">1</a>
@@ -298,6 +297,12 @@
       <a href="">...</a>
       <a href="">Last</a>
     </div>
+    <center>
+      <h2>Gender graph</h2>
+      <canvas id="myChart1" ></canvas>
+      <h2>Subject graph</h2>
+      <canvas id="myChart2" style="width:100%;max-width:400px;height:400px"></canvas>
+    </center>
   </div>
   <div class="favorite">
     <h2>Favorites</h2>
@@ -542,6 +547,7 @@
       event.preventDefault(); // Prevent the default form submission behavior
     }
   </script> -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script type="module" src="js/Lab5/RequestToAPI.js"></script>
   <script type="module" src="js/Lab4/popupAdd.js"></script>
   <script type="module" src="js/filtersArray.js"></script>
@@ -549,6 +555,7 @@
   <script type="module" src="js/Lab4/favouriteTeachers.js"></script>
   <script type="module" src="js/Lab4/statisticsTable.js"></script>
   <script type="module" src="js/Lab4/openPopupCards.js"></script>
+  <script type="module" src="js/chartStatistics.js"></script>
 </body>
 <footer>
   <a href="Lab1/CompactCard.html">Teachers</a>
