@@ -1,9 +1,9 @@
-# World Teachers APP: Responsive HTML/CSS/JS Web Development Practice
+## World Teachers APP: Responsive HTML/CSS/JS Web Development Practice
 
-## Description
+### Description
 This repository contains a project where I practiced building a responsive web layout using HTML, CSS, SCSS, and JavaScript. The project focuses on implementing best practices for creating adaptive and semantic HTML structure, styling with CSS and SCSS, and adding interactivity using JavaScript.
 
-## Features
+### Features
 - Responsive Layout: The project showcases a responsive web layout that adapts to different screen sizes, providing an optimal viewing experience on various devices.
 - Semantic HTML: The HTML structure follows semantic markup practices, ensuring meaningful and accessible content for users and search engines.
 - CSS Styling: The CSS stylesheets are used to enhance the visual presentation of the web pages, applying layout, colors, typography, and other design elements.
@@ -12,7 +12,7 @@ This repository contains a project where I practiced building a responsive web l
 - Fetch API: The project demonstrates the usage of the Fetch API to perform AJAX requests, enabling data retrieval and updating the page content without a full page refresh.
 - JavaScript Libraries: The project incorporates popular JavaScript libraries (such as jQuery, React, or Vue.js) to leverage their functionalities and simplify development.
 
-## Technologies Used
+### Technologies Used
 - HTML: Semantic markup for structured content.
 - CSS: Styling and visual enhancements.
 - SCSS: CSS preprocessor for more efficient and modular styling.
@@ -20,7 +20,7 @@ This repository contains a project where I practiced building a responsive web l
 - Fetch API: AJAX requests for data retrieval and updates.
 - JavaScript Libraries: Leveraging existing libraries for enhanced functionality.
 
-## Styling
+### Styling
 The project's CSS and SCSS files include carefully crafted styles to create an appealing visual experience. The color scheme, typography, spacing, and layout have been designed by given layout. The responsive design ensures that the web pages look great on various devices, including desktops, tablets, and smartphones.
 
 ### Prerequisites
