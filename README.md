@@ -1,11 +1,12 @@
+
 ### Prerequisites
 
 Prerequisites: Node.js (^10.12.0, or >=12.0.0) 
 
 ### Get started
 ```
-  git clone https://gitlab.com/Alexandra94/lab-boilerplate.git frontend-labs
-  cd frontend-labs
+  git clone https://github.com/indian0ch/world-teachers-app.git world-teachers-app
+  cd world-teachers-app
   npm i
   npm start
 ```
