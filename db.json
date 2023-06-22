@@ -29,6 +29,36 @@
       "bg_color": "#000000",
       "note": "S",
       "id": 2
+    },
+    {
+      "gender": "Male",
+      "full_name": "Andrii Fesiuk",
+      "city": "Івано-Франківськ",
+      "country": "Ukraine",
+      "email": "fesiukandrey146@gmail.com",
+      "b_day": "",
+      "age": null,
+      "phone": "0685087867",
+      "course": "Chess",
+      "favorite": true,
+      "bg_color": "#000000",
+      "note": "",
+      "id": 3
+    },
+    {
+      "gender": "Male",
+      "full_name": "Andrii Fesiuk",
+      "city": "Івано-Франківськ",
+      "country": "Ukraine",
+      "email": "fesiukandrey146@gmail.com",
+      "b_day": "1998-06-18",
+      "age": 25,
+      "phone": "0685087867",
+      "course": "Chess",
+      "favorite": false,
+      "bg_color": "#d19f9f",
+      "note": "Dedede",
+      "id": 4
     }
   ]
 }
