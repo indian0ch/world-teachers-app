@@ -1,5 +1,6 @@
 {
   "name": "lab_boilerplate",
+  "homepage": "https://indian0ch.github.io/world-teachers-app",
   "description": "",
   "main": "./src/index.js",
   "scripts": {
