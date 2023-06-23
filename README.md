@@ -1,4 +1,5 @@
 ## World Teachers APP: Responsive HTML/CSS/JS Web Development Practice
+Link to a gh-pages: https://indian0ch.github.io/world-teachers-app/
 
 ### Description
 This repository contains a project where I practiced building a responsive web layout using HTML, CSS, SCSS, and JavaScript. The project focuses on implementing best practices for creating adaptive and semantic HTML structure, styling with CSS and SCSS, and adding interactivity using JavaScript.
