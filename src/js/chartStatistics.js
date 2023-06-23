@@ -1,4 +1,4 @@
-import { arrayFromAPI } from './Lab5/RequestToAPI.js';
+import { arrayFromAPI } from './RequestToAPI.js';
 import { percentageSearch } from './percentageSearch.js';
 
 const generateGenderGraph = () => {

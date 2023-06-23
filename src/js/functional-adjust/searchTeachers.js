@@ -1,4 +1,4 @@
-import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
+import { arrayFromAPI } from '../RequestToAPI.js';
 import { searchObject } from '../lab3Task5.js';
 /// Task 4
 const textinput = document.querySelector('input[name="inputDataforSearch"]');

@@ -1,6 +1,6 @@
-import {catalogTop, url} from '../globalVariable.js';
-import {loadCatalog} from '../Lab4/topTeachers.js';
-import { changeMock } from '../lab3.js';
+import {catalogTop, url} from './globalVariable.js';
+import {loadCatalog} from './functional-adjust/topTeachers.js';
+import { changeMock } from './lab3.js';
 
 export const getUsers = () => {
   return fetch(`${url}?results= 50`)

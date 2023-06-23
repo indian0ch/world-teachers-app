@@ -6,7 +6,7 @@ import {
   rightArrow,
   countFavouriteCards,
 } from '../globalVariable.js';
-import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
+import { arrayFromAPI } from '../RequestToAPI.js';
 
 export function makeArrayOnlyFavorite() {
   onlyFavorites = [];

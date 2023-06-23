@@ -1,4 +1,4 @@
-import { createElement, cleanCatalog } from './Lab4/topTeachers.js';
+import { createElement, cleanCatalog } from './functional-adjust/topTeachers.js';
 import { catalogTop } from './globalVariable.js';
 
 export function searchObject(arrayObject, valueInput) {

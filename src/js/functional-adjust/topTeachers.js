@@ -1,6 +1,6 @@
 import { filterArray } from '../filtersArray.js';
 import { catalogTop, rowsPerPage } from '../globalVariable.js';
-import { arrayFromAPI, getNew10User } from '../Lab5/RequestToAPI.js';
+import { arrayFromAPI, getNew10User } from '../RequestToAPI.js';
 
 export function cleanCatalog(catalog) {
   const teachercards = catalog.querySelectorAll('.teachercard');

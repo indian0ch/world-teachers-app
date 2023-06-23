@@ -1,5 +1,5 @@
 import { sortArray } from '../sortArray.js';
-import { arrayFromAPI } from '../Lab5/RequestToAPI.js';
+import { arrayFromAPI } from '../RequestToAPI.js';
 import { rowsPerPage } from '../globalVariable.js';
 import { removingAdditionalThreeDottes } from './topTeachers.js';
 

@@ -5,7 +5,7 @@ import {
   catalogTop,
   rowsPerPage,
 } from "../globalVariable.js";
-import { arrayFromAPI } from "../Lab5/RequestToAPI.js";
+import { arrayFromAPI } from "../RequestToAPI.js";
 
 function getNextBirthday(obj) {
   const today = dayjs();
