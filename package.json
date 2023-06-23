@@ -2,7 +2,8 @@
   "name": "lab_boilerplate",
   "homepage": "https://indian0ch.github.io/world-teachers-app/src",
   "description": "",
-  "main": "./src/index.js",
+  "main": "./src/index.html",
+  "private": false,
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
