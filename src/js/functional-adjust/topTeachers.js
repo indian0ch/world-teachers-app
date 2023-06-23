@@ -56,7 +56,7 @@ export function createElement(obj, catalog) {
   // image star
   if (obj.favorite === true && catalog !== undefined) {
     const imgStar = document.createElement('img');
-    imgStar.src = 'images/star.png';
+    imgStar.src = 'src/images/star.png';
     imgStar.alt = "Star's photo";
     imgStar.className = 'image-star';
     imageDiv.appendChild(imgStar);

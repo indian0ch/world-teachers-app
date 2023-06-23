@@ -61,15 +61,15 @@ function onCardClick(event) {
         const popupinfostar = document.createElement("img");
         popupinfostar.id = "popupStar";
         if (obj.favorite === true) {
-          popupinfostar.src = "images/star.png";
+          popupinfostar.src = "src/images/star.png";
         } else {
-          popupinfostar.src = "images/empty-star-.png";
+          popupinfostar.src = "src/images/empty-star-.png";
         }
         // add event listener to img element
         popupinfostar.addEventListener("click", () => {
           const note_popup = document.querySelector(".popupinfo-notation");
           if (popupinfostar.src.includes("empty-star")) {
-            popupinfostar.src = "images/star.png";
+            popupinfostar.src = "src/images/star.png";
             for (const obj of arrayFromAPI) {
               if (obj.note === note_popup.textContent.trim()) {
                 obj.favorite = true;
